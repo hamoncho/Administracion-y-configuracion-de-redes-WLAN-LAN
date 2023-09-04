@@ -1,0 +1,17 @@
+.byllabus{
+
+}
+.byllabus__topic{
+
+    display: block;
+    margin-left: 50px;
+}
+.byllabus__subtopic{
+    display: block;
+    margin-left: 50px;
+
+}
+.byllabus__subsubtopic{
+    display: block;
+    margin-left: 50px;
+}

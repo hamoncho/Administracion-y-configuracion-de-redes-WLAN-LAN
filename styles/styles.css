@@ -106,7 +106,7 @@ body{
     height: 0;
 }
 
-main {
+.container__main{
    margin-left: 400px; 
 }
 
@@ -114,7 +114,7 @@ main {
     .nav{
         display: none;
     }
-    main{
+    .container__main{
         margin-left: 0;
     }
 }
