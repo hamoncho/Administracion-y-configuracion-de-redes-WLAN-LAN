@@ -15,7 +15,7 @@ body{
 }
 
 .topic{
-    padding: 4em;
+    padding: 2em 2em 1em 4em;
 }
 
 .topic__title{
@@ -59,11 +59,13 @@ body{
 .list{
     width: 100%;
     height: 100vh;
-    display: flex;
+    /*display: flex;
     justify-content: center;
     flex-direction: column;
+    */
     border-radius: 0 16px 16px 0;
     background: #fff;
+    overflow-y: auto;
 }
 
 .list__inside{
