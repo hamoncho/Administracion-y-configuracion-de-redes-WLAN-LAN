@@ -7,10 +7,17 @@
 }
 
 body{
-    background: #EAEBEF;
+    background: #f0f0f0;
     font-family: 'Poppins', sans-serif;
-    font-size: 1em
+    font-size: 1em;
 }
+h5{
+    font-size: 1em;
+}
+h6{
+    font-size: 1em;
+}
+
 .container {
 }
 
@@ -21,11 +28,11 @@ body{
 .topic__title{
     font-size: 1.5em;
 }
-.topic__text{
+.topic__content{
     font-size: 1em;
 }
 
-.topic__text:first-letter{
+.topic__content:first-letter{
     font-size: 1.5em;
 }
 .nav{
@@ -33,7 +40,12 @@ body{
     min-width:400px;
     position: fixed;
 }
-
+.nav__logo{
+    width: 200px;
+    display: block;
+    margin: auto;
+    margin-top: 30px;
+}
 .nav__title {
     padding: 30px;
     font-size: 1.5em;
@@ -118,5 +130,9 @@ body{
     }
     .container__main{
         margin-left: 0;
+    }
+
+    .topic{
+        padding: 2em 2em 1em 1.5em;
     }
 }
