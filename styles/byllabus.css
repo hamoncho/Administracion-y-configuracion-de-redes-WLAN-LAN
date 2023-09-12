@@ -1,106 +1,146 @@
-
 /* Estilos generales */
-  
-  main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
-  /* Estilos para la lista de temas */
-  .byllabus__topic {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .byllabus__topic li {
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilos para los encabezados */
-  h2 {
-    color: #007BFF;
-    margin-top: 0;
-  }
-  
-  h3 {
-    color: #333;
-    margin-top: 0;
-  }
-  
-  /* Estilos para los enlaces */
-  a {
-    text-decoration: none;
-    color: #007BFF;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Estilos para las sublistas */
-  .byllabus__subtopic {
-    list-style-type: none;
-    padding-left: 20px;
-  }
-  
-  .byllabus__subtopic li {
-    margin-bottom: 10px;
-  }
-  
-  .byllabus__subsubtopic {
-    list-style-type: none;
-    padding-left: 20px;
-  }
-  
-  .byllabus__subsubtopic li {
-    margin-bottom: 5px;
-  }
-  
-  /* Estilos para el encabezado principal */
-  .byllabus h1 {
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 30px;
-    color: #007BFF;
-  }
-  
-  /* Estilos para el encabezado de sección */
-  section {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Estilos para los enlaces de navegación */
-  nav a {
-    color: #007BFF;
-    text-decoration: none;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Estilos para los enlaces de navegación activos */
-  nav .active {
-    font-weight: bold;
-    color: #333;
-  }
-  
 
-  @media (max-width: 900px) {
-    main{
-        padding: 0;
-    }
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos CSS para las tarjetas */
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 10px;
+  width: 270px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.nombre {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.numero-control {
+  color: #777;
+}
+
+.grupo {
+  color: #555;
+}
+
+.front {
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  color: #333;
+}
+
+.title_front{
+  text-align: center;
+}
+/* Estilos para la lista de temas */
+.byllabus__topic {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.byllabus__topic li {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los encabezados */
+h2 {
+  color: #007bff;
+  margin-top: 0;
+}
+
+h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+/* Estilos para los enlaces */
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para las sublistas */
+.byllabus__subtopic {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.byllabus__subtopic li {
+  margin-bottom: 10px;
+}
+
+.byllabus__subsubtopic {
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.byllabus__subsubtopic li {
+  margin-bottom: 5px;
+}
+
+/* Estilos para el encabezado principal */
+.byllabus h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #007bff;
+}
+
+/* Estilos para el encabezado de sección */
+section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para los enlaces de navegación */
+nav a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para los enlaces de navegación activos */
+nav .active {
+  font-weight: bold;
+  color: #333;
+}
+
+@media (max-width: 900px) {
+  main {
+    padding: 0;
+  }
+
+  .front {
+    flex-direction: column;
+    align-items: center;
+  }
 }
