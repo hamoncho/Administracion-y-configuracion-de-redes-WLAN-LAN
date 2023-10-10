@@ -3,7 +3,632 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <title>Topic Two</title>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <nav class="nav">
+        <ul class="list">
+          <li>
+            <img
+              class="nav__logo"
+              src="../img/LOGO-TEC-URUAPAN.png"
+              alt="LOGO-TEC-URUAPAN"
+            />
+            <h1 class="nav__title">Administración De La Red</h1>
+          </li>
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../assets/dashboard.svg" class="list__img" />
+              <a href="../index.html" class="nav__link">Temario</a>
+            </div>
+          </li>
+
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../assets/docs.svg" class="list__img" />
+              <a href="#" class="nav__link">2.1 Introdución</a>
+            </div>
+          </li>
+
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../assets/docs.svg" class="list__img" />
+              <a href="#" class="nav__link"
+                >2.2 Introdución A Las LAN Ethernet /802.3</a
+              >
+            </div>
+          </li>
+
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../assets/docs.svg" class="list__img" />
+              <a href="#" class="nav__link"
+                >2.3 Envío De Tramas Mediante Un Switch</a
+              >
+            </div>
+          </li>
+
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../assets/docs.svg" class="list__img" />
+              <a href="#" class="nav__link"
+                >2.4 Configuración De La Administración De Switch</a
+              >
+            </div>
+          </li>
+
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../assets/docs.svg" class="list__img" />
+              <a href="#" class="nav__link"
+                >2.5 Configuración De La Seguridad De Un Switch</a
+              >
+            </div>
+          </li>
+
+          <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+              <img src="../assets/docs.svg" class="list__img" />
+              <a href="#" class="nav__link">
+                2.6 Configuración De Servidores LAN
+              </a>
+              <img src="../assets/arrow.svg" class="list__arrow" />
+            </div>
+
+            <ul class="list__show">
+              <li class="list__inside">
+                <a href="#" class="nav__link nav__link--inside">
+                  2.6.1 Servicio DHCP
+                </a>
+              </li>
+
+              <li class="list__inside">
+                <a href="#" class="nav__link nav__link--inside">
+                  2.6.2 Servicio DNS y WINS
+                </a>
+              </li>
+
+              <li class="list__inside">
+                <a href="#" class="nav__link nav__link--inside">
+                  2.6.3 Servicio De Archivos E Impreción
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+              <img src="../assets/docs.svg" class="list__img" />
+              <a href="#" class="nav__link">
+                2.7 Configuración De Servidores WAN
+              </a>
+              <img src="../assets/arrow.svg" class="list__arrow" />
+            </div>
+
+            <ul class="list__show">
+              <li class="list__inside">
+                <a href="#" class="nav__link nav__link--inside">
+                  2.7.1 Configuración De Proxy
+                </a>
+              </li>
+
+              <li class="list__inside">
+                <a href="#" class="nav__link nav__link--inside">
+                  2.7.2 Configuración De NAT
+                </a>
+              </li>
+
+              <li class="list__inside">
+                <a href="#" class="nav__link nav__link--inside">
+                  2.7.3 Servidor Web
+                </a>
+              </li>
+
+              <li class="list__inside">
+                <a href="#" class="nav__link nav__link--inside">
+                  2.7.4 Servidor FTP
+                </a>
+              </li>
+
+              <li class="list__inside">
+                <a href="#" class="nav__link nav__link--inside">
+                  2.7.5 Servidor De Correos
+                </a>
+              </li>
+
+              <li class="list__inside">
+                <a href="#" class="nav__link nav__link--inside">
+                  2.7.6 Servicios IRC
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="container__main">
+        <section id="conceptos_basicos_configuracion_del_switch">
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">2.2 Introdución</h3>
+            </header>
+            <div class="topic__content">
+              Los switches son piezas de construcción clave para cualquier red.
+              Conectan varios dispositivos, como computadoras, access points
+              inalámbricos, impresoras y servidores; en la misma red dentro de
+              un edificio o campus. Un switch permite a los dispositivos
+              conectados compartir información y comunicarse entre sí. (Small
+              business IT explained in 60 seconds or less: Which switch is
+              which? with captions, 2023).
+              <br />
+              En una red Ethernet los dispositivos se intercambian paquetes de
+              datos entre sí, los llamados paquetes Ethernet. En su contenido se
+              incluye la trama Ethernet (a menudo denominada también trama de
+              datos), que a su vez se divide en varios conjuntos de datos. Estos
+              registros consisten en código binario que proporciona información
+              importante, incluyendo direcciones, información de control, datos
+              de uso y sumas de comprobación. Dependiendo del estándar Ethernet,
+              las tramas Ethernet se estructuran de forma diferente y pueden
+              contener más o menos campos de datos, dependiendo del protocolo de
+              red.(Equipo editorial de IONOS, 2020)
+            </div>
+          </article>
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.2 Introdución A Las LAN Ethernet /802.3
+              </h3>
+            </header>
+            <div class="topic__content">
+              <strong>¿Qué es Ethernet (IEEE 802.3)?</strong>
+              <br />
+              Ethernet es una tecnología para redes de datos por cable que
+              vincula software y/o hardware entre sí. Esto se realiza a través
+              de cables de redes LAN, de ahí que Ethernet sea concebido
+              habitualmente como una tecnología LAN. Así, Ethernet permite el
+              intercambio de datos entre terminales como, por ejemplo,
+              ordenadores, impresoras, servidores, distribuidores, etc.
+              <br />
+              Conectados en una red local, estos dispositivos establecen
+              conexiones mediante el protocolo Ethernet y pueden intercambiar
+              paquetes de datos entre sí. El protocolo actual y más extendido
+              para ello es IEEE 802.3. Ethernet fue desarrollado a principios de
+              los 1970, época en la que solo se utilizaba como sistema interno
+              de red en la empresa Xerox, y no fue hasta principios de los
+              ochenta que Ethernet se convirtió en un producto estandarizado.
+              <br />
+              Con todo, aún habría que esperar hasta mediados de la década para
+              que empezara a utilizarse más ampliamente. Fue cuando los
+              fabricantes comenzaron a trabajar con Ethernet y con productos
+              relacionados. Así, dicha tecnología contribuyó de manera
+              significativa a que los ordenadores personales revolucionaran el
+              mundo laboral. El estándar IEEE 802.3 tan popular actualmente se
+              utiliza, por ejemplo, en oficinas, viviendas particulares,
+              contenedores y portadores (carrier).
+              <br />
+              Mientras que la primera versión de esta tecnología solo tenía una
+              velocidad de 3 Mbit/s, los protocolos Ethernet actuales permiten
+              alcanzar velocidades de hasta 1 000 megabits por segundo. Por otro
+              lado, los estándares Ethernet antiguos se restringían a un solo
+              edificio, mientras que hoy en día pueden alcanzar hasta los 10 km
+              gracias a la utilización de la fibra de vidrio.
+              <br />
+              En el transcurso de su desarrollo, Ethernet ha tenido el rol
+              dominante entre las tecnologías LAN y ha destacado entre sus
+              numerosos competidores. La conocida como Ethernet en tiempo real
+              es en la actualidad un estándar industrial para aplicaciones de
+              comunicación. (Equipo editorial de IONOS, 2022)
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.3 Envío De Tramas Mediante Un Switch
+              </h3>
+            </header>
+            <div class="topic__content">
+              Los siguientes dos modos de conmutación están disponibles para el
+              envío de tramas: La trama se envía a través del switch antes de
+              que éste la reciba completamente. La trama completa se recibe
+              antes de enviarse.
+              <br />
+              <b>Almacenamiento y envío:</b> La trama completa se recibe antes
+              de que se realice cualquier tipo de envío. Se leen las direcciones
+              destino y origen y se aplican filtros antes de enviar la trama. La
+              latencia se produce mientras la trama se está recibiendo. La
+              latencia es mayor con tramas más grandes dado que toda la trama
+              debe recibirse antes de que empiece el proceso de conmutación. El
+              switch puede verificar toda la trama para ver si hay errores, lo
+              que permite detectar más errores.
+              <br />
+              <b>Método de corte:</b> La trama se envía a través del switch
+              antes de que se reciba la trama completa. Como mínimo, la
+              dirección destino de la trama debe leerse antes de que la trama se
+              pueda enviar. Este modo reduce la latencia de la transmisión, pero
+              también reduce la detección de errores. El host origen envía la
+              trama. Un switch de almacenamiento y envío recibe toda la trama.
+              <br />
+              Calcula el CRC y calcula la longitud de la trama.
+              <br />
+              Si el CRC y la longitud de trama son válidas. El switch busca la
+              dirección destino. Con la dirección destino en la tabla de
+              switcheo verifica la interfaz de salida. Entonces se envía la
+              trama por el puerto correcto Un switch de almacenamiento y envío
+              recibe toda la trama, calcula la CRC y verifica la longitud de la
+              trama. Si la CRC y la longitud de la trama son válidas, el switch
+              busca la dirección destino, la cual determina la interfaz de
+              salida.
+              <br />
+              Entonces se envia la trama por el puerto correcto. A continuación,
+              se detallan dos formas de conmutación por método de corte:
+              <br />
+              <b>Conmutación rápida:</b> La conmutación rápida ofrece el nivel
+              más bajo de latencia.
+              <br />
+              La conmutación rápida envía un paquete inmediatamente después de
+              leer la dirección destino.
+              <br />
+              Como la conmutación rápida empieza a realizar los envíos antes de
+              recibir el paquete completo, de vez en cuando los paquetes se
+              pueden entregar con errores.
+              <br />
+              Sin embargo, esto ocurre con poca frecuencia y además el adaptador
+              de red destino descarta los paquetes defectuosos en el momento de
+              su recepción.
+              <br />
+              En el modo rápido, la latencia se mide desde el primer bit
+              recibido al primer bit transmitido.
+              <br />
+              <b>Libre de fragmentos:</b> La conmutación libre de fragmentos
+              filtra los fragmentos de colisión antes de empezar el envío.
+              <br />
+              Los fragmentos de colisión representan la mayoría de los errores
+              de paquete.
+              <br />
+              En una red que funciona correctamente, los fragmentos de colisión
+              deben ser menores de 64 bytes. Cualquier cosa superior a 64 bytes
+              es un paquete válido y se recibe generalmente sin errores.
+              <br />
+              La conmutación libre de fragmentos espera hasta que se determine
+              si el paquete es un fragmento de colisión o no antes de enviar el
+              paquete. En el modo libre de fragmentos, la latencia también se
+              mide desde el primer bit recibido al primer bit transmitido.
+              <br />
+              El switch que utiliza el método de corte, envía la trama antes de
+              recibirla en su totalidad. Como mínimo, debe leerse la dirección
+              destino de la trama para que pueda enviarse. Una vez que sabe a
+              dónde va y por dónde se irá, la envía sin necesidad de checar ni
+              la longitud ni el CRC. La latencia de cada modo de conmutación
+              depende de la manera en que el switch envía las tramas. Para
+              agilizar el envío de la trama, el switch dedica menos tiempo a la
+              verificación de errores. Sin embargo, reducir la verificación de
+              errores puede resultar en el aumento de la cantidad de
+              retransmisiones. (Tema 1.1.10 Dos m todos de conmutaci n - 1.1
+              Introducci n a la conmutaci n LAN - Cisco III - Instituto
+              Consorcio Clavijero, s. f.)
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.4 Configuración De La Administración De Switch
+              </h3>
+            </header>
+            <div class="topic__content">
+              Paso 1: inspeccione el hardware Verifique el número de modelo de
+              su resplandeciente switch nuevo. Si está usando uno de repuesto,
+              revise el hardware del dispositivo y los cables que tiene
+              conectados para verificar que no estén dañados. Si todo está en
+              orden, encienda el switch y verifique que todas las luces
+              indicadoras funcionen correctamente. Luego, use un cable de
+              consola para conectarse al switch desde la computadora. Para esto,
+              deberá descargar e instalar Putty (o alguna herramienta de
+              software similar con un nombre gracioso). Ejecute Putty y
+              seleccione la conexión serial de velocidad 9600. Ahora se
+              encuentra conectado al switch y está listo para verificar el
+              resultado de los siguientes comandos: show version show
+              running-config show VLAN brief show VTP status (config)# IP
+              domain-name routerfreak.com (config)# hostname Switch01 (config)#
+              interface VLAN1 (config)# description Management VLAN (config)# IP
+              address 192.168.101.1 255.255.255.0 vtp [client | server |
+              transparent] vtp domain name description *** DESCRIPCIÓN ***
+              switchport access vlan ### sswitchport mode access power inline
+              consumption ### queue-set 2 mls qos trust dscp storm-control
+              multicast level 50.00 no cdp enable spanning-tree portfast
+              spanning-tree bpduguard enable Interface GigabitEthernet1/0/1
+              description *** UPLINK *** switchport trunk encapsulation dot1q
+              switchport mode trunk speed 1000 dúplex completo Switch01(config)#
+              crypto key generate rsa El nombre de las claves es:
+              Switch01.routerfreak.com Cuántos bits en el módulo [512]: 1024 %
+              Generating 1024 bit RSA keys, keys will be
+              non-exportable...[ACEPTAR] # line vty 0 4 (config-line)# transport
+              input ssh (config-line)# login local (config-line)# password
+              routerfreak (config-line)# exit # line console 0 (config-line)#
+              logging synchronous (config-line)# login local Switch01# service
+              password-encryption remote-computer# ssh 192.168..101.1 Inicie
+              sesión como: username Contraseña: Switch01>en Contraseña:
+              Switch01# En el caso de los switches de repuesto, no olvide
+              eliminar el archivo flash:vlan.dat para borrar la configuración
+              anterior. Paso 2: configure la IP de administración A diferencia
+              de ese nombre ingenioso que le dio a la red wifi de su casa, al
+              configurar el nombre de host del switch, quizás deba elegir una
+              denominación más profesional y estándar. Siga los lineamientos
+              sobre nombres establecidos por la empresa y asigne una dirección
+              IP en la VLAN de administración. A continuación, asegúrese de que
+              el switch tenga definidos el nombre de host y el nombre de
+              dominio: Paso 3: verifique el número de revisión de VTP Introduzca
+              el comando show vtp status para ver los números de revisión del
+              protocolo de enlace troncal virtual (VTP). Los números de revisión
+              del VTP determinan qué actualizaciones se usarán en un dominio
+              VTP. Al definir un nombre de dominio VTP, el número de revisión
+              queda en cero; después de esto, cada cambio en la base de datos de
+              la VLAN incrementa el número de revisión en uno. El switch solo
+              procesa los datos de un switch vecino que proviene del mismo
+              dominio y si el número de revisión del switch vecino es mayor que
+              el propio. Esto significa que los switches actualizan la
+              configuración de su VLAN según cuál sea la información de VTP que
+              envía el switch con el número de revisión más alto. Por eso, antes
+              de agregar el switch a la red, deberá establecer cero como número
+              de revisión. Para restablecer fácilmente el dominio y volverlo a
+              cero, cambie el modo de configuración a "transparent". Paso 4:
+              configure los puertos de acceso Quizás ya tenga una plantilla
+              lista para la configuración de los puertos de acceso, pero si no,
+              estos son algunos comandos que debe usar: Paso 5: configure los
+              puertos del enlace troncal Introduzca el command sh int g0/1 y vea
+              cuál es el protocolo de enlace troncal que admite. Si se trata de
+              ISL, debe introducir switchport trunk encapsulation dot1q en la
+              configuración de los puertos del enlace troncal. Si no,
+              simplemente escriba switchport mode trunk. Esto significa que no
+              se admite otra encapsulación, por lo que no es necesario
+              introducir un comando de encapsulación. Solo admite 802.1Q. Paso
+              6: configure los puertos de acceso Después de haber realizado la
+              configuración básica del switch de red, es hora de generar las
+              claves RSA que se usarán durante el proceso de SSH, mediante los
+              comandos de criptografía que se muestran aquí: Elija el tamaño del
+              módulo de claves dentro del rango de 360 a 2048 para las claves de
+              uso general. Si elige un módulo de claves superior a 512, puede
+              llevar unos minutos. Paso 7: configure la línea VTY Si todavía no
+              estableció la línea de consola, puede introducir fácilmente estos
+              valores: Defina la contraseña de habilitación con el comando
+              enable secret password. Luego, defina la contraseña de ejecución
+              con privilegios con username name privilege 15 secret password.
+              Asegúrese de que esté activado el servicio de cifrado de
+              contraseñas. Verifique el acceso de SSH escribiendo "sh ip ssh"
+              para confirmar que esté habilitado el SSH. Ahora puede intentar
+              iniciar sesión desde una máquina remota para verificar que puede
+              establecer una conexión de SSH con el switch Cisco. Toques finales
+              Ha llegado al final del proceso de aprendizaje con un mínimo de
+              golpes y caídas (eso esperamos), y ahora está casi listo para
+              terminar. Solamente queda probar el acceso, volver a cargar el
+              switch y dejar listos los cables. Una vez que haya hecho esto,
+              etiquete el switch, colóquelo en el rack y vaya a disfrutar de
+              cualquier otra cosa que no sea configurar un switch.(Cómo
+              configurar un switch de red para su empresa en 6 pasos, 2023) Cómo
+              configurar un switch de red para su empresa en 6 pasos. (2023, 5
+              enero). Cisco.
+              https://www.cisco.com/c/es_mx/solutions/small-business/resource-center/networking/how-to-setup-network-switch.html#~setup-guide
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.5 Configuración De La Seguridad De Un Switch
+              </h3>
+            </header>
+            <div class="topic__content">
+              https://www.cisco.com/c/es_mx/support/docs/switches/catalyst-3750-series-switches/72846-layer2-secftrs-catl3fixed.html
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.6 Configuración De Servidores LAN
+              </h3>
+            </header>
+            <div class="topic__content">
+              <p>
+                La red de área local (LAN) está separada de la red de área
+                extensa (WAN), lo que permite compartir una única conexión a
+                Internet entre varios dispositivos de la LAN. La página
+                Configuración de LAN de la utilidad basada en Web permite
+                configurar la interfaz de red de área local (LAN) del router.
+                Aunque los parámetros predeterminados suelen ser suficientes,
+                cambiar los parámetros LAN le permite manipular su
+                configuración, lo que afecta a la propia red, incluida la
+                dirección IP de administración de dispositivos.
+                https://www.cisco.com/c/es_mx/support/docs/smb/routers/cisco-rv-series-small-business-routers/smb5437-configure-ipv4-lan-connections-on-rv132w-or-rv134w.pdf
+              </p>
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.6.1 Servicio DHCP
+              </h3>
+            </header>
+            <div class="topic__content">
+              <p>
+                DHCP es el “Dynamic Host Configuration Protocol”, que en español
+                sería el “Protocolo de configuración dinámica de host “.
+              </p>
+              <p>
+                DHCP es un servicio que permite configurar los parámetros de
+                TCP/IP, como la dirección IP y la máscara de subred en los
+                clientes (PC, computadora portátil, impresora, etc.)
+                automáticamente.
+              </p>
+              <p>
+                Por lo general, DHCP se configura en un servidor dedicado para
+                un mejor rendimiento. El servidor puede estar basado en Windows
+                o en Linux.
+              </p>
+              <p>
+                DHCP también se puede configurar en un router o switch Cisco.
+                Sin embargo, algunas funcionalidades avanzadas pueden no ser
+                compatibles con el servidor DHCP configurado en un router Cisco.
+              </p>
+              <br />
+              <p>
+                En este LAB explicaremos como configurar el servicio de DHCP en
+                un Cisco Router
+              </p>
+
+              <p>
+                <img
+                  src="../img/topic_two/Configuración-de-DHCP-en-Cisco-Router-01-eclassvirtual.png"
+                  width="843"
+                  height="299"
+                />
+              </p>
+              <br />
+
+              <h6>Comandos IOS</h6>
+              <br />
+              <ul>
+                <li>Configuración de la interfaz G0/0 de Router0</li>
+              </ul>
+              <p>
+                <strong><em>Router0(config)# int Gi0/ 0 </em></strong>
+              </p>
+              <p>
+                <strong>
+                  <em> Router0(config-if)# ip add 172.16.0.1 255.255.0.0 </em>
+                </strong>
+              </p>
+              <p>
+                <strong><em>Router0(config-if)# no shut</em></strong>
+              </p>
+
+              <br />
+
+              <ul>
+                <li>Creación del DHCP Pool llamado “DHCP-POOL-01”</li>
+              </ul>
+              <p>
+                <strong
+                  ><em>Router0(config)# ip dhcp pool DHCP-POOL-01 </em></strong
+                >
+              </p>
+              <p>
+                <strong>
+                  <em> Router0(dhcp-config)# default-router 172.16.0.1 </em>
+                </strong>
+              </p>
+              <p>
+                <strong>
+                  <em>Router0(dhcp-config)# dns-server 172.16.0.1</em>
+                </strong>
+              </p>
+              <p>
+                <strong>
+                  <em>
+                    Router0(dhcp-config)# network 172.16.0.0 255.255.0.0
+                  </em>
+                </strong>
+              </p>
+              <p>
+                <strong><em>Router0(dhcp-config)# exit</em></strong>
+              </p>
+
+              <br />
+
+              <ul>
+                <li>También podemos excluir direcciones IP del DHCP Pool</li>
+              </ul>
+              <p>
+                <strong>
+                  <em>
+                    Router0(config)# ip dhcp excluded-address 172.16.0.1
+                    172.16.0.99
+                  </em>
+                </strong>
+              </p>
+              <p>
+                <strong><em>Router0(config)# exit</em></strong>
+              </p>
+
+              <br />
+              <h6>Pruebas de obtención de parámetros de direccionamiento IP</h6>
+
+              <br />
+              <p>
+                Como se puede ver en la siguiente imagen, PC toma dirección IP
+                del DHCP Server
+              </p>
+              <p>
+                <img
+                  src="../img/topic_two/Configuración-de-DHCP-en-Cisco-Router-02-eclassvirtual.png"
+                  width="843"
+                  height="299"
+                />
+              </p>
+              <p>
+                Tomando como primera dirección IP, la 172.16.0.100, con máscara
+                clase B, Gateway y DNS Server de 172.16.0.1
+              </p>
+
+              https://eclassvirtual.com/configuracion-de-dhcp-en-cisco-router/
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">2.6.2 Servicio DNS y WINS</h3>
+            </header>
+            <div class="topic__content"></div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title"></h3>
+            </header>
+            <div class="topic__content"></div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title"></h3>
+            </header>
+            <div class="topic__content"></div>
+          </article>
+        </section>
+
+        <ul>
+          <li>
+            Equipo editorial de IONOS. (2020). Trama Ethernet: definición,
+            estructura y variantes. IONOS Digital Guide.
+            https://www.ionos.mx/digitalguide/servidores/know-how/trama-ethernet/
+          </li>
+
+          <li>
+            Small business IT explained in 60 seconds or less: Which switch is
+            which? with captions. (2023, 22 febrero). [Vídeo]. Cisco.
+            https://www.cisco.com/c/es_mx/solutions/small-business/resource-center/networking/network-switch-how.html
+          </li>
+
+          <li>
+            Equipo editorial de IONOS. (2022). ¿Qué es Ethernet (IEEE 802.3)?
+            IONOS Digital Guide.
+            https://www.ionos.mx/digitalguide/servidores/know-how/ethernet-ieee-8023/
+          </li>
+
+          <li>
+            Tema 1.1.10 Dos m todos de conmutacion - 1.1 Introduccion a la
+            conmutacion LAN - Cisco III - Instituto Consorcio Clavijero.
+            (s. f.).
+            https://cursos.clavijero.edu.mx/cursos/069_cIII/modulo1/contenidos/tema1.1.10.html#:~:text=el%20puerto%20correcto-,Un%20switch%20de%20almacenamiento%20y%20env%C3%ADo%20recibe%20toda%20la%20trama,trama%20por%20el%20puerto%20correcto.
+          </li>
+        </ul>
+      </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+  </body>
 </html>
