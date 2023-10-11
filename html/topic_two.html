@@ -22,6 +22,15 @@
           <li class="list__item">
             <div class="list__button">
               <img src="../assets/dashboard.svg" class="list__img" />
+              <a href="../practica/Reportedepractica.html" class="nav__link"
+                >Practica</a
+              >
+            </div>
+          </li>
+
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../assets/dashboard.svg" class="list__img" />
               <a href="../index.html" class="nav__link">Temario</a>
             </div>
           </li>
@@ -320,97 +329,271 @@
               </h3>
             </header>
             <div class="topic__content">
-              Paso 1: inspeccione el hardware Verifique el número de modelo de
-              su resplandeciente switch nuevo. Si está usando uno de repuesto,
-              revise el hardware del dispositivo y los cables que tiene
-              conectados para verificar que no estén dañados. Si todo está en
-              orden, encienda el switch y verifique que todas las luces
-              indicadoras funcionen correctamente. Luego, use un cable de
-              consola para conectarse al switch desde la computadora. Para esto,
-              deberá descargar e instalar Putty (o alguna herramienta de
-              software similar con un nombre gracioso). Ejecute Putty y
-              seleccione la conexión serial de velocidad 9600. Ahora se
-              encuentra conectado al switch y está listo para verificar el
-              resultado de los siguientes comandos: show version show
-              running-config show VLAN brief show VTP status (config)# IP
-              domain-name routerfreak.com (config)# hostname Switch01 (config)#
-              interface VLAN1 (config)# description Management VLAN (config)# IP
-              address 192.168.101.1 255.255.255.0 vtp [client | server |
-              transparent] vtp domain name description *** DESCRIPCIÓN ***
-              switchport access vlan ### sswitchport mode access power inline
-              consumption ### queue-set 2 mls qos trust dscp storm-control
-              multicast level 50.00 no cdp enable spanning-tree portfast
-              spanning-tree bpduguard enable Interface GigabitEthernet1/0/1
-              description *** UPLINK *** switchport trunk encapsulation dot1q
-              switchport mode trunk speed 1000 dúplex completo Switch01(config)#
-              crypto key generate rsa El nombre de las claves es:
-              Switch01.routerfreak.com Cuántos bits en el módulo [512]: 1024 %
-              Generating 1024 bit RSA keys, keys will be
-              non-exportable...[ACEPTAR] # line vty 0 4 (config-line)# transport
-              input ssh (config-line)# login local (config-line)# password
-              routerfreak (config-line)# exit # line console 0 (config-line)#
-              logging synchronous (config-line)# login local Switch01# service
-              password-encryption remote-computer# ssh 192.168..101.1 Inicie
-              sesión como: username Contraseña: Switch01>en Contraseña:
-              Switch01# En el caso de los switches de repuesto, no olvide
-              eliminar el archivo flash:vlan.dat para borrar la configuración
-              anterior. Paso 2: configure la IP de administración A diferencia
-              de ese nombre ingenioso que le dio a la red wifi de su casa, al
-              configurar el nombre de host del switch, quizás deba elegir una
-              denominación más profesional y estándar. Siga los lineamientos
-              sobre nombres establecidos por la empresa y asigne una dirección
-              IP en la VLAN de administración. A continuación, asegúrese de que
-              el switch tenga definidos el nombre de host y el nombre de
-              dominio: Paso 3: verifique el número de revisión de VTP Introduzca
-              el comando show vtp status para ver los números de revisión del
-              protocolo de enlace troncal virtual (VTP). Los números de revisión
-              del VTP determinan qué actualizaciones se usarán en un dominio
-              VTP. Al definir un nombre de dominio VTP, el número de revisión
-              queda en cero; después de esto, cada cambio en la base de datos de
-              la VLAN incrementa el número de revisión en uno. El switch solo
-              procesa los datos de un switch vecino que proviene del mismo
-              dominio y si el número de revisión del switch vecino es mayor que
-              el propio. Esto significa que los switches actualizan la
-              configuración de su VLAN según cuál sea la información de VTP que
-              envía el switch con el número de revisión más alto. Por eso, antes
-              de agregar el switch a la red, deberá establecer cero como número
-              de revisión. Para restablecer fácilmente el dominio y volverlo a
-              cero, cambie el modo de configuración a "transparent". Paso 4:
-              configure los puertos de acceso Quizás ya tenga una plantilla
-              lista para la configuración de los puertos de acceso, pero si no,
-              estos son algunos comandos que debe usar: Paso 5: configure los
-              puertos del enlace troncal Introduzca el command sh int g0/1 y vea
-              cuál es el protocolo de enlace troncal que admite. Si se trata de
-              ISL, debe introducir switchport trunk encapsulation dot1q en la
-              configuración de los puertos del enlace troncal. Si no,
-              simplemente escriba switchport mode trunk. Esto significa que no
-              se admite otra encapsulación, por lo que no es necesario
-              introducir un comando de encapsulación. Solo admite 802.1Q. Paso
-              6: configure los puertos de acceso Después de haber realizado la
-              configuración básica del switch de red, es hora de generar las
-              claves RSA que se usarán durante el proceso de SSH, mediante los
-              comandos de criptografía que se muestran aquí: Elija el tamaño del
-              módulo de claves dentro del rango de 360 a 2048 para las claves de
-              uso general. Si elige un módulo de claves superior a 512, puede
-              llevar unos minutos. Paso 7: configure la línea VTY Si todavía no
-              estableció la línea de consola, puede introducir fácilmente estos
-              valores: Defina la contraseña de habilitación con el comando
-              enable secret password. Luego, defina la contraseña de ejecución
-              con privilegios con username name privilege 15 secret password.
-              Asegúrese de que esté activado el servicio de cifrado de
-              contraseñas. Verifique el acceso de SSH escribiendo "sh ip ssh"
-              para confirmar que esté habilitado el SSH. Ahora puede intentar
-              iniciar sesión desde una máquina remota para verificar que puede
-              establecer una conexión de SSH con el switch Cisco. Toques finales
-              Ha llegado al final del proceso de aprendizaje con un mínimo de
-              golpes y caídas (eso esperamos), y ahora está casi listo para
-              terminar. Solamente queda probar el acceso, volver a cargar el
-              switch y dejar listos los cables. Una vez que haya hecho esto,
-              etiquete el switch, colóquelo en el rack y vaya a disfrutar de
-              cualquier otra cosa que no sea configurar un switch.(Cómo
-              configurar un switch de red para su empresa en 6 pasos, 2023) Cómo
-              configurar un switch de red para su empresa en 6 pasos. (2023, 5
-              enero). Cisco.
+              <div>
+                <h6>Paso 1: inspeccione el hardware</h6>
+                <p>
+                  Verifique el número de modelo de su resplandeciente switch
+                  nuevo. Si está usando uno de repuesto, revise el hardware del
+                  dispositivo y los cables que tiene conectados para verificar
+                  que no estén dañados. Si todo está en orden, encienda el
+                  switch y verifique que todas las luces indicadoras funcionen
+                  correctamente. Luego, use un cable de consola para conectarse
+                  al switch desde la computadora. Para esto, deberá descargar e
+                  instalar Putty (o alguna herramienta de software similar con
+                  un nombre gracioso). Ejecute Putty y seleccione la conexión
+                  serial de velocidad 9600. Ahora se encuentra conectado al
+                  switch y está listo para verificar el resultado de los
+                  siguientes comandos:
+                </p>
+                <div class="comando">
+                  <code> show version </code>
+                </div>
+                <div class="comando">
+                  <code> show running-config </code>
+                </div>
+                <div class="comando">
+                  <code> show VLAN brief </code>
+                </div>
+
+                <code> show VTP status </code>
+                <div class="comando">
+                  <code> (config)# IP domain-name routerfreak.com </code>
+                </div>
+                <div class="comando">
+                  <code> (config)# hostname Switch01 </code>
+                </div>
+                <div class="comando">
+                  <code> (config)# interface VLAN1 </code>
+                </div>
+                <div class="comando">
+                  <code> (config)# description Management VLAN </code>
+                </div>
+                <div class="comando">
+                  <code>
+                    (config)# IP address 192.168.101.1 255.255.255.0
+                  </code>
+                </div>
+                <div class="comando">
+                  <code> vtp [client | server | transparent] </code>
+                </div>
+                <div class="comando">
+                  <code> vtp domain name </code>
+                </div>
+                <div class="comando">
+                  <code> description *** DESCRIPCIÓN *** </code>
+                </div>
+                <div class="comando">
+                  <code> switchport access vlan ### </code>
+                </div>
+                <div class="comando">
+                  <code> sswitchport mode access </code>
+                </div>
+                <div class="comando">
+                  <code> power inline consumption ### </code>
+                </div>
+                <div class="comando">
+                  <code> queue-set 2 </code>
+                </div>
+                <div class="comando">
+                  <code> mls qos trust dscp </code>
+                </div>
+                <div class="comando">
+                  <code> storm-control multicast level 50.00 </code>
+                </div>
+                <div class="comando">
+                  <code> no cdp enable </code>
+                </div>
+                <div class="comando">
+                  <code> spanning-tree portfast </code>
+                </div>
+                <div class="comando">
+                  <code> spanning-tree bpduguard enable </code>
+                </div>
+                <div class="comando">
+                  <code> Interface GigabitEthernet1/0/1 </code>
+                </div>
+                <div class="comando">
+                  <code> description *** UPLINK *** </code>
+                </div>
+                <div class="comando">
+                  <code> switchport trunk encapsulation dot1q </code>
+                </div>
+                <div class="comando">
+                  <code> switchport mode trunk </code>
+                </div>
+                <div class="comando">
+                  <code> speed 1000 </code>
+                </div>
+                <div class="comando">
+                  <code> dúplex completo </code>
+                </div>
+                <div class="comando">
+                  <code> Switch01(config)# crypto key generate rsa </code>
+                </div>
+                <div class="comando">
+                  <code> El nombre de las claves es: </code>
+                </div>
+                <div class="comando">
+                  <code> Switch01.routerfreak.com </code>
+                </div>
+                <div class="comando">
+                  <code> Cuántos bits en el módulo [512]: 1024 </code>
+                </div>
+                <div class="comando">
+                  <code>
+                    % Generating 1024 bit RSA keys, keys will be
+                    non-exportable...[ACEPTAR]
+                  </code>
+                </div>
+                <div class="comando">
+                  <code> # line vty 0 4 </code>
+                </div>
+                <div class="comando">
+                  <code> (config-line)# transport input ssh </code>
+                </div>
+                <div class="comando">
+                  <code> (config-line)# login local </code>
+                </div>
+                <div class="comando">
+                  <code> (config-line)# password routerfreak </code>
+                </div>
+                <div class="comando">
+                  <code> (config-line)# exit </code>
+                </div>
+                <div class="comando">
+                  <code> # line console 0 </code>
+                </div>
+                <div class="comando">
+                  <code> (config-line)# logging synchronous </code>
+                </div>
+                <div class="comando">
+                  <code> (config-line)# login local </code>
+                </div>
+                <div class="comando">
+                  <code> Switch01# service password-encryption </code>
+                </div>
+                <div class="comando">
+                  <code> remote-computer# ssh 192.168..101.1 </code>
+                </div>
+                <div class="comando">
+                  <code> Inicie sesión como: username </code>
+                </div>
+                <div class="comando">
+                  <code> Contraseña: </code>
+                </div>
+                <div class="comando">
+                  <code> Switch01>en </code>
+                </div>
+                <div class="comando">
+                  <code> Contraseña: </code>
+                </div>
+                <div class="comando">
+                  <code> Switch01# </code>
+                </div>
+
+                <p>
+                  En el caso de los switches de repuesto, no olvide eliminar el
+                  archivo flash:vlan.dat para borrar la configuración anterior.
+                </p>
+                <br />
+                <h6>Paso 2: configure la IP de administración</h6>
+                <p>
+                  A diferencia de ese nombre ingenioso que le dio a la red wifi
+                  de su casa, al configurar el nombre de host del switch, quizás
+                  deba elegir una denominación más profesional y estándar. Siga
+                  los lineamientos sobre nombres establecidos por la empresa y
+                  asigne una dirección IP en la VLAN de administración. A
+                  continuación, asegúrese de que el switch tenga definidos el
+                  nombre de host y el nombre de dominio:
+                </p>
+                <br />
+                <h6>Paso 3: verifique el número de revisión de VTP</h6>
+                <p>
+                  Introduzca el comando show vtp status para ver los números de
+                  revisión del protocolo de enlace troncal virtual (VTP). Los
+                  números de revisión del VTP determinan qué actualizaciones se
+                  usarán en un dominio VTP. Al definir un nombre de dominio VTP,
+                  el número de revisión queda en cero; después de esto, cada
+                  cambio en la base de datos de la VLAN incrementa el número de
+                  revisión en uno. El switch solo procesa los datos de un switch
+                  vecino que proviene del mismo dominio y si el número de
+                  revisión del switch vecino es mayor que el propio. Esto
+                  significa que los switches actualizan la configuración de su
+                  VLAN según cuál sea la información de VTP que envía el switch
+                  con el número de revisión más alto.
+                </p>
+                <p>
+                  Por eso, antes de agregar el switch a la red, deberá
+                  establecer cero como número de revisión. Para restablecer
+                  fácilmente el dominio y volverlo a cero, cambie el modo de
+                  configuración a "transparent".
+                </p>
+                <br />
+                <h6>Paso 4: configure los puertos de acceso</h6>
+                <p>
+                  Quizás ya tenga una plantilla lista para la configuración de
+                  los puertos de acceso, pero si no, estos son algunos comandos
+                  que debe usar:
+                </p>
+                <br />
+                <h6>Paso 5: configure los puertos del enlace troncal</h6>
+                <p>
+                  Introduzca el command sh int g0/1 y vea cuál es el protocolo
+                  de enlace troncal que admite. Si se trata de ISL, debe
+                  introducir switchport trunk encapsulation dot1q en la
+                  configuración de los puertos del enlace troncal. Si no,
+                  simplemente escriba switchport mode trunk. Esto significa que
+                  no se admite otra encapsulación, por lo que no es necesario
+                  introducir un comando de encapsulación. Solo admite 802.1Q.
+                </p>
+                <br />
+                <h6>Paso 6: configure los puertos de acceso</h6>
+                <p>
+                  Después de haber realizado la configuración básica del switch
+                  de red, es hora de generar las claves RSA que se usarán
+                  durante el proceso de SSH, mediante los comandos de
+                  criptografía que se muestran aquí:
+                </p>
+                <p>
+                  Elija el tamaño del módulo de claves dentro del rango de 360 a
+                  2048 para las claves de uso general. Si elige un módulo de
+                  claves superior a 512, puede llevar unos minutos.
+                </p>
+                <br />
+                <h6>Paso 7: configure la línea VTY</h6>
+                <p>
+                  Si todavía no estableció la línea de consola, puede introducir
+                  fácilmente estos valores:
+                </p>
+                <p>
+                  Defina la contraseña de habilitación con el comando enable
+                  secret password. Luego, defina la contraseña de ejecución con
+                  privilegios con username name privilege 15 secret password.
+                  Asegúrese de que esté activado el servicio de cifrado de
+                  contraseñas.
+                </p>
+                <p>
+                  Verifique el acceso de SSH escribiendo "sh ip ssh" para
+                  confirmar que esté habilitado el SSH. Ahora puede intentar
+                  iniciar sesión desde una máquina remota para verificar que
+                  puede establecer una conexión de SSH con el switch Cisco.
+                </p>
+                <br />
+                <h6>Toques finales</h6>
+                <p>
+                  Ha llegado al final del proceso de aprendizaje con un mínimo
+                  de golpes y caídas (eso esperamos), y ahora está casi listo
+                  para terminar. Solamente queda probar el acceso, volver a
+                  cargar el switch y dejar listos los cables. Una vez que haya
+                  hecho esto, etiquete el switch, colóquelo en el rack y vaya a
+                  disfrutar de cualquier otra cosa que no sea configurar un
+                  switch.
+                </p>
+              </div>
+
+              (Cómo configurar un switch de red para su empresa en 6 pasos,
+              2023) Cómo configurar un switch de red para su empresa en 6 pasos.
+              (2023, 5 enero). Cisco.
               https://www.cisco.com/c/es_mx/solutions/small-business/resource-center/networking/how-to-setup-network-switch.html#~setup-guide
             </div>
           </article>
@@ -422,6 +605,1103 @@
               </h3>
             </header>
             <div class="topic__content">
+              <div id="tg-body" style="overflow-x: auto">
+                <div id="support-toc">
+                  <h6>Contenido</h6>
+                  <div class="toc-h2">
+                    <a href="#intro">Introducción</a>
+                  </div>
+                  <div class="toc-h2">
+                    <a href="#prereq">Prerequisites</a>
+                  </div>
+                  <div class="toc-h3">
+                    <a href="#req">Requirements</a>
+                  </div>
+                  <div class="toc-h3">
+                    <a href="#hw">Componentes Utilizados</a>
+                  </div>
+                  <div class="toc-h3">
+                    <a href="#rel">Productos Relacionados</a>
+                  </div>
+                  <div class="toc-h3">
+                    <a href="#conv">Convenciones</a>
+                  </div>
+                  <div class="toc-h2">
+                    <a href="#backinfo">Antecedentes</a>
+                  </div>
+                  <div class="toc-h2">
+                    <a href="#conf">Configurar</a>
+                  </div>
+                  <div class="toc-h3">
+                    <a href="#diag">Diagrama de la red</a>
+                  </div>
+                  <div class="toc-h3">
+                    <a href="#portsecurity">Seguridad de Puertos</a>
+                  </div>
+                  <div class="toc-h3">
+                    <a href="#dhcpsnoop">Detección de DHCP</a>
+                  </div>
+                  <div class="toc-h3">
+                    <a href="#dynamicarp">Dynamic ARP Inspection</a>
+                  </div>
+                  <div class="toc-h3">
+                    <a href="#ipsourceguard">IP Source Guard</a>
+                  </div>
+                  <div class="toc-h2">
+                    <a href="#veri">Verificación</a>
+                  </div>
+                  <div class="toc-h2">
+                    <a href="#tshoot">Troubleshoot</a>
+                  </div>
+                  <div class="toc-h2">
+                    <a href="#related">Información Relacionada</a>
+                  </div>
+                </div>
+                <h6><a name="intro">Introducción</a></h6>
+                <p>
+                  Este documento proporciona una configuración de ejemplo de
+                  algunas de las funciones de seguridad de Capa 2, tales como
+                  seguridad de puerto, snooping de DHCP, inspección de Address
+                  Resolution Protocol (ARP) dinámico y Protección de origen IP,
+                  que se pueden implementar en los switches de configuración
+                  fija Cisco Catalyst Layer 3.
+                </p>
+                <h6><a name="prereq">Prerequisites</a></h6>
+                <h6><a name="req">Requirements</a></h6>
+                <p>No hay requisitos específicos para este documento.</p>
+                <h6><a name="hw">Componentes Utilizados</a></h6>
+                <p>
+                  La información de este documento se basa en el Cisco Catalyst
+                  3750 Series Switch con la versión 12.2(25)SEC2.
+                </p>
+                <p>
+                  The information in this document was created from the devices
+                  in a specific lab environment. All of the devices used in this
+                  document started with a cleared (default) configuration. If
+                  your network is live, make sure that you understand the
+                  potential impact of any command.
+                </p>
+                <h6><a name="rel">Productos Relacionados</a></h6>
+                <p>
+                  Esta configuración también se puede utilizar con estos
+                  hardware:
+                </p>
+                <ul>
+                  <li><p>Cisco Catalyst 3550 Series Switches</p></li>
+                  <li><p>Cisco Catalyst 3560 Series Switches</p></li>
+                  <li><p>Switches Cisco Catalyst serie 3560-E</p></li>
+                  <li><p>Switches Cisco Catalyst serie 3750-E</p></li>
+                </ul>
+                <h6><a name="conv">Convenciones</a></h6>
+                <p>
+                  Consulte
+                  <a
+                    href="//www.cisco.com/en/US/tech/tk801/tk36/technologies_tech_note09186a0080121ac5.shtml"
+                    >Convenciones de Consejos TécnicosCisco para obtener más
+                    información sobre las convenciones del documento.</a
+                  >
+                </p>
+                <h6><a name="backinfo">Antecedentes</a></h6>
+                <p>
+                  Al igual que los routers, tanto los switches de capa 2 como de
+                  capa 3 tienen sus propios conjuntos de requisitos de seguridad
+                  de red. Los switches son susceptibles a muchos de los mismos
+                  ataques de Capa 3 que los routers. Sin embargo, los switches y
+                  la Capa 2 del modelo de referencia OSI en general, están
+                  sujetos a ataques de red de diferentes maneras. Estos
+                  incluyen:
+                </p>
+                <ul>
+                  <li>
+                    <p>
+                      <b
+                        >Desbordamiento de tabla de memoria direccionable de
+                        contenido (CAM)</b
+                      >
+                    </p>
+                    <p>
+                      Las tablas de la Memoria direccionable de contenido (CAM)
+                      tienen un tamaño limitado. Si se ingresan suficientes
+                      entradas en la tabla CAM antes de que caduquen otras
+                      entradas, la tabla CAM se llena hasta el punto de que no
+                      se pueden aceptar nuevas entradas. Normalmente, un intruso
+                      de red inunda el switch con un gran número de direcciones
+                      MAC (Control de acceso a medios) de origen no válidas
+                      hasta que se completa la tabla CAM. Cuando esto ocurre, el
+                      switch inunda todos los puertos con tráfico entrante
+                      porque no puede encontrar el número de puerto para una
+                      dirección MAC determinada en la tabla CAM. El switch, en
+                      esencia, actúa como un concentrador. Si el intruso no
+                      mantiene la inundación de direcciones MAC de origen no
+                      válidas, el switch eventualmente desconecta las entradas
+                      de dirección MAC más antiguas de la tabla CAM y comienza a
+                      actuar como un switch de nuevo. El desbordamiento de la
+                      tabla CAM sólo inunda el tráfico dentro de la VLAN local,
+                      por lo que el intruso sólo ve el tráfico dentro de la VLAN
+                      local a la que está conectado.
+                    </p>
+                    <p>
+                      El ataque de desbordamiento de la tabla CAM se puede
+                      mitigar mediante la configuración de la seguridad del
+                      puerto en el switch. Esta opción proporciona la
+                      especificación de las direcciones MAC en un puerto de
+                      switch determinado o la especificación del número de
+                      direcciones MAC que puede aprender un puerto de switch.
+                      Cuando se detecta una dirección MAC no válida en el
+                      puerto, el switch puede bloquear la dirección MAC
+                      infractora o apagar el puerto. La especificación de las
+                      direcciones MAC en los puertos del switch es una solución
+                      demasiado inmanejable para un entorno de producción. Se
+                      puede administrar un límite del número de direcciones MAC
+                      en un puerto de switch. Una solución más escalable desde
+                      el punto de vista administrativo es la implementación de
+                      la seguridad dinámica de los puertos en el switch. Para
+                      implementar la seguridad de puerto dinámico, especifique
+                      un número máximo de direcciones MAC que se aprenderán.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <b
+                        >Suplantación de dirección de control de acceso a medios
+                        (MAC)</b
+                      >
+                    </p>
+                    <p>
+                      Los ataques de suplantación de Media Access Control (MAC)
+                      implican el uso de una dirección MAC conocida de otro host
+                      para intentar hacer que el switch de destino reenvíe las
+                      tramas destinadas al host remoto al atacante de red.
+                      Cuando se envía una única trama con la dirección Ethernet
+                      de origen del otro host, el atacante de red sobrescribe la
+                      entrada de la tabla CAM para que el switch reenvíe los
+                      paquetes destinados al host al atacante de red. Hasta que
+                      el host envía tráfico, no recibe tráfico alguno. Cuando el
+                      host envía tráfico, la entrada de la tabla CAM se
+                      reescribe una vez más para que se traslade de vuelta al
+                      puerto original.
+                    </p>
+                    <p>
+                      Utilice la función de seguridad de puertos para mitigar
+                      los ataques de suplantación de MAC. La seguridad de puerto
+                      proporciona la capacidad de especificar la dirección MAC
+                      del sistema conectado a un puerto determinado. Esto
+                      también proporciona la capacidad de especificar una acción
+                      que realizar si se produce una violación de la seguridad
+                      de puerto.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <b
+                        >Suplantación de protocolo de resolución de direcciones
+                        (ARP)</b
+                      >
+                    </p>
+                    <p>
+                      ARP se utiliza para asignar direcciones IP a direcciones
+                      MAC en un segmento de red de área local donde residen los
+                      hosts de la misma subred. Normalmente, un host envía una
+                      solicitud ARP de broadcast para encontrar la dirección MAC
+                      de otro host con una dirección IP determinada, y una
+                      respuesta ARP viene del host cuya dirección coincide con
+                      la solicitud. El host solicitante luego almacena en
+                      memoria caché esta respuesta ARP. Dentro del protocolo
+                      ARP, se hace otra provisión para que los hosts realicen
+                      respuestas ARP no solicitadas. Las respuestas ARP no
+                      solicitadas se denominan ARP Gratuitous (GARP). Un
+                      atacante puede explotar maliciosamente GARP para
+                      falsificar la identidad de una dirección IP en un segmento
+                      LAN. Esto se utiliza normalmente para simular la identidad
+                      entre dos hosts o todo el tráfico hacia y desde un gateway
+                      predeterminado en un ataque de "man-in-the-middle" (hombre
+                      en el medio).
+                    </p>
+                    <p>
+                      Cuando se crea una respuesta ARP, un atacante de red puede
+                      hacer que su sistema parezca ser el host de destino
+                      buscado por el remitente. La respuesta ARP hace que el
+                      remitente almacene la dirección MAC del sistema del
+                      atacante de red en la memoria caché ARP. El switch también
+                      almacena esta dirección MAC en su tabla CAM. De esta
+                      manera, el atacante de red ha insertado la dirección MAC
+                      de su sistema tanto en la tabla CAM del switch como en la
+                      memoria caché ARP del remitente. Esto permite al atacante
+                      de red interceptar tramas destinadas al host que está
+                      simulando.
+                    </p>
+                    <p>
+                      Los temporizadores de espera en el menú de configuración
+                      de la interfaz se pueden utilizar para mitigar los ataques
+                      de suplantación ARP estableciendo el tiempo que una
+                      entrada permanecerá en la memoria caché ARP. Sin embargo,
+                      los temporizadores de retención por sí mismos son
+                      insuficientes. Se requiere la modificación del tiempo de
+                      vencimiento de la memoria caché ARP en todos los sistemas
+                      extremos, así como las entradas ARP estáticas. Otra
+                      solución que se puede utilizar para mitigar diversas
+                      vulnerabilidades de red basadas en ARP es el uso de
+                      snooping DHCP junto con la inspección dinámica ARP. Estas
+                      funciones de Catalyst validan los paquetes ARP en una red
+                      y permiten la intercepción, registro y descarte de
+                      paquetes ARP con direcciones MAC inválidas a vinculaciones
+                      de direcciones IP.
+                    </p>
+                    <p>
+                      La indagación DHCP filtra los mensajes DHCP confiables
+                      para proporcionar seguridad. Luego, estos mensajes se
+                      utilizan para generar y mantener una tabla de enlace de
+                      indagación DHCP. La indagación DHCP considera que los
+                      mensajes DHCP que se originan en cualquier puerto
+                      orientado al usuario que no es un puerto del servidor DHCP
+                      no son de confianza. Desde la perspectiva de la indagación
+                      DHCP, estos puertos no confiables orientados al usuario no
+                      deben enviar respuestas de tipo de servidor DHCP, como
+                      DHCPOFFER, DHCPACK o DHCPNAK. La tabla de enlace de
+                      snooping DHCP contiene la dirección MAC, la dirección IP,
+                      el tiempo de concesión, el tipo de enlace, el número de
+                      VLAN y la información de interfaz que corresponde a las
+                      interfaces locales no confiables de un switch. La tabla de
+                      enlace de snooping DHCP no contiene información sobre los
+                      hosts interconectados con una interfaz de confianza. Una
+                      interfaz no fiable es una interfaz configurada para
+                      recibir mensajes desde fuera de la red o del firewall. Una
+                      interfaz de confianza es una interfaz configurada para
+                      recibir sólo mensajes desde dentro de la red. La tabla de
+                      enlace de indagación DHCP puede contener enlaces de
+                      dirección MAC dinámica y estática a dirección IP.
+                    </p>
+                    <p>
+                      La inspección ARP dinámica determina la validez de un
+                      paquete ARP basándose en las vinculaciones de dirección
+                      MAC a dirección IP válidas almacenadas en una base de
+                      datos de indagación DHCP. Además, la inspección ARP
+                      dinámica puede validar los paquetes ARP en función de las
+                      listas de control de acceso (ACL) configurables por el
+                      usuario. Esto permite la inspección de paquetes ARP para
+                      hosts que utilizan direcciones IP configuradas
+                      estáticamente. La inspección dinámica de ARP permite el
+                      uso de listas de control de acceso por puerto y VLAN
+                      (PACL) para limitar los paquetes ARP para direcciones IP
+                      específicas a direcciones MAC específicas.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <b
+                        >Inicio de protocolo de configuración dinámica de host
+                        (DHCP)</b
+                      >
+                    </p>
+                    <p>
+                      Un ataque de inanición de DHCP funciona mediante la
+                      difusión de solicitudes DHCP con direcciones MAC
+                      simuladas. Si se envían suficientes solicitudes, el
+                      atacante de red puede agotar el espacio de direcciones
+                      disponible para los servidores DHCP durante un período de
+                      tiempo. El atacante de red puede entonces configurar un
+                      servidor DHCP no autorizado en su sistema y responder a
+                      las nuevas solicitudes DHCP de los clientes en la red. Con
+                      la colocación de un servidor DHCP no autorizado en la red,
+                      un atacante de red puede proporcionar a los clientes
+                      direcciones y otra información de red. Debido a que las
+                      respuestas DHCP suelen incluir la información
+                      predeterminada del gateway y del servidor DNS, el atacante
+                      de red puede suministrar su propio sistema como la gateway
+                      predeterminada y el servidor DNS. Esto da lugar a un
+                      ataque de intermediarios. Sin embargo, el agotamiento de
+                      todas las direcciones DHCP no es necesario para introducir
+                      un servidor DHCP no autorizado.
+                    </p>
+                    <p>
+                      Las funciones adicionales de la familia de switches
+                      Catalyst, como la indagación DHCP, se pueden utilizar para
+                      ayudar a proteger contra un ataque de inanición de DHCP.
+                      La indagación DHCP es una función de seguridad que filtra
+                      los mensajes DHCP no confiables y genera y mantiene una
+                      tabla de enlace de indagación DHCP. La tabla de enlace
+                      contiene información como la dirección MAC, la dirección
+                      IP, el tiempo de concesión, el tipo de enlace, el número
+                      de VLAN y la información de interfaz que corresponde a las
+                      interfaces locales no confiables de un switch. Los
+                      mensajes no fiables son aquellos recibidos desde fuera de
+                      la red o del firewall. Las interfaces de switch no
+                      confiables son aquellas configuradas para recibir dichos
+                      mensajes desde fuera de la red o del firewall.
+                    </p>
+                    <p>
+                      Otras funciones del switch Catalyst, como IP source guard,
+                      pueden proporcionar una defensa adicional contra ataques
+                      como la inanición de DHCP y la suplantación de IP. Al
+                      igual que la indagación DHCP, la protección de origen IP
+                      está habilitada en puertos de capa 2 no confiables. Todo
+                      el tráfico IP se bloquea inicialmente, excepto los
+                      paquetes DHCP capturados por el proceso de indagación
+                      DHCP. Una vez que un cliente recibe una dirección IP
+                      válida del servidor DHCP, se aplica una PACL al puerto.
+                      Esto restringe el tráfico IP del cliente a las direcciones
+                      IP de origen configuradas en el enlace. Se filtra
+                      cualquier otro tráfico IP con una dirección de origen
+                      distinta de las direcciones del enlace.
+                    </p>
+                  </li>
+                </ul>
+                <h6><a name="conf">Configurar</a></h6>
+                <p>
+                  En esta sección, se le presenta la información para configurar
+                  las funciones de seguridad de puerto, detección DHCP,
+                  inspección ARP dinámica y seguridad de IP Source Guard.
+                </p>
+                <p>
+                  <a href="//tools.cisco.com/RPF/register/register.do"
+                    >Nota:&nbsp;</a
+                  >Utilice la herramienta
+                  <a
+                    href="//tools.cisco.com/Support/CLILookup/cltSearchAction.do"
+                    >Command Lookup</a
+                  >
+                  (sólo para clientes
+                  <a href="//tools.cisco.com/RPF/register/register.do"
+                    >registrados</a
+                  >) para obtener más información sobre los comandos utilizados
+                  en esta sección.
+                </p>
+                <p>
+                  Las configuraciones del Catalyst 3750 Switch contienen lo
+                  siguiente:
+                </p>
+                <ul>
+                  <li>
+                    <p><a href="#portsecurity"> Seguridad de Puertos</a></p>
+                  </li>
+                  <li>
+                    <p><a href="#dhcpsnoop"> Detección de DHCP</a></p>
+                  </li>
+                  <li>
+                    <p><a href="#dynamicarp"> Dynamic ARP Inspection</a></p>
+                  </li>
+                  <li>
+                    <p><a href="#ipsourceguard"> IP Source Guard</a></p>
+                  </li>
+                </ul>
+                <h6><a name="diag">Diagrama de la red</a></h6>
+                <p>En este documento, se utiliza esta configuración de red:</p>
+                <ul>
+                  <li><p>PC 1 y PC 3 son clientes conectados al switch.</p></li>
+                  <li><p>PC 2 es un servidor DHCP conectado al switch.</p></li>
+                  <li>
+                    <p>
+                      Todos los puertos del switch se encuentran en la misma
+                      VLAN (VLAN 1).
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      El servidor DHCP se configura para asignar direcciones IP
+                      a los clientes en función de sus direcciones MAC.
+                    </p>
+                  </li>
+                </ul>
+                <p>
+                  <a
+                    href="https://www.cisco.com/c/dam/en/us/support/docs/switches/catalyst-3750-series-switches/72846-layer2-secftrs-catl3fixed.gif"
+                    class="show-image-alone"
+                    title="layer2-secftrs-catl3fixed.gif"
+                    ><img
+                      alt="layer2-secftrs-catl3fixed.gif"
+                      border="0"
+                      src="/c/dam/en/us/support/docs/switches/catalyst-3750-series-switches/72846-layer2-secftrs-catl3fixed.gif"
+                      usemap=""
+                  /></a>
+                </p>
+                <h6><a name="portsecurity">Seguridad de Puertos</a></h6>
+                <p>
+                  Puede utilizar la función de seguridad del puerto para limitar
+                  e identificar las direcciones MAC de las estaciones a las que
+                  se permite el acceso al puerto. Esto restringe la entrada a
+                  una interfaz. Cuando asigna direcciones MAC seguras a un
+                  puerto seguro, el puerto no reenvía paquetes con direcciones
+                  de origen fuera del grupo de direcciones definidas. Si limita
+                  el número de direcciones MAC seguras a una y asigna una única
+                  dirección MAC segura, la estación de trabajo conectada a ese
+                  puerto estará asegurada del ancho de banda completo del
+                  puerto. Si un puerto se configura como puerto seguro y se
+                  alcanza el número máximo de direcciones MAC seguras, cuando la
+                  dirección MAC de una estación que intenta acceder al puerto es
+                  diferente de cualquiera de las direcciones MAC seguras
+                  identificadas, se produce una violación de la seguridad.
+                  Además, si una estación con una dirección MAC segura
+                  configurada o aprendida en un puerto seguro intenta acceder a
+                  otro puerto seguro, se marca una violación. De forma
+                  predeterminada, el puerto se apaga cuando se supera el número
+                  máximo de direcciones MAC seguras.
+                </p>
+                <br />
+                <p>
+                  <b>Nota:</b> Cuando un Catalyst 3750 Switch se une a una pila,
+                  el nuevo switch recibe las direcciones seguras configuradas.
+                  El nuevo miembro de la pila descargará todas las direcciones
+                  seguras dinámicas de los demás miembros de la pila.
+                </p>
+                <br />
+                <p>
+                  Consulte
+                  <a
+                    href="//www.cisco.com/en/US/docs/switches/lan/catalyst3750/software/release/12.1_19_ea1/configuration/guide/swtrafc.html#1038546"
+                    >Pautas de Configuración</a
+                  >
+                  para ver las pautas sobre cómo configurar la seguridad de
+                  puerto.
+                </p>
+                <p>
+                  Aquí, se muestra la función de seguridad de puerto configurada
+                  en la interfaz FastEthernet 1/0/2. De forma predeterminada, el
+                  número máximo de direcciones MAC seguras para la interfaz es
+                  uno. Puede ejecutar el comando
+                  <b>show port-security interface</b> para verificar el estado
+                  de seguridad del puerto para una interfaz.
+                </p>
+                <table
+                  bgcolor="#FFFFFF"
+                  cellpadding="3"
+                  cellspacing="1"
+                  border="1"
+                  width="60%"
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        height=""
+                        width=""
+                        bgcolor="#CCCCFF"
+                        colspan="1"
+                        rowspan="1"
+                      >
+                        Seguridad de Puertos
+                      </th>
+                    </tr>
+                    <tr>
+                      <td
+                        height=""
+                        width=""
+                        bgcolor="#FFFFFF"
+                        colspan="1"
+                        rowspan="1"
+                      >
+                        <pre>Cat3750#<b>show port-security interface fastEthernet 1/0/2</b>
+             Port Security              : Disabled
+             Port Status                : Secure-down
+             Violation Mode             : Shutdown
+             Aging Time                 : 0 mins
+             Aging Type                 : Absolute
+             SecureStatic Address Aging : Disabled
+             Maximum MAC Addresses      : 1
+             Total MAC Addresses        : 0
+             Configured MAC Addresses   : 0
+             Sticky MAC Addresses       : 0
+             Last Source Address:Vlan   : 0000.0000.0000:0
+             Security Violation Count   : 0
+             <i>
+             <font color="#0000ff">!--- Default port security configuration on the switch.</font>
+             </i>
+             Cat3750#<b>conf t</b>
+             Enter configuration commands, one per line.  End with CNTL/Z.
+             Cat3750(config)#<b>interface fastEthernet 1/0/2</b>
+             Cat3750(config-if)#<b>switchport port-security</b> 
+             Command rejected: FastEthernet1/0/2 is a dynamic port.
+             <i>
+             <font color="#0000ff">!--- Port security can only be configured on static access ports or trunk ports.</font>
+             </i>
+             Cat3750(config-if)#<b>switchport mode access</b>
+             <i>
+             <font color="#0000ff">!--- Sets the interface switchport mode as access.</font>
+             </i> 
+             Cat3750(config-if)#<b>switchport port-security</b>
+             <i>
+             <font color="#0000ff">!--- Enables port security on the interface.</font>
+             </i> 
+             Cat3750(config-if)#<b>switchport port-security mac-address 0011.858D.9AF9</b>
+             <i>
+             <font color="#0000ff">!--- Sets the secure MAC address for the interface.</font>
+             </i>
+             Cat3750(config-if)#<b>switchport port-security violation shutdown</b>
+             <i>
+             <font color="#0000ff">!--- Sets the violation mode to shutdown. This is the default mode.</font>
+             </i>
+             Cat3750#
+             <i>
+             <font color="#0000ff">!--- Connected a different PC (PC 4) to the FastEthernet 1/0/2 port !--- to verify the port security feature.</font>
+             </i>
+             00:22:51: %PM-4-ERR_DISABLE: psecure-violation error detected on Fa1/0/2, 
+                        putting Fa1/0/2 in err-disable state
+             00:22:51: %PORT_SECURITY-2-PSECURE_VIOLATION: Security violation occurred, 
+                        caused by MAC address 0011.8565.4B75 on port FastEthernet1/0/2.
+             00:22:52: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet1/0/2, 
+                        changed state to down
+             00:22:53: %LINK-3-UPDOWN: Interface FastEthernet1/0/2, changed state to down
+             <i>
+             <font color="#0000ff">!--- Interface shuts down when a security violation is detected.</font>
+             </i>
+             Cat3750#<b>show interfaces fastEthernet 1/0/2</b>
+             FastEthernet1/0/2 is down, line protocol is down (err-disabled)
+             <i>
+             <font color="#0000ff">!--- Output Suppressed. !--- The port is shown error-disabled. This verifies the configuration.</font>
+             </i>
+             <i>
+             <font color="#0000ff">!--- <b>Note</b>: When a secure port is in the error-disabled state, <br>
+              !--- you can bring it out of this state by entering <br>
+              !--- the <b>errdisable recovery cause psecure-violation</b> global configuration command, <br>
+              !--- or you can manually re-enable it by entering the <br>
+              !--- <b>shutdown</b> and <b>no shutdown</b> interface configuration commands.</font>
+             </i>
+             
+             Cat3750#<b>show port-security interface fastEthernet 1/0/2</b>
+             Port Security              : Enabled
+             Port Status                : Secure-shutdown
+             Violation Mode             : Shutdown
+             Aging Time                 : 0 mins
+             Aging Type                 : Absolute
+             SecureStatic Address Aging : Disabled
+             Maximum MAC Addresses      : 1
+             Total MAC Addresses        : 1
+             Configured MAC Addresses   : 1
+             Sticky MAC Addresses       : 0
+             Last Source Address:Vlan   : 0011.8565.4B75:1
+             Security Violation Count   : 1</pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p></p>
+                <p>
+                  <b>Nota:</b> Las mismas direcciones MAC no deben configurarse
+                  como direcciones MAC seguras y estáticas en diferentes puertos
+                  de un switch.
+                </p>
+                <p>
+                  Cuando un teléfono IP se conecta a un switch a través del
+                  switchport configurado para la VLAN de voz, el teléfono envía
+                  paquetes CDP sin etiqueta y paquetes CDP de voz etiquetados.
+                  Por lo tanto, la dirección MAC del teléfono IP se detecta
+                  tanto en el PVID como en el VVID. Si no se configura el número
+                  adecuado de direcciones seguras, puede obtener un mensaje de
+                  error similar a este mensaje:
+                </p>
+                <blockquote>
+                  <pre>
+%PORT_SECURITY-2-PSECURE_VIOLATION: Security violation occurred, 
+             caused by MAC address 001b.77ee.eeee on port GigabitEthernet1/0/18.
+             PSECURE: Assert failure: psecure_sb-&gt;info.num_addrs &lt;= psecure_sb-&gt;max_addrs:</pre
+                  >
+                </blockquote>
+                <p>
+                  Debe establecer el número máximo de direcciones seguras
+                  permitidas en el puerto en dos (para el teléfono IP) más el
+                  número máximo de direcciones seguras permitidas en la VLAN de
+                  acceso para resolver este problema.
+                </p>
+                <p>
+                  Refiérase a
+                  <a
+                    href="//www.cisco.com/en/US/docs/switches/lan/catalyst3750/software/release/12.1_19_ea1/configuration/guide/swtrafc.html#1038501"
+                    >Configuración de la Seguridad del Puerto</a
+                  >
+                  para obtener más información.
+                </p>
+                <h6><a name="dhcpsnoop">Detección de DHCP</a></h6>
+                <p>
+                  El snooping de DHCP actúa como un firewall entre hosts no
+                  confiables y servidores DHCP. El snooping de DHCP se utiliza
+                  para diferenciar entre las interfaces no confiables conectadas
+                  al usuario final y las interfaces de confianza conectadas al
+                  servidor DHCP u otro switch. Cuando un switch recibe un
+                  paquete en una interfaz no confiable y la interfaz pertenece a
+                  una VLAN que tiene la indagación DHCP habilitada, el switch
+                  compara la dirección MAC de origen y la dirección de hardware
+                  del cliente DHCP. Si las direcciones coinciden (el valor
+                  predeterminado), el switch reenvía el paquete. Si las
+                  direcciones no coinciden, el switch descarta el paquete. El
+                  switch descarta un paquete DHCP cuando ocurre una de estas
+                  situaciones:
+                </p>
+                <ul>
+                  <li>
+                    <p>
+                      Un paquete de un servidor DHCP, como un paquete DHCPOFFER,
+                      DHCPACK, DHCPNAK o DHCPLEASEQUERY, se recibe desde fuera
+                      de la red o del firewall.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Se recibe un paquete en una interfaz no confiable y la
+                      dirección MAC de origen y la dirección de hardware del
+                      cliente DHCP no coinciden.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      El switch recibe un mensaje de broadcast DHCPRELEASE o
+                      DHCPDECLINE que tiene una dirección MAC en la base de
+                      datos de enlace de snooping DHCP, pero la información de
+                      la interfaz en la base de datos de enlace no coincide con
+                      la interfaz en la que se recibió el mensaje.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Un agente de relé DHCP reenvía un paquete DHCP, que
+                      incluye una dirección IP de agente relay que no es
+                      0.0.0.0, o el agente relay reenvía un paquete que incluye
+                      información de la opción 82 a un puerto no confiable.
+                    </p>
+                  </li>
+                </ul>
+                <p>
+                  Consulte
+                  <a
+                    href="//www.cisco.com/en/US/docs/switches/lan/catalyst3750/software/release/12.2_25_see/configuration/guide/swdhcp82.html#wp1180910"
+                    >Pautas de Configuración de Indagación DHCP</a
+                  >
+                  para obtener instrucciones sobre cómo configurar la indagación
+                  DHCP.
+                </p>
+                <p>
+                  <b>Nota:</b> Para que el snooping DHCP funcione correctamente,
+                  todos los servidores DHCP deben estar conectados al switch a
+                  través de interfaces de confianza.
+                </p>
+                <p>
+                  <b>Nota:</b> En una pila de switches con switches Catalyst
+                  3750, la indagación DHCP se administra en el maestro de la
+                  pila. Cuando un nuevo switch se une a la pila, el switch
+                  recibe la configuración de indagación DHCP del maestro de la
+                  pila. Cuando un miembro abandona la pila, todos los enlaces de
+                  indagación DHCP asociados con el switch caducan.
+                </p>
+                <p>
+                  <b>Nota:</b> Para asegurarse de que el tiempo de arrendamiento
+                  en la base de datos es preciso, Cisco recomienda que habilite
+                  y configure NTP. Si se configura NTP, el switch escribe
+                  cambios de enlace en el archivo de enlace sólo cuando el reloj
+                  del sistema del switch está sincronizado con NTP.
+                </p>
+                <p>
+                  Los servidores DHCP sospechosos pueden mitigarse mediante las
+                  funciones de snooping DHCP. El comando
+                  <b>ip dhcp snooping</b> se ejecuta para habilitar DHCP
+                  globalmente en el switch. Cuando se configuran con snooping
+                  DHCP, todos los puertos en la VLAN no son confiables para las
+                  respuestas DHCP. Aquí, sólo la interfaz FastEthernet 1/0/3
+                  conectada al servidor DHCP está configurada como confiable.
+                </p>
+                <table
+                  bgcolor="#FFFFFF"
+                  cellpadding="3"
+                  cellspacing="1"
+                  border="1"
+                  width="60%"
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        height=""
+                        width=""
+                        bgcolor="#CCCCFF"
+                        colspan="1"
+                        rowspan="1"
+                      >
+                        Detección de DHCP
+                      </th>
+                    </tr>
+                    <tr>
+                      <td
+                        height=""
+                        width=""
+                        bgcolor="#FFFFFF"
+                        colspan="1"
+                        rowspan="1"
+                      >
+                        <pre>Cat3750#<b>conf t</b>
+             Enter configuration commands, one per line.  End with CNTL/Z.
+             Cat3750(config)#<b>ip dhcp snooping</b>
+             <i>
+             <font color="#0000ff"> !--- Enables DHCP snooping on the switch.</font>
+             </i> 
+             Cat3750(config)#<b>ip dhcp snooping vlan 1</b>
+             <i>
+             <font color="#0000ff"> !--- DHCP snooping is not active until DHCP snooping is enabled on a VLAN.</font>
+             </i>
+             Cat3750(config)#<b>no ip dhcp snooping information option</b>
+             <i>
+             <font color="#0000ff">!--- Disable the insertion and removal of the option-82 field, if the !--- DHCP clients and the DHCP server reside on the same IP network or subnet.</font>
+             </i>
+             Cat3750(config)#<b>interface fastEthernet 1/0/3</b>
+             Cat3750(config-if)#<b>ip dhcp snooping trust</b>
+             <i>
+             <font color="#0000ff">!--- Configures the interface connected to the DHCP server as trusted.</font>
+             </i>
+             Cat3750#<b>show ip dhcp snooping</b>
+             Switch DHCP snooping is enabled
+             DHCP snooping is configured on following VLANs:
+             1
+             Insertion of option 82 is disabled
+             Option 82 on untrusted port is not allowed
+             Verification of hwaddr field is enabled
+             Interface                    Trusted     Rate limit (pps)
+             ------------------------     -------     ----------------
+             FastEthernet1/0/3            yes         unlimited
+             <i>
+             <font color="#0000ff">!--- Displays the DHCP snooping configuration for the switch.</font>
+             </i>
+             Cat3750#<b>show ip dhcp snooping binding</b>
+             MacAddress          IpAddress        Lease(sec)  Type           VLAN  Interface
+             ------------------  ---------------  ----------  -------------  ----  --------------------
+             00:11:85:A5:7B:F5     10.0.0.2        86391       dhcp-snooping  1    FastEtheret1/0/1
+             00:11:85:8D:9A:F9     10.0.0.3        86313       dhcp-snooping  1    FastEtheret1/0/2
+             Total number of bindings: 2
+             <i>
+             <font color="#0000ff">!--- Displays the DHCP snooping binding entries for the switch.</font>
+             </i>
+             Cat3750#
+             <i>
+             <font color="#0000ff">!--- DHCP server(s) connected to the untrusted port will not be able !--- to assign IP addresses to the clients.</font>
+             </i>
+             </pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p></p>
+                <p>
+                  Refiérase a
+                  <a
+                    href="//www.cisco.com/en/US/docs/switches/lan/catalyst3750/software/release/12.1_19_ea1/configuration/guide/swdhcp82.html"
+                    >Configuración de Funciones DHCP</a
+                  >
+                  para obtener más información.
+                </p>
+                <h3><a name="dynamicarp">Dynamic ARP Inspection</a></h3>
+                <p>
+                  La inspección ARP dinámica es una función de seguridad que
+                  valida los paquetes ARP en una red. Intercepta, registra y
+                  descarta paquetes ARP con vinculaciones de dirección IP a MAC
+                  no válidas. Esta capacidad protege la red de ciertos ataques
+                  de intrusos.
+                </p>
+                <p>
+                  La inspección ARP dinámica garantiza que sólo se retransmitan
+                  las solicitudes y respuestas ARP válidas. El switch realiza
+                  estas actividades:
+                </p>
+                <ul>
+                  <li>
+                    <p>
+                      Intercepta todas las solicitudes y respuestas ARP en
+                      puertos no confiables
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Verifica que cada uno de estos paquetes interceptados
+                      tenga un enlace de dirección IP a MAC válido antes de que
+                      actualice la memoria caché ARP local o antes de que
+                      reenvíe el paquete al destino apropiado
+                    </p>
+                  </li>
+                  <li><p>Descarta paquetes ARP no válidos</p></li>
+                </ul>
+                <p>
+                  La inspección ARP dinámica determina la validez de un paquete
+                  ARP basándose en las vinculaciones de dirección IP a MAC
+                  válidas almacenadas en una base de datos de confianza, la base
+                  de datos de enlace de indagación DHCP. Esta base de datos se
+                  genera mediante la indagación DHCP si la indagación DHCP está
+                  habilitada en las VLAN y en el switch. Si el paquete ARP se
+                  recibe en una interfaz de confianza, el switch reenvía el
+                  paquete sin ninguna verificación. En las interfaces no
+                  confiables, el switch reenvía el paquete sólo si es válido.
+                </p>
+                <p>
+                  En los entornos no DHCP, la inspección ARP dinámica puede
+                  validar los paquetes ARP contra las ACL ARP configuradas por
+                  el usuario para los hosts con direcciones IP configuradas
+                  estáticamente. Puede ejecutar el comando de configuración
+                  global <b>arp access-list</b> para definir una ACL ARP. Las
+                  ACL ARP tienen prioridad sobre las entradas en la base de
+                  datos de enlace de indagación DHCP. El switch utiliza las ACL
+                  sólo si ejecuta el comando de configuración global
+                  <b>ip arp inspection filter vlan</b> para configurar las ACL.
+                  El switch compara primero los paquetes ARP con las ACL ARP
+                  configuradas por el usuario. Si la ACL ARP niega el paquete
+                  ARP, el switch también niega el paquete incluso si existe un
+                  enlace válido en la base de datos poblada por la indagación
+                  DHCP.
+                </p>
+                <p>
+                  Consulte
+                  <a
+                    href="//www.cisco.com/en/US/docs/switches/lan/catalyst3750/software/release/12.2_25_see/configuration/guide/swdynarp.html#wp1038527"
+                    >Pautas de Configuración de Inspección ARP Dinámica</a
+                  >
+                  para ver las pautas sobre cómo configurar la inspección ARP
+                  dinámica.
+                </p>
+                <p>
+                  El comando de configuración global
+                  <b>ip arp inspection vlan</b> se ejecuta para habilitar la
+                  inspección dinámica ARP por VLAN. Aquí, sólo la interfaz
+                  FastEthernet 1/0/3 conectada al servidor DHCP se configura
+                  como confiable con el comando <b>ip arp inspection trust</b>.
+                  El snooping DHCP debe estar habilitado para permitir los
+                  paquetes ARP que tienen direcciones IP asignadas
+                  dinámicamente. Vea la sección
+                  <a href="#dhcpsnoop">Indagación DHCP</a> de este documento
+                  para obtener información de configuración de indagación DHCP.
+                </p>
+                <table
+                  bgcolor="#FFFFFF"
+                  cellpadding="3"
+                  cellspacing="1"
+                  border="1"
+                  width="60%"
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        height=""
+                        width=""
+                        bgcolor="#CCCCFF"
+                        colspan="1"
+                        rowspan="1"
+                      >
+                        Dynamic ARP Inspection
+                      </th>
+                    </tr>
+                    <tr>
+                      <td
+                        height=""
+                        width=""
+                        bgcolor="#FFFFFF"
+                        colspan="1"
+                        rowspan="1"
+                      >
+                        <pre>Cat3750#<b>conf t</b>
+             Enter configuration commands, one per line.  End with CNTL/Z.
+             Cat3750(config)#<b>ip arp inspection vlan 1</b>
+             <i>
+             <font color="#0000ff">!--- Enables dynamic ARP inspection on the VLAN.</font>
+             </i>
+             Cat3750(config)#<b>interface fastEthernet 1/0/3</b>
+             Cat3750(config-if)#<b>ip arp inspection trust</b>
+             <i>
+             <font color="#0000ff">!--- Configures the interface connected to the DHCP server as trusted.</font>
+             </i>
+             Cat3750#<b>show ip arp inspection vlan 1</b>
+             
+             Source Mac Validation      : Disabled
+             Destination Mac Validation : Disabled
+             IP Address Validation      : Disabled
+             
+              Vlan     Configuration    Operation   ACL Match          Static ACL
+              ----     -------------    ---------   ---------          ----------
+                 1     Enabled          Active
+             
+              Vlan     ACL Logging      DHCP Logging
+              ----     -----------      ------------
+                 1     Deny             Deny
+             <i>
+             <font color="#0000ff">!--- Verifies the dynamic ARP inspection configuration.</font>
+             </i>
+             Cat3750#</pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p></p>
+                <p>
+                  Consulte
+                  <a
+                    href="//www.cisco.com/en/US/docs/switches/lan/catalyst3750/software/release/12.2_25_see/configuration/guide/swdynarp.html"
+                    >Configuración de la Inspección ARP Dinámica</a
+                  >
+                  para obtener más información.
+                </p>
+                <h6><a name="ipsourceguard">IP Source Guard</a></h6>
+                <p>
+                  La protección de origen IP es una función de seguridad que
+                  filtra el tráfico basado en la base de datos de enlace de
+                  indagación DHCP y en los enlaces de origen IP configurados
+                  manualmente para restringir el tráfico IP en las interfaces de
+                  Capa 2 no enrutadas. Puede utilizar la protección de origen IP
+                  para evitar los ataques de tráfico causados cuando un host
+                  intenta utilizar la dirección IP de su vecino. La protección
+                  de origen de IP evita la suplantación de IP/MAC.
+                </p>
+                <p>
+                  Puede habilitar la protección de origen IP cuando la
+                  indagación DHCP está habilitada en una interfaz no confiable.
+                  Después de que la protección de origen de IP esté habilitada
+                  en una interfaz, el switch bloquea todo el tráfico IP recibido
+                  en la interfaz, excepto los paquetes DHCP permitidos por la
+                  indagación DHCP. Se aplica una ACL de puerto a la interfaz. La
+                  ACL de puerto permite solamente el tráfico IP con una
+                  dirección IP de origen en la tabla de enlace de origen IP y
+                  niega el resto del tráfico.
+                </p>
+                <p>
+                  La tabla de enlace de origen IP tiene vinculaciones aprendidas
+                  por la indagación DHCP o configuradas manualmente
+                  (vinculaciones de origen IP estáticas). Una entrada en esta
+                  tabla tiene una dirección IP, su dirección MAC asociada y su
+                  número VLAN asociado. El switch utiliza la tabla de enlace de
+                  origen IP solamente cuando la protección de origen IP está
+                  habilitada.
+                </p>
+                <p>
+                  Puede configurar la protección de origen IP con el filtrado de
+                  direcciones IP de origen o con el filtrado de direcciones IP y
+                  MAC de origen. Cuando la protección de origen de IP se
+                  habilita con esta opción, el tráfico IP se filtra en función
+                  de la dirección IP de origen. El switch reenvía el tráfico IP
+                  cuando la dirección IP de origen coincide con una entrada en
+                  la base de datos de enlace de snooping DHCP o con un enlace en
+                  la tabla de enlace de origen IP. Cuando la protección de
+                  origen de IP se habilita con esta opción, el tráfico IP se
+                  filtra en función de las direcciones IP y MAC de origen. El
+                  switch reenvía el tráfico solamente cuando las direcciones IP
+                  y MAC de origen coinciden con una entrada en la tabla de
+                  enlace de origen IP.
+                </p>
+                <p>
+                  <b>Nota:</b> La protección de origen IP se soporta solamente
+                  en los puertos de Capa 2, que incluye el acceso y los puertos
+                  trunk.
+                </p>
+                <p>
+                  Consulte
+                  <a
+                    href="//www.cisco.com/en/US/docs/switches/lan/catalyst3750/software/release/12.2_25_see/configuration/guide/swdhcp82.html#wp1256708"
+                    >Pautas de Configuración de IP Source Guard</a
+                  >
+                  para obtener instrucciones sobre cómo configurar IP Source
+                  Guard.
+                </p>
+                <p>
+                  Aquí, el protector de origen IP con filtrado IP de origen se
+                  configura en la interfaz FastEthernet 1/0/1 con el comando
+                  <b>ip verify source</b>. Cuando la protección de origen IP con
+                  el filtrado IP de origen está habilitada en una VLAN, la
+                  indagación DHCP debe estar habilitada en la VLAN de acceso a
+                  la que pertenece la interfaz. Ejecute el comando
+                  <b>show ip verify source</b> para verificar la configuración
+                  de IP source guard en el switch.
+                </p>
+                <table
+                  bgcolor="#FFFFFF"
+                  cellpadding="3"
+                  cellspacing="1"
+                  border="1"
+                  width="60%"
+                >
+                  <tbody>
+                    <tr>
+                      <th
+                        height=""
+                        width=""
+                        bgcolor="#CCCCFF"
+                        colspan="1"
+                        rowspan="1"
+                      >
+                        IP Source Guard
+                      </th>
+                    </tr>
+                    <tr>
+                      <td
+                        height=""
+                        width=""
+                        bgcolor="#FFFFFF"
+                        colspan="1"
+                        rowspan="1"
+                      >
+                        <pre>Cat3750#<b>conf t</b>
+             Enter configuration commands, one per line.  End with CNTL/Z.
+             Cat3750(config)#<b>ip dhcp snooping</b> 
+             Cat3750(config)#<b>ip dhcp snooping vlan 1</b>
+             <i>
+             <font color="#0000ff">!--- See the <a href="#dhcpsnoop">DHCP Snooping</a> section of this document for !--- DHCP snooping configuration information.</font>
+             </i>
+             Cat3750(config)#<b>interface fastEthernet 1/0/1</b>
+             Cat3750(config-if)#<b>ip verify source</b>
+             <i>
+             <font color="#0000ff">!--- Enables IP source guard with source IP filtering.</font>
+             </i>
+             Cat3750#<b>show ip verify source</b>
+             Interface  Filter-type  Filter-mode  IP-address       Mac-address        Vlan
+             ---------  -----------  -----------  ---------------  -----------------  -----
+             Fa1/0/1    ip           active       10.0.0.2                              1
+             <i>
+             <font color="#0000ff">!--- For VLAN 1, IP source guard with IP address filtering is configured !--- on the interface and a binding exists on the interface.</font>
+             </i>
+             Cat3750#</pre>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p></p>
+                <p>
+                  Refiérase a
+                  <a
+                    href="//www.cisco.com/en/US/docs/switches/lan/catalyst3750/software/release/12.2_25_see/configuration/guide/swdhcp82.html#wp1256657"
+                    title="En inglés"
+                    >Comprensión de IP Source Guard</a
+                  >
+                  para obtener más información.
+                </p>
+
+                <h2><a name="related">Información Relacionada</a></h2>
+                <ul>
+                  <li>
+                    <b>
+                      <a
+                        href="//www.cisco.com/en/US/products/hw/switches/ps700/products_tech_note09186a008013565f.shtml?referring_site=bodynav"
+                        >Cómo asegurar redes con una VLAN privada y listas de
+                        control de acceso de VLAN</a
+                      >
+                    </b>
+                  </li>
+                  <li>
+                    <b>
+                      <a
+                        href="//www.cisco.com/web/psa/products/tsd_products_support_general_information.html?c=268438038&amp;sc=278875285&amp;referring_site=bodynav"
+                        >Soporte de Producto de LAN</a
+                      >
+                    </b>
+                  </li>
+                  <li>
+                    <b>
+                      <a
+                        href="//www.cisco.com/web/psa/technologies/tsd_technology_support_technology_information.html?c=268435696&amp;referring_site=bodynav"
+                        >Soporte de Tecnología de LAN Switching</a
+                      >
+                    </b>
+                  </li>
+                  <li>
+                    <b>
+                      <a
+                        href="//www.cisco.com/cisco/web/support/index.html?referring_site=bodynav"
+                        >Soporte Técnico y Documentación - Cisco Systems</a
+                      >
+                    </b>
+                  </li>
+                </ul>
+                <p xmlns:cal="xalan://java.util.GregorianCalendar"></p>
+                <p xmlns:cal="xalan://java.util.GregorianCalendar"></p>
+                <p xmlns:cal="xalan://java.util.GregorianCalendar"></p>
+                <font xmlns:cal="xalan://java.util.GregorianCalendar" size="-1">
+                </font>
+              </div>
+
               https://www.cisco.com/c/es_mx/support/docs/switches/catalyst-3750-series-switches/72846-layer2-secftrs-catl3fixed.html
             </div>
           </article>
@@ -1466,94 +2746,136 @@ zone "localnet.net" IN {
               <h3 id="introduction" class="topic__title">2.7.3 Servidor Web</h3>
             </header>
             <div class="topic__content">
-              “El rol principal de un servidor web es almacenar y transmitir el
-              contenido solicitado de un sitio web al navegador del usuario.
-              <br />
-              Este proceso, para los internautas no dura más que un segundo, sin
-              embargo, a nivel del web server es una secuencia más complicada de
-              lo que parece.
-              <br />
-              Para cumplir con sus funciones el servidor deberá tener la
-              capacidad de estar siempre encendido para evitar interrumpir el
-              servicio que le ofrece a sus clientes. Si dicho servidor falla o
-              se apaga, los internautas tendrán problemas al ingresar al sitio
-              web.” (Ivan de Souza, 14 de junio del 2019)
+              <p>
+                “El rol principal de un servidor web es almacenar y transmitir
+                el contenido solicitado de un sitio web al navegador del
+                usuario.
+              </p>
+              <p>
+                Este proceso, para los internautas no dura más que un segundo,
+                sin embargo, a nivel del web server es una secuencia más
+                complicada de lo que parece.
+              </p>
+              <p>
+                Para cumplir con sus funciones el servidor deberá tener la
+                capacidad de estar siempre encendido para evitar interrumpir el
+                servicio que le ofrece a sus clientes. Si dicho servidor falla o
+                se apaga, los internautas tendrán problemas al ingresar al sitio
+                web.” (Ivan de Souza, 14 de junio del 2019)
+              </p>
               <br />
               <h5>TIPOS DE SERVIDORES WEB</h5>
+              <p>
+                La empresa de Cloud Center Andalucía nos menciona los tipos de
+                servidores web, los cuales son:
+              </p>
               <br />
-              La empresa de Cloud Center Andalucía nos menciona los tipos de
-              servidores web, los cuales son:
+              <ul>
+                <li>
+                  <h5>APACHE</h5>
+                  <p>
+                    Es el servidor web de referencia, el más popular y
+                    extendido. Lleva 25 años siendo el líder indiscutible, a
+                    pesar de que nuevos competidores le hayan robado cuota de
+                    mercado. Su principal ventaja es que es gratuito y de código
+                    abierto, por lo que se puede instalar en casi todos los
+                    sistemas operativos. Su desfasada arquitectura frente a
+                    otros tipos de servidor es su principal punto débil.
+                  </p>
+                </li>
+                <br />
+                <li>
+                  <h5>NGINX</h5>
+                  <p>
+                    También open source y gratuito (aunque ofrece una versión
+                    comercial), destaca por su alto rendimiento. Utiliza un
+                    proxy inverso, que protege la identidad de los servidores y
+                    mejora la seguridad de la información que acogen. Su
+                    configuración es sencilla, pero también muy personalizable,
+                    consumiendo pocos recursos. Su defecto: no se puede integrar
+                    con PHP de forma nativa.
+                  </p>
+                </li>
+                <br />
+                <li>
+                  <h5>MICROSOFT IIS</h5>
+                  <p>
+                    Es un servidor web de Microsoft, creado específicamente para
+                    su sistema operativo Windows. De ahí su principal ventaja:
+                    es 100% compatible con todas las tecnologías de la
+                    multinacional estadounidense. A su vez, supone su mayor
+                    inconveniente: la integración de lenguajes y tecnologías es
+                    limitada con respecto a otras opciones.
+                  </p>
+                </li>
+                <br />
+                <li>
+                  <h5>GOOGLE GWS</h5>
+                  <p>
+                    Se trata de un servidor de uso exclusivo por parte de
+                    Google, lo que implica que no puede ser utilizado por
+                    particulares o empresas. ¿Por qué lo incluimos entonces en
+                    este listado? Porque es uno de los más utilizados hoy en día
+                    (aunque como usuarios no lo sepamos). Es el encargado de
+                    sostener toda la infraestructura del gigante de internet,
+                    por lo que proporciona servicio simultáneo a millones de
+                    usuarios.
+                  </p>
+                </li>
+                <br />
+                <li>
+                  <h5>LITE SPEED</h5>
+                  <p>
+                    Un servidor web muy robusto y eficiente. Su capacidad para
+                    soportar grandes cargas de trabajo es su punto fuerte frente
+                    a otras alternativas. Su arquitectura, basada en un sistema
+                    de eventos, evita la duplicidad de procesos que sí se genera
+                    en otros servidores. El principal inconveniente es que
+                    siendo un software propietario, obliga a pasar por caja para
+                    adquirir la licencia de uso.
+                  </p>
+                </li>
+                <br />
+                <li>
+                  <h5>LIGHTTPD</h5>
+                  <p>
+                    Fue una de las primeras alternativas a Apache, solventando
+                    sus problemas de gestión de grandes cargas de trabajo. Por
+                    ello, su diseño busca ante todo la rapidez operativa, algo
+                    que consigue consumiendo pocos recursos. Esto lo convierte
+                    en una opción idónea para servidores VPS de bajos recursos.
+                    Sin embargo, carece de versión oficial para sistemas
+                    operativos Windows, lo que limita su aplicación.
+                  </p>
+                </li>
+                <br />
+                <li>
+                  <h5>SUN JAVA SYSTEM WEB SERVER</h5>
+                  <p>
+                    Creado para gestionar grandes cargas de trabajo con
+                    tecnologías específicas como Java, Phyton o Ruby on Rails.
+                    Por este motivo, su uso se ciñe a entornos corporativos,
+                    estando especialmente pensado como herramienta de utilidad
+                    para programadores.”
+                  </p>
+                </li>
+              </ul>
               <br />
-              <h5>APACHE</h5>
-              Es el servidor web de referencia, el más popular y extendido.
-              Lleva 25 años siendo el líder indiscutible, a pesar de que nuevos
-              competidores le hayan robado cuota de mercado. Su principal
-              ventaja es que es gratuito y de código abierto, por lo que se
-              puede instalar en casi todos los sistemas operativos. Su desfasada
-              arquitectura frente a otros tipos de servidor es su principal
-              punto débil.
-              <br />
-              <h5>NGINX</h5>
-              También open source y gratuito (aunque ofrece una versión
-              comercial), destaca por su alto rendimiento. Utiliza un proxy
-              inverso, que protege la identidad de los servidores y mejora la
-              seguridad de la información que acogen. Su configuración es
-              sencilla, pero también muy personalizable, consumiendo pocos
-              recursos. Su defecto: no se puede integrar con PHP de forma
-              nativa.
-              <br />
-              <h5>MICROSOFT IIS</h5>
-              Es un servidor web de Microsoft, creado específicamente para su
-              sistema operativo Windows. De ahí su principal ventaja: es 100%
-              compatible con todas las tecnologías de la multinacional
-              estadounidense. A su vez, supone su mayor inconveniente: la
-              integración de lenguajes y tecnologías es limitada con respecto a
-              otras opciones.
-              <br />
-              ¿Qué es un servidor web? Funcionamiento y tipos
-              <br />
-              <h5>GOOGLE GWS</h5>
-              Se trata de un servidor de uso exclusivo por parte de Google, lo
-              que implica que no puede ser utilizado por particulares o
-              empresas. ¿Por qué lo incluimos entonces en este listado? Porque
-              es uno de los más utilizados hoy en día (aunque como usuarios no
-              lo sepamos). Es el encargado de sostener toda la infraestructura
-              del gigante de internet, por lo que proporciona servicio
-              simultáneo a millones de usuarios.
-              <br />
-              <h5>LITE SPEED</h5>
-              Un servidor web muy robusto y eficiente. Su capacidad para
-              soportar grandes cargas de trabajo es su punto fuerte frente a
-              otras alternativas. Su arquitectura, basada en un sistema de
-              eventos, evita la duplicidad de procesos que sí se genera en otros
-              servidores. El principal inconveniente es que siendo un software
-              propietario, obliga a pasar por caja para adquirir la licencia de
-              uso.
-              <br />
-              <h5>LIGHTTPD</h5>
-              Fue una de las primeras alternativas a Apache, solventando sus
-              problemas de gestión de grandes cargas de trabajo. Por ello, su
-              diseño busca ante todo la rapidez operativa, algo que consigue
-              consumiendo pocos recursos. Esto lo convierte en una opción idónea
-              para servidores VPS de bajos recursos. Sin embargo, carece de
-              versión oficial para sistemas operativos Windows, lo que limita su
-              aplicación.
-              <br />
-              <h5>SUN JAVA SYSTEM WEB SERVER</h5>
-              Creado para gestionar grandes cargas de trabajo con tecnologías
-              específicas como Java, Phyton o Ruby on Rails. Por este motivo, su
-              uso se ciñe a entornos corporativos, estando especialmente pensado
-              como herramienta de utilidad para programadores.”
-              <br />
-
-              Ivan de Souza, 14 de junio del 2019, ¿Qué es un servidor web y
-              para qué sirve en Internet?, rockcontent, recuperado de:
-              https://rockcontent.com/es/blog/que-es-un-servidor/
-              <br />
-              Autor Desconocido, S.F., Qué es un servidor web: funcionamiento y
-              tipos, Center Cloud Andalucia, recuperado de:
-              https://www.cloudcenterandalucia.es/blog/que-es-un-servidor-web-funcionamiento-y-tipos/
-              <br />
+              <p>
+                Ivan de Souza, 14 de junio del 2019, ¿Qué es un servidor web y
+                para qué sirve en Internet?, rockcontent, recuperado de:
+                <a href="https://rockcontent.com/es/blog/que-es-un-servidor/"
+                  >https://rockcontent.com/es/blog/que-es-un-servidor/</a
+                >
+              </p>
+              <p>
+                Autor Desconocido, S.F., Qué es un servidor web: funcionamiento
+                y tipos, Center Cloud Andalucia, recuperado de:
+                <a
+                  href="https://www.cloudcenterandalucia.es/blog/que-es-un-servidor-web-funcionamiento-y-tipos/"
+                  >https://www.cloudcenterandalucia.es/blog/que-es-un-servidor-web-funcionamiento-y-tipos/</a
+                >
+              </p>
             </div>
           </article>
 
@@ -1562,40 +2884,48 @@ zone "localnet.net" IN {
               <h3 id="introduction" class="topic__title">2.7.4 Servidor FTP</h3>
             </header>
             <div class="topic__content">
-              La empresa de Dropbox tiene una definición sobre el servidor ftp
-              la cual es la siguiente: “Los servidores de FTP son aplicaciones
-              de software que posibilitan la transferencia de archivos de un
-              dispositivo (es decir, una computadora con Mac, Windows o Linux) a
-              otro. Puede parecer complicado, pero los servidores del FTP son
-              simplemente computadoras que tienen una dirección del FTP y se
-              dedican a recibir conexiones del FTP. Realizan dos simples tareas:
-              “obtener” y “poner”. Puedes obtener archivos del servidor del FTP
-              o “poner” archivos en el servidor del FTP. Cuando cargar archivos,
-              se transfieren de tu dispositivo personal al servidor. De forma
-              alternativa, cuando descargas archivos, se transfieren del
-              servidor a tu dispositivo personal. Por lo tanto, en el nivel más
-              básico, los servidores del FTP son el punto medio entre el
-              destinatario y el remitente.”
+              <p>
+                La empresa de Dropbox tiene una definición sobre el servidor FTP
+                la cual es la siguiente: “Los servidores de FTP son aplicaciones
+                de software que posibilitan la transferencia de archivos de un
+                dispositivo (es decir, una computadora con Mac, Windows o Linux)
+                a otro. Puede parecer complicado, pero los servidores del FTP
+                son simplemente computadoras que tienen una dirección del FTP y
+                se dedican a recibir conexiones del FTP. Realizan dos simples
+                tareas: “obtener” y “poner”. Puedes obtener archivos del
+                servidor del FTP o “poner” archivos en el servidor del FTP.
+                Cuando cargar archivos, se transfieren de tu dispositivo
+                personal al servidor. De forma alternativa, cuando descargas
+                archivos, se transfieren del servidor a tu dispositivo personal.
+                Por lo tanto, en el nivel más básico, los servidores del FTP son
+                el punto medio entre el destinatario y el remitente.”
+              </p>
               <br />
               <h5>CARACTERÍSTICAS DEL FTP</h5>
-              Si estás interesado en utilizar este recurso, además de conocer
-              qué es FTP y sus tipos, es preciso que conozcas algunas de sus
-              características. Entre sus particularidades principales se
-              encuentran las siguientes:
               <br />
-              Consta de una estructura de carpetas y subcarpetas en donde se
-              guarda la información. Sirve en cualquier sistema operativo, esto
-              lo convierte en un protocolo multiplataforma. No cuenta con un
-              sistema de seguridad, lo que implica que los archivos guardados en
-              el servidor se encuentran expuestos. Debido a esto, hay quienes
-              recurren al FTPS o al SFTP. Estos protocolos funcionan igual que
-              el FTP, la diferencia radica en que toda la información es
-              encriptada con la finalidad de protegerla de posibles amenazas
-              externas. Una vez conoces qué es FTP y sus principales
-              características, ya tienes las herramientas necesarias para
-              seleccionar un tipo que se acople a tus necesidades. Además de las
-              medidas de seguridad informática para proteger la información que
-              deseas cargar en el servidor. “ (Yhorman Sierra, S.F.)
+              <p>
+                Si estás interesado en utilizar este recurso, además de conocer
+                qué es FTP y sus tipos, es preciso que conozcas algunas de sus
+                características. Entre sus particularidades principales se
+                encuentran las siguientes:
+              </p>
+              <br />
+              <p>
+                Consta de una estructura de carpetas y subcarpetas en donde se
+                guarda la información. Sirve en cualquier sistema operativo,
+                esto lo convierte en un protocolo multiplataforma. No cuenta con
+                un sistema de seguridad, lo que implica que los archivos
+                guardados en el servidor se encuentran expuestos. Debido a esto,
+                hay quienes recurren al FTPS o al SFTP. Estos protocolos
+                funcionan igual que el FTP, la diferencia radica en que toda la
+                información es encriptada con la finalidad de protegerla de
+                posibles amenazas externas. Una vez conoces qué es FTP y sus
+                principales características, ya tienes las herramientas
+                necesarias para seleccionar un tipo que se acople a tus
+                necesidades. Además de las medidas de seguridad informática para
+                proteger la información que deseas cargar en el servidor.”
+                (Yhorman Sierra, S.F.)
+              </p>
               <br />
               <h5>TIPOS DE SERVIDORES FTP</h5>
               <br />
@@ -1606,9 +2936,9 @@ zone "localnet.net" IN {
               <br />
               <ul>
                 <li>
-                  FTP autenticado Este es el método tradicional de conectar a un
-                  servidor FTP, es decir, se requiere de un usuario y contraseña
-                  para ingresar al servidor.
+                  FTP autenticado: Este es el método tradicional de conectar a
+                  un servidor FTP, es decir, se requiere de un usuario y
+                  contraseña para ingresar al servidor.
                 </li>
                 <br />
                 <li>
@@ -1622,48 +2952,53 @@ zone "localnet.net" IN {
                 </li>
                 <br />
                 <li>
-                  FTP anónimo o público Como vimos anteriormente, la forma
+                  FTP anónimo o público: Como vimos anteriormente, la forma
                   normal de funcionar de un servidor FTP es mediante una
                   autenticación que requiere usuario y contraseña para poder
-                  ingresar.
+                  ingresar. Existen otros servidores FTP sin embargo que
+                  permiten el acceso anónimo y público a sus archivos. Como
+                  mucho, si el servidor FTP pide un acceso será el usuario
+                  «anonimo» o «anonymous», pero generalmente no requieren
+                  contraseña. Un servidor FTP anónimo entonces es el que no
+                  requiere usuario o contraseña para poder ingresar y manipular
+                  los archivos. Aunque conviene mencionar que si tienen permisos
+                  especiales sobre las cosas que se pueden hacer, generalmente
+                  se limitan de alguna forma para que nadie haga más de lo que
+                  debe.
+                </li>
+                <br />
+                <li>
+                  FTP embebido: Este tipo de FTP no es el más común, y se trata
+                  de uno que está incrustado en las diferentes páginas webs de
+                  Internet. Es un tipo de FTP anónimo que permite conectarse de
+                  forma automática a través del navegador web con el fin de
+                  realizar descargas hacia el cliente FTP (tu equipo).” (Esteban
+                  Borges, 2019)
                 </li>
               </ul>
-              <br />
-              Existen otros servidores FTP sin embargo que permiten el acceso
-              anónimo y público a sus archivos. Como mucho, si el servidor FTP
-              pide un acceso será el usuario «anonimo» o «anonymous», pero
-              generalmente no requieren contraseña.
-              <br />
-              Un servidor FTP anónimo entonces es el que no requiere usuario o
-              contraseña para poder ingresar y manipular los archivos. Aunque
-              conviene mencionar que si tienen permisos especiales sobre las
-              cosas que se pueden hacer, generalmente se limitan de alguna forma
-              para que nadie haga más de lo que debe.
-              <br />
-              La información ubicada en servidores FTP anónimos tampoco suele
-              ser muy crítica, ya que está expuesto abiertamente a Internet.
-              <br />
-              FTP embebido Este tipo de FTP no es el más común, y se trata de
-              uno que está incrustado en las diferentes páginas webs de
-              Internet.
-              <br />
-              Es un tipo de FTP anónimo que permite conectarse de forma
-              automática a través del navegador web con el fin de realizar
-              descargas hacia el cliente FTP (tu equipo).” (Esteban Borges,
-              2019)
-              <br />
-
-              Dropbox, S.F., ¿Qué es el FTP?, Recuperado de :
-              https://experience.dropbox.com/es-la/resources/what-is-ftp
-              <br />
-              Yhorman Sierra, S.F., ¿Qué es FTP y cómo usarlo? – tipos,
-              características, funciones y usos, mediacloud, recuperado de:
-              https://blog.mdcloud.es/que-es-ftp-tipos-caracteristicas-funciones-y-usos/
-              <br />
-              Esteban Borges, 12 de Febrero del 2019, Servidor FTP,
-              infranetworking, recuperado de:
-              https://blog.infranetworking.com/servidor-ftp/#Tipos_de_Servidor_FTP
-              <br />
+              <p>
+                Dropbox, S.F., ¿Qué es el FTP?, Recuperado de:
+                <a
+                  href="https://experience.dropbox.com/es-la/resources/what-is-ftp"
+                  >https://experience.dropbox.com/es-la/resources/what-is-ftp</a
+                >
+              </p>
+              <p>
+                Yhorman Sierra, S.F., ¿Qué es FTP y cómo usarlo? – tipos,
+                características, funciones y usos, mediacloud, recuperado de:
+                <a
+                  href="https://blog.mdcloud.es/que-es-ftp-tipos-caracteristicas-funciones-y-usos/"
+                  >https://blog.mdcloud.es/que-es-ftp-tipos-caracteristicas-funciones-y-usos/</a
+                >
+              </p>
+              <p>
+                Esteban Borges, 12 de Febrero del 2019, Servidor FTP,
+                infranetworking, recuperado de:
+                <a
+                  href="https://blog.infranetworking.com/servidor-ftp/#Tipos_de_Servidor_FTP"
+                  >https://blog.infranetworking.com/servidor-ftp/#Tipos_de_Servidor_FTP</a
+                >
+              </p>
             </div>
           </article>
 
@@ -1674,109 +3009,157 @@ zone "localnet.net" IN {
               </h3>
             </header>
             <div class="topic__content">
-              “El servicio de correo electrónico es uno de los métodos de
-              comunicación más usados del mundo. Lo usamos en nuestras
-              computadoras de escritorio, notebooks, móviles, tablets e incluso
-              desde nuestros relojes inteligentes.
+              <p>
+                El servicio de correo electrónico es uno de los métodos de
+                comunicación más usados del mundo. Lo usamos en nuestras
+                computadoras de escritorio, notebooks, móviles, tablets e
+                incluso desde nuestros relojes inteligentes.
+              </p>
               <br />
-              Gracias a él podemos comunicarnos con personas de todo el mundo,
-              en cuestión de segundos. Es sin duda alguna una de las mejores
-              herramientas creadas que existen en Internet. A pesar de usarlo
-              tanto, muchos desconocen el funcionamiento detrás de un email.”
-              (Álvaro De León, 2019)
+              <p>
+                Gracias a él podemos comunicarnos con personas de todo el mundo,
+                en cuestión de segundos. Es sin duda alguna una de las mejores
+                herramientas creadas que existen en Internet. A pesar de usarlo
+                tanto, muchos desconocen el funcionamiento detrás de un email.”
+                (Álvaro De León, 2019)
+              </p>
+              <br />
+              <p>
+                Álvaro De León, 12 de Marzo del 2019, Servidor de Correo: ¿Qué
+                es? ¿Para qué sirve?, infranetworking, recuperado de:
+                <a href="https://blog.infranetworking.com/servidor-de-correo/"
+                  >https://blog.infranetworking.com/servidor-de-correo/</a
+                >
+              </p>
+              <br />
+              <h4>CARACTERÍSTICAS DEL SERVIDOR DE CORREO</h4>
+              <p>
+                El servidor de correo electrónico es el sistema que gestiona y
+                almacena los correos electrónicos. Aquí algunas de sus
+                principales características:
+              </p>
+              <br />
+              <ul>
+                <li>
+                  <b>Protocolos de envío y recepción:</b> Como SMTP para envío y
+                  POP3 o IMAP para recepción.
+                </li>
+                <br />
+                <li>
+                  <b>Autenticación:</b> Garantiza que solo los usuarios
+                  autorizados accedan al servidor.
+                </li>
+                <br />
+                <li>
+                  <b>Alta disponibilidad:</b> Garantiza un tiempo de actividad
+                  cercano al 100%, esencial para la continuidad del negocio.
+                </li>
+                <br />
+                <li>
+                  <b>Cifrado:</b> Protege la privacidad y seguridad de los datos
+                  transmitidos y almacenados.
+                </li>
+                <br />
+                <li>
+                  <b>Filtrado de spam:</b> Herramientas automatizadas que
+                  detectan y bloquean correos no deseados.
+                </li>
+                <br />
+                <li>
+                  <b>Respuestas automáticas:</b> Permite configurar respuestas
+                  automáticas para informar sobre ausencias o proporcionar
+                  información adicional.
+                </li>
+                <br />
+                <li>
+                  <b>Redireccionamiento:</b> Los correos pueden ser redirigidos
+                  automáticamente a otras direcciones según ciertas reglas.
+                </li>
+                <br />
+                <li>
+                  <b>Listas de distribución:</b> Facilitan el envío masivo a
+                  grupos específicos de usuarios.
+                </li>
+                <br />
+                <li>
+                  <b>Gestión de recursos:</b> Gestiona las demandas de recursos
+                  según la carga de tráfico, asegurando un rendimiento óptimo.
+                </li>
+                <br />
+                <li>
+                  <b>Mantenimiento y actualizaciones:</b> Los servidores son
+                  mantenidos y actualizados regularmente para garantizar su
+                  eficiencia y seguridad.” (Aguirre Gabriela, 2023)
+                </li>
+              </ul>
+              <br />
+              <p>
+                Gabriela María Prieto Aguirre, 29 de Septiembre del 2023, Qué es
+                un servidor de correo electrónico y qué necesita para ser apto
+                para empresas, GoDaddy, recuperado de:
+                <a
+                  href="https://mx.godaddy.com/blog/10-caracteristicas-de-un-servidor-de-correo-electronico-apto-para-empresas/"
+                  >https://mx.godaddy.com/blog/10-caracteristicas-de-un-servidor-de-correo-electronico-apto-para-empresas/</a
+                >
+              </p>
               <br />
 
-              Álvaro De León, 12 de Marzo del 2019, Servidor de Correo: ¿Qué es?
-              ¿Para qué sirve?, infranetworking, recuperado de:
-              https://blog.infranetworking.com/servidor-de-correo/
-              CARACTERÍSTICAS DEL SERVIDOR DE CORREO
+              <h4>VENTAJAS Y DESVENTAJAS DEL SERVIDOR DE CORREO</h4>
               <br />
-              “El servidor de correo electrónico es el sistema que gestiona y
-              almacena los correos electrónicos. Aquí algunas de sus principales
-              características:
+              <p>
+                La empresa de espacio.net.mx nos menciona las siguientes
+                ventajas y desventajas de un servidor de correos:
+              </p>
               <br />
-              Protocolos de envío y recepción: Como SMTP para envío y POP3 o
-              IMAP para recepción.
+              <p>
+                Si bien existen muchas opciones de servicios de correo gratuito,
+                incluso para empresas, las desventajas de estos son claras. Una
+                de las más importantes es la posible inseguridad y restricción
+                de su funcionamiento. Un servidor de correo privado ofrece
+                beneficios puntuales:
+              </p>
               <br />
-              Autenticación: Garantiza que solo los usuarios autorizados accedan
-              al servidor.
-              <br />
-              Alta disponibilidad: Garantiza un tiempo de actividad cercano al
-              100%, esencial para la continuidad del negocio.
-              <br />
-              Cifrado: Protege la privacidad y seguridad de los datos
-              transmitidos y almacenados.
-              <br />
-              Filtrado de spam: Herramientas automatizadas que detectan y
-              bloquean correos no deseados.
-              <br />
-              Respuestas automáticas: Permite configurar respuestas automáticas
-              para informar sobre ausencias o proporcionar información
-              adicional.
-              <br />
-              Redireccionamiento: Los correos pueden ser redirigidos
-              automáticamente a otras direcciones según ciertas reglas.
-              <br />
-              Listas de distribución: Facilitan el envío masivo a grupos
-              específicos de usuarios.
-              <br />
-              Gestión de recursos: Gestiona las demandas de recursos según la
-              carga de tráfico, asegurando un rendimiento óptimo.
-              <br />
-              Mantenimiento y actualizaciones: Los servidores son mantenidos y
-              actualizados regularmente para garantizar su eficiencia y
-              seguridad.” (Aguirre Gabriela, 2023)
-              <br />
-              Gabriela María Prieto Aguirre, 29 de Septiembre del 2023, Qué es
-              un servidor de correo electrónico y qué necesita para ser apto
-              para empresas, GoDaddy, recuperado de:
-              https://mx.godaddy.com/blog/10-caracteristicas-de-un-servidor-de-correo-electronico-apto-para-empresas/
-              <br />
-
-              VENTAJAS Y DESVENTAJAS DEL SERVIDOR DE CORREO
-              <br />
-              La empresa de espacio.net.mx nos menciona las siguientes ventajas
-              y desventajas de un servidor de correos “
-              <br />
-              Si bien existen muchas opciones de servicios de correo gratuito,
-              incluso para empresas, las desventajas de estos son claras. Una de
-              las más importantes es la posible inseguridad y restricción de su
-              funcionamiento. Un servidor de correo privado ofrece beneficios
-              puntuales:
-              <br />
-              Presencia de marca
-              <br />
-              Es posible integrar el nombre de tu dominio web al correo
-              electrónico. Esto provee una excelente presencia de marca y
-              profesionalismo. Tener esta clase de solidez de marca, hace que
-              los usuarios se sientan más seguros. Además, es posible gestionar
-              diferentes cuentas de correo para las diversas áreas del negocio.
-              <br />
-              Escalabilidad
-              <br />
-              Los sitios web cambian y se actualizan constantemente. Contar con
-              un servidor de correo permite asegurar una buena gestión y
-              expansión de funciones.
-              <br />
-              Seguridad
-              <br />
-              Sin duda uno de los aspectos más atractivos, pues es posible
-              encriptar de forma segura al manejar información delicada.
-              <br />
-              Funcionamiento estable
-              <br />
-              Al contar con un servidor dedicado se obtiene mayor estabilidad en
-              el servicio de correo.
-              <br />
-              Adaptabilidad
-              <br />
-              Es posible integrar el correo a otras herramientas que se utilicen
-              en la empresa.”
-              <br />
-              Autor Desconocido, S.F., ¿Cómo funciona un servidor de correo
-              electrónico?, espacios.net.mx, recuperado de:
-              https://www.espacios.net.mx/funcionamiento-servidor-correo/
-              <br />
+              <ul>
+                <li>
+                  <b>Presencia de marca:</b> Es posible integrar el nombre de tu
+                  dominio web al correo electrónico. Esto provee una excelente
+                  presencia de marca y profesionalismo. Tener esta clase de
+                  solidez de marca, hace que los usuarios se sientan más
+                  seguros. Además, es posible gestionar diferentes cuentas de
+                  correo para las diversas áreas del negocio.
+                </li>
+                <br />
+                <li>
+                  <b>Escalabilidad:</b> Los sitios web cambian y se actualizan
+                  constantemente. Contar con un servidor de correo permite
+                  asegurar una buena gestión y expansión de funciones.
+                </li>
+                <br />
+                <li>
+                  <b>Seguridad:</b> Sin duda uno de los aspectos más atractivos,
+                  pues es posible encriptar de forma segura al manejar
+                  información delicada.
+                </li>
+                <br />
+                <li>
+                  <b>Funcionamiento estable:</b> Al contar con un servidor
+                  dedicado se obtiene mayor estabilidad en el servicio de
+                  correo.
+                </li>
+                <br />
+                <li>
+                  <b>Adaptabilidad:</b> Es posible integrar el correo a otras
+                  herramientas que se utilicen en la empresa.
+                </li>
+              </ul>
+              <p>
+                Autor Desconocido, S.F., ¿Cómo funciona un servidor de correo
+                electrónico?, espacios.net.mx, recuperado de:
+                <a
+                  href="https://www.espacios.net.mx/funcionamiento-servidor-correo/"
+                  >https://www.espacios.net.mx/funcionamiento-servidor-correo/</a
+                >
+              </p>
             </div>
           </article>
 
@@ -1787,74 +3170,100 @@ zone "localnet.net" IN {
               </h3>
             </header>
             <div class="topic__content">
-              “Internet Relay Chat, más conocido como IRC o simplemente Chat, es
-              un servicio de mensajería creado por el finés Jarkko Oikarinen,
-              que tuvo sus inicios en el año 1988 y que hoy cumple 30 años.
+              <p>
+                Internet Relay Chat, más conocido como IRC o simplemente Chat,
+                es un servicio de mensajería creado por el finés Jarkko
+                Oikarinen, que tuvo sus inicios en el año 1988 y que hoy cumple
+                30 años.
+              </p>
               <br />
-              Esta herramienta permite la comunicación inmediata a través de
-              Internet entre dos o más personas en formato textual en tiempo
-              real. Actualmente, su creador trabaja en Google, formando parte
-              del equipo que trabaja en Google Hangouts.
+              <p>
+                Esta herramienta permite la comunicación inmediata a través de
+                Internet entre dos o más personas en formato textual en tiempo
+                real. Actualmente, su creador trabaja en Google, formando parte
+                del equipo que trabaja en Google Hangouts.
+              </p>
               <br />
-
-              IRC permitía ofrecer un servicio de comunicación a tiempo real a
-              través de Internet, ya fuese en canales que permitían la
-              interacción entre varios usuarios, o bien mediante conversaciones
-              privadas entre dos usuarios con el extra añadido de poder
-              intercambiar archivos y enviarlos a otros usuarios. El protocolo
-              estaba basado en texto plano y las acciones a realizar se enviaban
-              en forma de comandos de texto.” (Borja García, 2018)
+              <p>
+                IRC permitía ofrecer un servicio de comunicación a tiempo real a
+                través de Internet, ya fuese en canales que permitían la
+                interacción entre varios usuarios, o bien mediante
+                conversaciones privadas entre dos usuarios con el extra añadido
+                de poder intercambiar archivos y enviarlos a otros usuarios. El
+                protocolo estaba basado en texto plano y las acciones a realizar
+                se enviaban en forma de comandos de texto.” (Borja García, 2018)
+              </p>
               <br />
-              CARACTERISTICAS DEL IRC
+              <h4>CARACTERISTICAS DEL IRC</h4>
               <br />
-              La comunicación a través del IRC posee características
-              “especiales” que la distinguen de la comunicación cara a cara, ya
-              que a través de la misma se crea una muy rápida intimidad entre
-              los interlocutores, lo que puede ser en muchos casos algo positivo
-              y agradable, como forma de fomentar nuevas y sanas relaciones
-              sociales. En ocasiones esta rápida intimidad lograda a través de
-              este medio puede convertirse en motivo de relaciones frustrantes,
-              al no ser las personas con las que interactuamos, tal y como las
-              imaginábamos a partir de los datos aportados por ellas en nuestras
-              conversaciones. Lo anterior pudiera deberse a varias razones:
+              <p>
+                La comunicación a través del IRC posee características
+                “especiales” que la distinguen de la comunicación cara a cara,
+                ya que a través de la misma se crea una muy rápida intimidad
+                entre los interlocutores, lo que puede ser en muchos casos algo
+                positivo y agradable, como forma de fomentar nuevas y sanas
+                relaciones sociales. En ocasiones esta rápida intimidad lograda
+                a través de este medio puede convertirse en motivo de relaciones
+                frustrantes, al no ser las personas con las que interactuamos,
+                tal y como las imaginábamos a partir de los datos aportados por
+                ellas en nuestras conversaciones. Lo anterior pudiera deberse a
+                varias razones:
+              </p>
               <br />
-              En primer lugar, en la comunicación cara a cara la información que
-              nuestro interlocutor nos ofrece verbalmente se complementa con la
-              información que nos revela extraverbalmente (gestos, posturas,
-              forma de vestir, apariencia física, etc). De esta manera vamos
-              conformando una imagen total de la otra persona. En el IRC nos
-              tenemos que guiar solamente por el texto que leemos, lo cual hace
-              que le aportemos mucho de nuestra imaginación a la representación
-              mental que sobre esa persona nos hacemos. Y por supuesto, en
-              muchos casos lo que le aportamos tiene que ver con nuestros gustos
-              y deseos. Es cierto que la forma de escribir un determinado texto
-              nos ofrece también información que no se encuentra explícita, pero
-              ésta no llega nunca a suplir la aportada por la imagen real
-              (total) del interlocutor.
+              <ul>
+                <li>
+                  En primer lugar, en la comunicación cara a cara la información
+                  que nuestro interlocutor nos ofrece verbalmente se complementa
+                  con la información que nos revela extraverbalmente (gestos,
+                  posturas, forma de vestir, apariencia física, etc). De esta
+                  manera vamos conformando una imagen total de la otra persona.
+                  En el IRC nos tenemos que guiar solamente por el texto que
+                  leemos, lo cual hace que le aportemos mucho de nuestra
+                  imaginación a la representación mental que sobre esa persona
+                  nos hacemos. Y por supuesto, en muchos casos lo que le
+                  aportamos tiene que ver con nuestros gustos y deseos. Es
+                  cierto que la forma de escribir un determinado texto nos
+                  ofrece también información que no se encuentra explícita, pero
+                  ésta no llega nunca a suplir la aportada por la imagen real
+                  (total) del interlocutor.
+                </li>
+                <br />
+                <li>
+                  Muchas personas utilizan esta forma de comunicación sólo para
+                  buscar compañía y conversación. Algunos lo hacen de forma
+                  mesurada y con fines sanos, a otros no siempre los mueven
+                  motivos loables.
+                </li>
+                <br />
+                <li>
+                  Los usuarios de los servicios de IRC que tienen fines
+                  científicos y académicos asisten a los mismos en busca de
+                  información, confrontación y la posibilidad de investigar y
+                  trabajar en equipos. Estos objetivos no impiden que en estos
+                  servicios, las personas logren establecer relaciones sociales
+                  y amistades que propicien su crecimiento como seres humanos.
+                  La consolidación de estas relaciones favorece el desarrollo de
+                  las actividades propuestas, pues llega un momento en que a
+                  estas personas no sólo las une un interés científico común,
+                  sino también, los afectos.
+                </li>
+              </ul>
               <br />
-              Muchas personas utilizan esta forma de comunicación sólo para
-              buscar compañía y conversación. Algunos lo hacen de forma mesurada
-              y con fines sanos, a otros no siempre los mueven motivos loables.
-              <br />
-              Los usuarios de los servicios de IRC que tienen fines científicos
-              y académicos asisten a los mismos en busca de información,
-              confrontación y la posibilidad de investigar y trabajar en
-              equipos. Estos objetivos no impiden que en estos servicios, las
-              personas logren establecer relaciones sociales y amistades que
-              propicien su crecimiento como seres humanos. La consolidación de
-              estas relaciones favorece el desarrollo de las actividades
-              propuestas, pues llega un momento en que a estas personas no sólo
-              las une un interés científico común, sino también, los afectos.
-              (Abreu María, Ester Miranda, Elsa Regalado, S.F.)
-              <br />
-
-              Borja García, 2018, 30 años desde Internet Relay Chat, el primer
-              servicio de mensajería instantánea, Blogthinkbig.com, recuperado
-              de: https://blogthinkbig.com/internet-relay-chat/
-              <br />
-              Abreu María Teresa, Regalado Miranda Ester, Regalado Miranda Elsa,
-              S.F., Internet Relay Chat (IRC), cencomed, recuperado de:
-              http://www.cencomed.sld.cu/node/38
+              <p>
+                Borja García, 2018, 30 años desde Internet Relay Chat, el primer
+                servicio de mensajería instantánea, Blogthinkbig.com, recuperado
+                de:
+                <a href="https://blogthinkbig.com/internet-relay-chat/"
+                  >https://blogthinkbig.com/internet-relay-chat/</a
+                >
+              </p>
+              <p>
+                Abreu María Teresa, Regalado Miranda Ester, Regalado Miranda
+                Elsa, S.F., Internet Relay Chat (IRC), cencomed, recuperado de:
+                <a href="http://www.cencomed.sld.cu/node/38"
+                  >http://www.cencomed.sld.cu/node/38</a
+                >
+              </p>
             </div>
           </article>
         </section>
@@ -1883,6 +3292,42 @@ zone "localnet.net" IN {
             conmutacion LAN - Cisco III - Instituto Consorcio Clavijero.
             (s. f.).
             https://cursos.clavijero.edu.mx/cursos/069_cIII/modulo1/contenidos/tema1.1.10.html#:~:text=el%20puerto%20correcto-,Un%20switch%20de%20almacenamiento%20y%20env%C3%ADo%20recibe%20toda%20la%20trama,trama%20por%20el%20puerto%20correcto.
+          </li>
+
+          <li>
+            Dropbox, S.F., ¿Qué es el FTP?, Recuperado de :
+            https://experience.dropbox.com/es-la/resources/what-is-ftp
+          </li>
+          <li>
+            Sierra Yhorman, S.F., ¿Qué es FTP y cómo usarlo? – tipos,
+            características, funciones y usos, mediacloud, recuperado de:
+            https://blog.mdcloud.es/que-es-ftp-tipos-caracteristicas-funciones-y-usos/
+          </li>
+          <li>
+            Borges Esteban, 12 de Febrero del 2019, Servidor FTP,
+            infranetworking, recuperado de:
+            https://blog.infranetworking.com/servidor-ftp/#Tipos_de_Servidor_FTP
+          </li>
+          <li>
+            Jimenez Javier, 13 de septiembre de 2023, Qué es NAT y cómo actúa en
+            nuestra red, RedesZone, recuperado de:
+            https://www.redeszone.net/tutoriales/redes-cable/que-es-nat-red/
+          </li>
+          <li>
+            Cisco. (2022, 12 marzo). Configurar NAT para habilitar la
+            comunicación entre redes superpuestas. Recuperado 5 de octubre de
+            2023, de
+            https://www.cisco.com/c/es_mx/support/docs/ip/network-address-translation-nat/200726-Configure-NAT-to-Enable-Communication-Be.html
+          </li>
+          <li>
+            De Souza Ivan, 14 de junio del 2019, ¿Qué es un servidor web y para
+            qué sirve en Internet?, rockcontent, recuperado de:
+            https://rockcontent.com/es/blog/que-es-un-servidor/
+          </li>
+          <li>
+            Center Cloud Andalucia, S.F., Qué es un servidor web: funcionamiento
+            y tipos, Center Cloud Andalucia, recuperado de:
+            https://www.cloudcenterandalucia.es/blog/que-es-un-servidor-web-funcionamiento-y-tipos/
           </li>
         </ul>
       </main>
