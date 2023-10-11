@@ -1,0 +1,50 @@
+.comando {
+  background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  font-family: "Courier New", monospace;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+code {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Estilo adicional para el prompt (~$) */
+.comand-linux::before {
+  content: "~$ ";
+  color: #6ed1e9;
+  font-weight: normal;
+}
+
+/* Estilo para el comando en sí */
+.comand-linux::after {
+  content: "";
+}
+
+.config-file {
+  background-color: #333;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  font-family: "Courier New", monospace;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.config-file h2 {
+  font-size: 18px;
+  color: #6ed1e9; /* Mismo color que el prompt (~$) */
+  font-weight: bold;
+}
+
+.config-code {
+  font-size: 18px;
+}
+
+.config-file pre {
+  overflow: auto;
+}

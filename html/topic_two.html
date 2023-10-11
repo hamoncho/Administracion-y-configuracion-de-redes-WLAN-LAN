@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/topic_two.css" />
     <title>Topic Two</title>
   </head>
   <body>
@@ -580,23 +581,1281 @@
 
           <article class="topic">
             <header>
-              <h3 id="introduction" class="topic__title">2.6.2 Servicio DNS y WINS</h3>
+              <h3 id="introduction" class="topic__title">
+                2.6.2 Servicio DNS y WINS
+              </h3>
             </header>
-            <div class="topic__content"></div>
+            <div class="topic__content">
+              <br />
+              <h4>DNS</h4>
+              <p>
+                Una parte importante de la administración de la configuración e
+                infraestructura de servidores incluye el uso sostenido de un
+                método sencillo para buscar las interfaces de red y direcciones
+                IP por nombre mediante la configuración de un sistema de nombres
+                de dominio (DNS) adecuado. El empleo de nombres de dominio
+                completos (FQDN), en vez de direcciones IP, para especificar las
+                direcciones de red puede facilitar la configuración de servicios
+                y aplicaciones, y aumenta la capacidad de mantenimiento de los
+                archivos de configuración. Configurar su propio DNS para su red
+                privada es una excelente opción para mejorar la administración
+                de sus servidores. En este tutorial, veremos la manera de
+                configurar un servidor DNS interno usando el software de
+                servidor de nombres BIND (BIND9) en Ubuntu 18.04, que sus
+                servidores pueden usar para resolver direcciones IP y nombres de
+                hosts privados. Esto ofrece una alternativa centralizada para
+                administrar sus nombres de hosts internos y direcciones IP
+                privadas, lo cual es indispensable cuando su entorno abarca más
+                de unos pocos hosts.
+              </p>
+              <br />
+              <h6>Instalar BIND en servidores DNS</h6>
+              <br />
+              <p>
+                Para instalar el servicio DNS Bind en Ubuntu 20.04 LTS
+                utilizaremos los paquetes disponibles en los repositorios del
+                sistema, por lo que los actualizamos como primer paso:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">sudo apt update </code>
+              </div>
+
+              <p>El paquete que necesitamos es bind9 que instalamos con apt:</p>
+
+              <div class="comando">
+                <code class="comand-linux">sudo apt install -y bind9</code>
+              </div>
+              <p>
+                Tras la descarga e instalación de Bind y sus dependencias se
+                crea un nuevo servicio en Ubuntu 20.04 llamado bind9, o
+                bind9.service, que queda iniciado y habilitado para su inicio
+                automático en cada arranque del sistema.
+              </p>
+
+              <p>
+                Podemos comprobar el estado del servicio en cualquier momento
+                con el comando
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">systemctl status bind9</code>
+              </div>
+
+              <img
+                src="/img/topic_two/instalar-dns-bind-en-ubuntu-20-04-lts.jpg"
+                alt="console with comand systemctl status bind9"
+              />
+
+              <p>
+                Si en los mensajes de estado aparecen ciertos errores como los
+                mostrados en la imagen, es normal cuando se trata de redes
+                locales, lo solucionaremos enseguida.
+              </p>
+
+              <br />
+              <h6>Configurar el firewall de Ubuntu 20.04 LTS para DNS Bind</h6>
+              <br />
+              <p>
+                En caso de que tengas activado el firewall UFW en tu máquina
+                Ubuntu 20.04 LTS será necesario añadir una regla para permitir
+                solicitudes externas de resolución de nombres:
+              </p>
+              <div class="comando">
+                <code class="comand-linux">sudo ufw allow bind9</code>
+              </div>
+
+              <h6>
+                Cómo configurar los clientes de red para usar el servicio DNS
+                Bind de Ubuntu 20.04 LTS
+              </h6>
+              <br />
+              <p>
+                La forma más sencilla de que el resto de máquinas de la red
+                comiencen a usar el servicio DNS Bind que estamos configurando
+                en el servidor Ubuntu 20.04 LTS es configurando a su vez el
+                servicio DHCP del router o de la máquina que corresponda para
+                que envíe como servidor de nombres la dirección IP del nuevo
+                servidor DNS.
+              </p>
+              <br />
+              <p>
+                En caso de configurar manualmente los adaptadores de red de cada
+                dispositivo de la red local bastará con indicar la dirección del
+                servidor de nombres Ubuntu 20.04 en el lugar adecuado.
+              </p>
+              <br />
+              <p>
+                Finalmente, si usas autoconfiguración y no puedes o no quieres
+                modificar la configuración del servidor DHCP, puedes configurar
+                el adaptador de red de las máquinas clientes para que mantengan
+                la configuración automática excepto para los servidores de
+                nombres.
+              </p>
+              <br />
+              <p>
+                En el caso de clientes Ubuntu 20.04, cuya configuración de red
+                se realiza a través de Netplan, editaremos el archivo de
+                configuración de la interfaz de red:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">
+                  sudo nano /etc/netplan/00-installer-config.yaml
+                </code>
+              </div>
+
+              <p>Su contenido inicial puede ser similar al siguiente:</p>
+
+              <div class="config-file">
+                <h2>/etc/netplan/00-installer-config.yaml</h2>
+                <pre>
+                    <code class="config-code">
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: true
+  version: 2
+                    </code>
+                </pre>
+              </div>
+
+              <p>
+                En la sección relativa a la interfaz de red, en este caso
+                enp0s3, insertamos lo siguiente:
+              </p>
+
+              <div class="config-file">
+                <h2>/etc/netplan/00-installer-config.yaml</h2>
+                <pre>
+                    <code class="config-code">
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: true
+      nameservers:
+        addresses: [192.168.0.140]
+  version: 2
+                    </code>
+                </pre>
+              </div>
+
+              <p>
+                Recuerda que al tratarse de un archivo YAML sólo están
+                permitidos los espacios en blanco para el sangrado o indentación
+                de los parámetros.
+              </p>
+              <br />
+              <p>
+                Hemos añadido la directiva nameservers, con el apartado
+                addresses en el que especificamos, separadas por comas, las
+                direcciones de los servidores DNS primario, secundario,
+                terciario, etc. En este ejemplo la única dirección que añadimos
+                es la del servidor DNS que configuraremos a continuación.
+              </p>
+              <br />
+              <p>Guardamos los cambios y cerramos el archivo.</p>
+              <br />
+              <p>Para aplicar todos estos cambios usamos el comando netplan:</p>
+
+              <div class="comando">
+                <code class="comand-linux"> sudo netplan apply </code>
+              </div>
+
+              <p>
+                Desde este momento la máquina Ubuntu 20.04 LTS resolverá nombres
+                mediante el servidor DNS especificado manualmente.
+              </p>
+              <br />
+              <h6>Cómo configurar el servidor DNS Bind en Ubuntu 20.04 LTS</h6>
+              <br />
+              <p>
+                Para configurar el servicio DNS Bind en Ubuntu 20.04 LTS
+                trabajaremos sobre sus archivos de configuración, ubicados en la
+                ruta <i>/etc/bind/</i>.
+              </p>
+              <br />
+              <p>
+                El archivo principal es named.conf que se limita a cargar las
+                configuraciones de los archivos named.conf.options,
+                named.conf.local y named.conf.default-zones.
+              </p>
+              <br />
+              <h6>Trabajar únicamente con IPv4</h6>
+              <br />
+              <p>
+                Pero también podemos realizar ciertos ajustes sobre el archivo
+                /etc/default/named. Por ejemplo, si sólo vamos a trabajar con
+                IPv4 en nuestra red local puede ser interesante desactivar IPv6
+                para evitar errores. Esto lo haremos editando dicho archivo:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">sudo nano /etc/default/named </code>
+              </div>
+
+              <p>Buscamos la directiva OPTIONS:</p>
+              <div class="config-file">
+                <h2>/etc/default/named</h2>
+                <pre>
+                    <code class="config-code">
+OPTIONS="-u bind"    
+                    </code>
+                </pre>
+              </div>
+
+              <p>Y le añadimos el parámetro -4:</p>
+
+              <div class="config-file">
+                <h2>/etc/default/named</h2>
+                <pre>
+                    <code class="config-code">
+OPTIONS="-u bind -4"    
+                    </code>
+                </pre>
+              </div>
+              <p>
+                Ya podemos cerrar y guardar este archivo, y recargar el
+                servicio:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">sudo systemctl reload bind9 </code>
+              </div>
+
+              <h6>Desactivar DNSSEC</h6>
+
+              <p>
+                Si trabajamos con un servidor DNS local, como el de este
+                ejemplo, no funcionará la capa de seguridad DNSSEC, así que
+                debemos desactivarla. Para ello editamos el archivo
+                named.conf.options:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">
+                  sudo nano /etc/bind/named.conf.options
+                </code>
+              </div>
+              <p>Buscamos la directiva dnssec-validation:</p>
+
+              <div class="config-file">
+                <h2>/etc/bind/named.conf.options</h2>
+                <pre>
+                    <code class="config-code">
+...
+dnssec-validation auto;
+...    
+                    </code>
+                </pre>
+              </div>
+
+              <p>Y cambiamos su valor por «no»:</p>
+
+              <div class="config-file">
+                <h2>/etc/bind/named.conf.options</h2>
+                <pre>
+                    <code class="config-code">
+...
+#       dnssec-validation auto;
+        dnssec-validation no;
+...   
+                    </code>
+                </pre>
+              </div>
+              <p>
+                En este caso hemos desactivado la directiva original y hemos
+                añadido una nueva con el valor deseado.
+              </p>
+              <br />
+              <p>
+                Tras guardar el archivo, habrá que recargar la configuración del
+                servicio para aplicar los cambios.
+              </p>
+              <br />
+              <p>
+                Si ahora volvemos a consultar el estado del servicio, veremos
+                que han desaparecido los mensajes de error:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux"> systemctl status bind9 </code>
+              </div>
+
+              <img
+                src="/img/topic_two/systemctl-status-bind9.jpg"
+                alt="linux console running systemctl status bind9"
+              />
+
+              <h6>Resolución de nombres de Internet (forwarding)</h6>
+
+              <p>
+                Si los clientes de tu red local tienen acceso a Internet y
+                quieres que además de los nombres de la red local puedan
+                resolver nombres de Internet, habrá que permitir lo que se
+                denomina recursión. Para ello editamos el archivo
+                named.conf.options:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">
+                  sudo nano /etc/bind/named.conf.options
+                </code>
+              </div>
+
+              <p>
+                Dentro del bloque options añadimos un bloque forwarders con las
+                direcciones de servidores DNS que puedan resolver nombres de
+                Internet:
+              </p>
+              <div class="config-file">
+                <h2>/etc/bind/named.conf.options</h2>
+                <pre>
+                    <code class="config-code">
+...
+        forwarders {
+                8.8.8.8;
+                8.8.4.4;
+        };
+...
+                    </code>
+                </pre>
+              </div>
+
+              <p>
+                En este caso usamos los servidores DNS de libre acceso de
+                Google, pero puedes usar otros como, por ejemplo, los que
+                proporciona tu proveedor de acceso a Internet.
+              </p>
+              <br />
+              <p>Guardamos el archivo y recargamos el servicio.</p>
+              <h6>Cómo configurar zonas o dominios</h6>
+              <p>
+                Para configurar un dominio o zona, creamos un archivo de zona
+                para dicho dominio, normalmente utilizando el dominio como parte
+                del nombre del archivo, lo que permite facilitar la
+                configuración. En este caso vamos a crear el archivo de zona
+                para el dominio de red local localnet.net:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">
+                  sudo nano /etc/bind/db.localnet.net
+                </code>
+              </div>
+
+              <p>
+                Comenzaremos con la estructura inicial, que sería similar a la
+                siguiente:
+              </p>
+
+              <div class="config-file">
+                <h2>/etc/bind/db.localnet.net</h2>
+                <pre>
+                    <code class="config-code">
+$TTL    1D
+
+@       IN      SOA     ns.localnet.net. root.localnet.net. (
+        1       ; serial
+        604800  ; refresh
+        86400   ; retry
+        2419200 ; expiration
+        604800  ; TTL negative cache
+)
+
+; Registros NS (Servidores de nombres)
+
+@       IN      NS      ns.localnet.net.
+
+; Registros A
+
+ns.localnet.net.        IN      A       192.168.0.140
+                    </code>
+                </pre>
+              </div>
+
+              <p>
+                Toda esta configuración inicial se encarga de definir el dominio
+                y el servidor DNS que lo gestiona, que en este caso es nuestro
+                servidor Ubuntu 20.04 LTS.
+              </p>
+              <br />
+              <p>
+                Inicialmente hemos incluido el registro SOA, un registro NS y un
+                registro A.
+              </p>
+              <br />
+              <p>
+                En la línea que comienza por @, el registro SOA o «Start of
+                Authority«, indicamos cuál es el servidor de nombres del dominio
+                y la dirección de correo electrónico del administrador,
+                especificada sin el carácter @, es decir, root@localnet.net se
+                indica como root.localnet.net. Puedes utilizar el nombre que
+                quieras para tu servidor DNS, pero los cambios deben ser
+                consistentes. Por ejemplo:
+              </p>
+
+              <div class="config-file">
+                <h2>/etc/bind/db.localnet.net</h2>
+                <pre>
+                    <code class="config-code">
+...
+@       IN      SOA     dns1.localnet.net. root.localnet.net. (
+...
+@       IN      NS      dns1.localnet.net.
+...
+dns1.localnet.net.      IN      A       192.168.0.140
+                    </code>
+                </pre>
+              </div>
+
+              <p>
+                Ahora hemos decidido llamar dns1 en lugar de ns al servidor de
+                nombres, enlazándolo a la misma cuenta de correo del
+                administrador.
+              </p>
+              <br />
+              <p>
+                Es muy importante no olvidar ninguno de los puntos al final de
+                cada nombre de máquina.
+              </p>
+              <br />
+              <p>
+                La línea etiquetada como ‘serial‘ recoge un número que deberá
+                incrementarse manualmente cada vez que editemos este archivo, ya
+                sea para modificar nombres o añadir nuevos.
+              </p>
+              <br />
+              <p>
+                Observa que el registro NS está indentado, ya que si no lo está
+                la configuración no funcionará.
+              </p>
+              <br />
+              <p>Guardamos los cambios y cerramos el archivo.</p>
+              <br />
+              <p>
+                Para comprobar que la configuración es correcta podemos usar el
+                comando named-checkzone, que recibe como parámetros el dominio
+                que queremos comprobar y el archivo que lo configura:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">
+                  named-checkzone localnet.net /etc/bind/db.localnet.net
+                  <br />
+                  zone localnet.net/IN: loaded serial 1
+                  <br />
+                  OK
+                </code>
+              </div>
+
+              <p>
+                Una vez que la configuración inicial es correcta, podemos editar
+                el archivo de nuevo y añadir nombres de máquinas de nuestra red
+                y sus correspondientes direcciones IP, mediante registros A
+                adicionales:
+              </p>
+
+              <div class="config-file">
+                <h2>/etc/bind/db.localnet.net</h2>
+                <pre>
+                    <code class="config-code">
+...
+                        2       ; serial
+...
+; Registros A
+...
+router.localnet.net.            IN      A       192.168.0.1
+nas.localnet.net.               IN      A       192.168.0.101
+sat.localnet.net.               IN      A       192.168.0.102
+ubuntu2.localnet.net.           IN      A       192.168.0.108
+                    </code>
+                </pre>
+              </div>
+              <p>
+                Guardamos el archivo y pasamos de nuevo el comando
+                named-checkzone:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">
+                  named-checkzone localnet.net /etc/bind/db.localnet.net
+                  <br />
+                  zone localnet.net/IN: loaded serial 2
+                  <br />
+                  OK
+                </code>
+              </div>
+
+              <p>
+                Observa que, además de devolvernos el mensaje ‘OK‘, también se
+                muestra el serial actual, que hemos modificado manualmente.
+              </p>
+              <p>
+                Para que esta configuración sea tenida en cuenta por el servicio
+                DNS Bind será necesario incluirla desde el archivo
+                named.conf.default-zones, así que lo editamos:
+              </p>
+
+              <div class="comando">
+                <code class="comand-linux">
+                  sudo nano /etc/bind/named.conf.default-zones
+                </code>
+              </div>
+
+              <p>
+                Añadimos un bloque zone como el siguiente al final del archivo:
+              </p>
+              <div class="config-file">
+                <h2>/etc/bind/named.conf.default-zones</h2>
+                <pre>
+                    <code class="config-code">
+...
+zone "localnet.net" IN {
+        type master;
+        file "/etc/bind/db.localnet.net";
+};
+                    </code>
+                </pre>
+              </div>
+
+              <p>Guardamos el archivo y recargamos el servicio:</p>
+              <div class="comando">
+                <code class="comand-linux"> sudo systemctl reload bind9 </code>
+              </div>
+
+              <p>
+                El servicio está listo para aceptar y responder peticiones de
+                resolución de nombres.
+              </p>
+            </div>
+            https://comoinstalar.me/como-instalar-el-servidor-dns-bind-en-ubuntu-20-04-lts/
           </article>
 
           <article class="topic">
             <header>
-              <h3 id="introduction" class="topic__title"></h3>
+              <h3 id="introduction" class="topic__title">
+                2.6.3 Servicio De Archivos E Impreción
+              </h3>
             </header>
-            <div class="topic__content"></div>
+            <div class="topic__content">
+              <div id="tabcontent" class="lkbContentFormat dds__mb-8">
+                <h4 class="dds__mb-4 content-heading dds__h5">Instrucciones</h4>
+                <div class="dds__mb-4 content-heading_details">
+                  <p>
+                    En este artículo se aborda la adición de la función
+                    <strong>servicios de impresión y documentos </strong>a un
+                    servidor que ejecuta Windows Server Core.
+                  </p>
+                  <p>
+                    Realice los siguientes pasos para agregar la función de
+                    <strong>servicios imprimir y documentar </strong>al
+                    servidor.
+                  </p>
+                  <p>
+                    Escriba<strong></strong
+                    ><strong>Start PowerShell<strong></strong></strong>en la
+                    ventana delsímbolo del sistemapara iniciarWindows
+                    PowerShell.
+                  </p>
+                  <p>
+                    Escriba&nbsp;Install-WindowsFeature&nbsp;.Print-Services y
+                    presione&nbsp;Intro&nbsp;para instalar la
+                  </p>
+                  <p>
+                    <img
+                      alt="HOW10119_en_US__1core agregar PS"
+                      src="/img/topic_two/install-windowsFeature-print-services.jpeg"
+                      class="img-responsive"
+                    />
+                  </p>
+                  <p><strong>Información adicional:</strong></p>
+                  <p>
+                    Las impresoras se pueden administrar mediante las secuencias
+                    de comandos VBScript instaladas durante la instalación de la
+                    función de<strong>
+                      servicios de impresión y documentos </strong
+                    >.
+                  </p>
+                  <p>
+                    Los scripts se encuentran en C:\Windows\System32\
+                    Printing_Admin_Scripts \en-US.
+                  </p>
+                  <p>
+                    <img
+                      alt="HOW10119_en_US__2core PS vbs"
+                      src="/img/topic_two/printing_admin_scrips_en_us.jpeg"
+                      class="img-responsive"
+                    />
+                  </p>
+                  <p>
+                    <span> Los siguientes cmdlets de </span>
+                    <strong>
+                      Windows PowerShell
+                      <span class="Apple-converted-space"> </span>
+                    </strong>
+                    <span>
+                      están disponibles para administrar la función de
+                      <span> </span>
+                    </span>
+                    <strong> RDS </strong>
+                    <span>
+                      en un servidor que ejecuta
+                      Windows&nbsp;Server&nbsp;Core.</span
+                    >
+                  </p>
+
+                  <p>
+                    <strong>Agregar-impresora-</strong> Agrega una impresora a
+                    la computadora especificada. <br /><strong
+                      >Add-PrinterDriver-</strong
+                    >
+                    Instala un controlador de impresora en la computadora
+                    especificada. <br /><strong>Add-PrinterPort-</strong>
+                    Instala un puerto de impresora en la computadora
+                    especificada. <br /><strong>Get-PrintConfiguration-</strong>
+                    Obtiene la información de configuración de una impresora.
+                    <br /><strong>Get-Printer-</strong> Recupera una lista de
+                    impresoras instaladas en una computadora. <br /><strong
+                      >Get-PrinterDriver-</strong
+                    >
+                    Recupera la lista de controladores de impresora instalados
+                    en la computadora especificada. <br /><strong
+                      >Get-PrinterPort-</strong
+                    >
+                    Recupera una lista de puertos de impresora instalados en la
+                    computadora especificada. <br /><strong
+                      >Get-PrinterProperty-</strong
+                    >
+                    Recupera las propiedades de la impresora de la impresora
+                    especificada. <br /><strong>Get-PrintJob-</strong> Recupera
+                    una lista de trabajos de impresión en la impresora
+                    especificada. <br /><strong>Lectura-PrinterNfcTag-</strong>
+                    Lee información acerca de las impresoras desde una etiqueta
+                    NFC. <br /><strong>Eliminar-impresora-</strong> Elimina una
+                    impresora de la computadora especificada. <br /><strong
+                      >Remove-PrinterDriver-</strong
+                    >
+                    Elimina el controlador de impresora de la computadora
+                    especificada. <br /><strong>Remove-PrinterPort-</strong>
+                    Elimina el puerto de la impresora especificado del equipo
+                    especificado. <br /><strong>Remove-PrintJob-</strong>
+                    Elimina un trabajo de impresión en la impresora
+                    especificada. <br /><strong>Rename-Printer-</strong> Cambia
+                    el nombre de la impresora especificada. <br /><strong
+                      >Reiniciar-PrintJob-</strong
+                    >
+                    Reinicia un trabajo de impresión en la impresora
+                    especificada. <br /><strong>Resume-PrintJob-</strong>
+                    Reanuda un trabajo de impresión suspendido. <br /><strong
+                      >Set-PrintConfiguration-</strong
+                    >
+                    Establece la información de configuración de la impresora
+                    especificada. <br /><strong>Set-Printer-</strong> Actualiza
+                    la configuración de una impresora existente. <br /><strong
+                      >Set-PrinterProperty-</strong
+                    >
+                    Modifica las propiedades de la impresora de la impresora
+                    especificada. <br /><strong>Suspend-PrintJob-</strong>
+                    Suspende un trabajo de impresión en la impresora
+                    especificada. <br /><strong>Write-PrinterNfcTag-</strong>
+                    Escribe los datos de conexión de la impresora en una
+                    etiqueta NFC.&nbsp;
+                  </p>
+                </div>
+              </div>
+            </div>
+            https://www.dell.com/support/kbdoc/es-es/000121458/procedimiento-de-adici%C3%B3n-de-print-and-document-role
           </article>
 
           <article class="topic">
             <header>
-              <h3 id="introduction" class="topic__title"></h3>
+              <h3 id="introduction" class="topic__title">
+                2.7 Configuración De Servidores WAN
+              </h3>
             </header>
-            <div class="topic__content"></div>
+            <div class="topic__content">
+              <h4>¿Qué es una red de área amplia (WAN)?</h4>
+              <p>
+                Una red de área amplia (WAN) es la tecnología que conecta entre
+                sí a las oficinas, los centros de datos, las aplicaciones en la
+                nube y el almacenamiento en la nube. Se denomina red de área
+                amplia porque se extiende más allá de un solo edificio o un gran
+                recinto para incluir múltiples ubicaciones repartidas a lo largo
+                de una zona geográfica concreta, o incluso del mundo. Por
+                ejemplo, las empresas con muchas sucursales internacionales
+                utilizan una WAN para conectar las redes de las oficinas entre
+                sí. La WAN más grande del mundo es Internet puesto que se trata
+                de un conjunto de muchas redes internacionales que se conectan
+                entre sí. Este artículo se centra en las WAN empresariales y en
+                sus usos y ventajas.
+              </p>
+            </div>
+            https://aws.amazon.com/es/what-is/wan/#:~:text=de%20la%20WAN%3F-,%C2%BFQu%C3%A9%20es%20una%20red%20de%20%C3%A1rea%20amplia%20(WAN)%3F,el%20almacenamiento%20en%20la%20nube.
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.7.1 Configuración De Proxy
+              </h3>
+            </header>
+            <div class="topic__content">
+              <h4>Cómo se configura un servidor proxy en Windows</h4>
+              <p>
+                Aquí se explica cómo configurar su PC con Windows para que
+                utilice un servidor proxy en Windows8 o Windows10:
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    Pulse simultáneamente las teclas <strong>Windows </strong>+
+                    <strong>I</strong> para acceder al menú Configuración de
+                    Windows.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    En Windows 10, haga clic en
+                    <strong>Configuración</strong>
+                    <strong>Red e Internet</strong> <strong> Proxy</strong>. En
+                    Windows8, haga clic en
+                    <strong>Configuración</strong>
+                    <strong>Proxy de red</strong>.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    En la sección Configuración manual, establezca el control
+                    “Utilizar un servidor proxy” en <strong>Activado</strong>.
+                    Compruebe que también esté activado el control “Detectar la
+                    configuración automáticamente”.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    De forma predeterminada, Windows comprueba automáticamente
+                    si su empresa, institución educativa o red local ya tiene
+                    configurado y listo para usar un servidor proxy automático.
+                    Si es así, Windows le indica su nombre y le indica que siga
+                    sus instrucciones.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Suponiendo que Windows encuentre un archivo PAC, en
+                    Configuración automática del proxy establezca el control
+                    <strong>Usar script de configuración</strong> en
+                    <strong>Activado</strong>.
+                  </p>
+                  <p>
+                    <img
+                      src="/img/topic_two/conf-proxy.webp"
+                      alt="Here's how to set Windows 10's automatic proxy server settings."
+                    />
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Introduzca la dirección del servidor y haga clic en
+                    <strong>Guardar</strong>.
+                  </p>
+                </li>
+              </ol>
+            </div>
+            https://www.avast.com/es-es/c-how-to-set-up-a-proxy
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.7.2 Configuración De NAT
+              </h3>
+            </header>
+            <div class="topic__content">
+              <p>
+                El autor Javier Jimenez nos comenta que el NAT es un término
+                viene de abreviar Network Address Translator, o en español,
+                traductor de direcciones de red. Su función es precisamente esa,
+                traducir las direcciones para que sean posibles las conexiones.
+                El NAT es una parte fundamental entre nuestros dispositivos e
+                Internet. Forma parte del router, módem o el equipo que
+                utilicemos para conectarnos a la red. En ocasiones es conocido
+                como enmascaramiento de direcciones IP. Esto es así ya que
+                permite crear una dirección IP pública para que posibles
+                extraños no pirateen nuestra red.”
+              </p>
+              <br />
+              <p>
+                La configuración de NAT (Traducción de Direcciones de Red) varía
+                según el dispositivo y el sistema operativo que se esté
+                utilizando, pero generalmente se siguen estos pasos:
+              </p>
+              <br />
+              <p>
+                Inicia sesión en el router: Abre un navegador web e ingresa la
+                dirección IP del router en la barra de direcciones. Por lo
+                general, la dirección IP predeterminada del router es algo como
+                "192.168.1.1" o "192.168.0.1". Deberás iniciar sesión con las
+                credenciales de administrador del router.
+              </p>
+              <br />
+              <p>
+                Accede a la configuración NAT: Una vez que hayas iniciado sesión
+                en el enrutador, busca una sección relacionada con NAT o "Port
+                Forwarding" (Reenvío de Puertos) en el menú de configuración. En
+                algunos enrutadores, esto puede estar bajo la sección de
+                "Firewall" o "Advanced Settings" (Configuraciones Avanzadas).
+                Habilita NAT: En la sección de configuración NAT, generalmente
+                encontrarás una opción para habilitar o deshabilitar NAT.
+                Asegúrate de habilitarla.
+              </p>
+              <br />
+              <p>
+                Selecciona el tipo de NAT: Si deseas configurar NAT
+                unidireccional (One-to-One), deberás especificar las direcciones
+                IP públicas y privadas que deseas asociar. Esto se utiliza
+                cuando quieres asignar una dirección IP pública a un dispositivo
+                específico en tu red privada. Si deseas configurar NAT
+                bidireccional (Many-to-One), la mayoría de los enrutadores lo
+                hacen de manera predeterminada. Esto permite que varios
+                dispositivos compartan una única dirección IP pública.
+              </p>
+              <br />
+              <p>
+                Guardar configuraciones: Después de habilitar y configurar NAT
+                según tus necesidades, asegúrate de guardar las configuraciones.
+                Esto generalmente se hace haciendo clic en un botón "Guardar" o
+                "Apply" (Aplicar) en la interfaz de administración del router.
+                Reiniciar el enrutador (si es necesario): Algunos enrutadores
+                pueden requerir un reinicio para que los cambios en la
+                configuración de NAT surtan efecto. Verifica si se necesita un
+                reinicio y, de ser así, realiza uno.
+              </p>
+              <br />
+              <p>
+                Configuración de reenvío de puertos (si es necesario): Si deseas
+                permitir el acceso a servicios específicos en dispositivos
+                internos desde Internet (por ejemplo, configurar un servidor web
+                o de juegos), es posible que necesites configurar el reenvío de
+                puertos (port forwarding) adicionalmente. Esto implica redirigir
+                el tráfico entrante desde un puerto específico de tu dirección
+                IP pública a un dispositivo interno en tu red privada. Pruebas:
+                Una vez configurado NAT, verifica que el acceso a Internet desde
+                los dispositivos en tu red privada sea exitoso y que cualquier
+                reenvío de puertos funcione según lo previsto. (Cisco, 2022)
+              </p>
+              <br />
+
+              Jimenez Javier, 13 de septiembre de 2023, Qué es NAT y cómo actúa
+              en nuestra red, RedesZone, recuperado de:
+              https://www.redeszone.net/tutoriales/redes-cable/que-es-nat-red/
+              <br />
+              Cisco. (2022, 12 marzo). Configurar NAT para habilitar la
+              comunicación entre redes superpuestas. Recuperado 5 de octubre de
+              2023, de
+              https://www.cisco.com/c/es_mx/support/docs/ip/network-address-translation-nat/200726-Configure-NAT-to-Enable-Communication-Be.html
+              <br />
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">2.7.3 Servidor Web</h3>
+            </header>
+            <div class="topic__content">
+              “El rol principal de un servidor web es almacenar y transmitir el
+              contenido solicitado de un sitio web al navegador del usuario.
+              <br />
+              Este proceso, para los internautas no dura más que un segundo, sin
+              embargo, a nivel del web server es una secuencia más complicada de
+              lo que parece.
+              <br />
+              Para cumplir con sus funciones el servidor deberá tener la
+              capacidad de estar siempre encendido para evitar interrumpir el
+              servicio que le ofrece a sus clientes. Si dicho servidor falla o
+              se apaga, los internautas tendrán problemas al ingresar al sitio
+              web.” (Ivan de Souza, 14 de junio del 2019)
+              <br />
+              <h5>TIPOS DE SERVIDORES WEB</h5>
+              <br />
+              La empresa de Cloud Center Andalucía nos menciona los tipos de
+              servidores web, los cuales son:
+              <br />
+              <h5>APACHE</h5>
+              Es el servidor web de referencia, el más popular y extendido.
+              Lleva 25 años siendo el líder indiscutible, a pesar de que nuevos
+              competidores le hayan robado cuota de mercado. Su principal
+              ventaja es que es gratuito y de código abierto, por lo que se
+              puede instalar en casi todos los sistemas operativos. Su desfasada
+              arquitectura frente a otros tipos de servidor es su principal
+              punto débil.
+              <br />
+              <h5>NGINX</h5>
+              También open source y gratuito (aunque ofrece una versión
+              comercial), destaca por su alto rendimiento. Utiliza un proxy
+              inverso, que protege la identidad de los servidores y mejora la
+              seguridad de la información que acogen. Su configuración es
+              sencilla, pero también muy personalizable, consumiendo pocos
+              recursos. Su defecto: no se puede integrar con PHP de forma
+              nativa.
+              <br />
+              <h5>MICROSOFT IIS</h5>
+              Es un servidor web de Microsoft, creado específicamente para su
+              sistema operativo Windows. De ahí su principal ventaja: es 100%
+              compatible con todas las tecnologías de la multinacional
+              estadounidense. A su vez, supone su mayor inconveniente: la
+              integración de lenguajes y tecnologías es limitada con respecto a
+              otras opciones.
+              <br />
+              ¿Qué es un servidor web? Funcionamiento y tipos
+              <br />
+              <h5>GOOGLE GWS</h5>
+              Se trata de un servidor de uso exclusivo por parte de Google, lo
+              que implica que no puede ser utilizado por particulares o
+              empresas. ¿Por qué lo incluimos entonces en este listado? Porque
+              es uno de los más utilizados hoy en día (aunque como usuarios no
+              lo sepamos). Es el encargado de sostener toda la infraestructura
+              del gigante de internet, por lo que proporciona servicio
+              simultáneo a millones de usuarios.
+              <br />
+              <h5>LITE SPEED</h5>
+              Un servidor web muy robusto y eficiente. Su capacidad para
+              soportar grandes cargas de trabajo es su punto fuerte frente a
+              otras alternativas. Su arquitectura, basada en un sistema de
+              eventos, evita la duplicidad de procesos que sí se genera en otros
+              servidores. El principal inconveniente es que siendo un software
+              propietario, obliga a pasar por caja para adquirir la licencia de
+              uso.
+              <br />
+              <h5>LIGHTTPD</h5>
+              Fue una de las primeras alternativas a Apache, solventando sus
+              problemas de gestión de grandes cargas de trabajo. Por ello, su
+              diseño busca ante todo la rapidez operativa, algo que consigue
+              consumiendo pocos recursos. Esto lo convierte en una opción idónea
+              para servidores VPS de bajos recursos. Sin embargo, carece de
+              versión oficial para sistemas operativos Windows, lo que limita su
+              aplicación.
+              <br />
+              <h5>SUN JAVA SYSTEM WEB SERVER</h5>
+              Creado para gestionar grandes cargas de trabajo con tecnologías
+              específicas como Java, Phyton o Ruby on Rails. Por este motivo, su
+              uso se ciñe a entornos corporativos, estando especialmente pensado
+              como herramienta de utilidad para programadores.”
+              <br />
+
+              Ivan de Souza, 14 de junio del 2019, ¿Qué es un servidor web y
+              para qué sirve en Internet?, rockcontent, recuperado de:
+              https://rockcontent.com/es/blog/que-es-un-servidor/
+              <br />
+              Autor Desconocido, S.F., Qué es un servidor web: funcionamiento y
+              tipos, Center Cloud Andalucia, recuperado de:
+              https://www.cloudcenterandalucia.es/blog/que-es-un-servidor-web-funcionamiento-y-tipos/
+              <br />
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">2.7.4 Servidor FTP</h3>
+            </header>
+            <div class="topic__content">
+              La empresa de Dropbox tiene una definición sobre el servidor ftp
+              la cual es la siguiente: “Los servidores de FTP son aplicaciones
+              de software que posibilitan la transferencia de archivos de un
+              dispositivo (es decir, una computadora con Mac, Windows o Linux) a
+              otro. Puede parecer complicado, pero los servidores del FTP son
+              simplemente computadoras que tienen una dirección del FTP y se
+              dedican a recibir conexiones del FTP. Realizan dos simples tareas:
+              “obtener” y “poner”. Puedes obtener archivos del servidor del FTP
+              o “poner” archivos en el servidor del FTP. Cuando cargar archivos,
+              se transfieren de tu dispositivo personal al servidor. De forma
+              alternativa, cuando descargas archivos, se transfieren del
+              servidor a tu dispositivo personal. Por lo tanto, en el nivel más
+              básico, los servidores del FTP son el punto medio entre el
+              destinatario y el remitente.”
+              <br />
+              <h5>CARACTERÍSTICAS DEL FTP</h5>
+              Si estás interesado en utilizar este recurso, además de conocer
+              qué es FTP y sus tipos, es preciso que conozcas algunas de sus
+              características. Entre sus particularidades principales se
+              encuentran las siguientes:
+              <br />
+              Consta de una estructura de carpetas y subcarpetas en donde se
+              guarda la información. Sirve en cualquier sistema operativo, esto
+              lo convierte en un protocolo multiplataforma. No cuenta con un
+              sistema de seguridad, lo que implica que los archivos guardados en
+              el servidor se encuentran expuestos. Debido a esto, hay quienes
+              recurren al FTPS o al SFTP. Estos protocolos funcionan igual que
+              el FTP, la diferencia radica en que toda la información es
+              encriptada con la finalidad de protegerla de posibles amenazas
+              externas. Una vez conoces qué es FTP y sus principales
+              características, ya tienes las herramientas necesarias para
+              seleccionar un tipo que se acople a tus necesidades. Además de las
+              medidas de seguridad informática para proteger la información que
+              deseas cargar en el servidor. “ (Yhorman Sierra, S.F.)
+              <br />
+              <h5>TIPOS DE SERVIDORES FTP</h5>
+              <br />
+              <h6>
+                Existen tres tipos de FTP bien diferenciados a la hora de
+                establecer una conexión:
+              </h6>
+              <br />
+              <ul>
+                <li>
+                  FTP autenticado Este es el método tradicional de conectar a un
+                  servidor FTP, es decir, se requiere de un usuario y contraseña
+                  para ingresar al servidor.
+                </li>
+                <br />
+                <li>
+                  El FTP autenticado y basado en contraseña es el más común hoy
+                  en día, ya que ofrece una seguridad básica para no permitir
+                  que nadie sin los privilegios necesarios pueda acceder a los
+                  archivos que están en el servidor FTP. La autenticación puede
+                  ingresarse desde un cliente FTP de escritorio como FileZilla,
+                  gFTP, etc, o bien a través del navegador web si ya incluye un
+                  cliente FTP embebido.
+                </li>
+                <br />
+                <li>
+                  FTP anónimo o público Como vimos anteriormente, la forma
+                  normal de funcionar de un servidor FTP es mediante una
+                  autenticación que requiere usuario y contraseña para poder
+                  ingresar.
+                </li>
+              </ul>
+              <br />
+              Existen otros servidores FTP sin embargo que permiten el acceso
+              anónimo y público a sus archivos. Como mucho, si el servidor FTP
+              pide un acceso será el usuario «anonimo» o «anonymous», pero
+              generalmente no requieren contraseña.
+              <br />
+              Un servidor FTP anónimo entonces es el que no requiere usuario o
+              contraseña para poder ingresar y manipular los archivos. Aunque
+              conviene mencionar que si tienen permisos especiales sobre las
+              cosas que se pueden hacer, generalmente se limitan de alguna forma
+              para que nadie haga más de lo que debe.
+              <br />
+              La información ubicada en servidores FTP anónimos tampoco suele
+              ser muy crítica, ya que está expuesto abiertamente a Internet.
+              <br />
+              FTP embebido Este tipo de FTP no es el más común, y se trata de
+              uno que está incrustado en las diferentes páginas webs de
+              Internet.
+              <br />
+              Es un tipo de FTP anónimo que permite conectarse de forma
+              automática a través del navegador web con el fin de realizar
+              descargas hacia el cliente FTP (tu equipo).” (Esteban Borges,
+              2019)
+              <br />
+
+              Dropbox, S.F., ¿Qué es el FTP?, Recuperado de :
+              https://experience.dropbox.com/es-la/resources/what-is-ftp
+              <br />
+              Yhorman Sierra, S.F., ¿Qué es FTP y cómo usarlo? – tipos,
+              características, funciones y usos, mediacloud, recuperado de:
+              https://blog.mdcloud.es/que-es-ftp-tipos-caracteristicas-funciones-y-usos/
+              <br />
+              Esteban Borges, 12 de Febrero del 2019, Servidor FTP,
+              infranetworking, recuperado de:
+              https://blog.infranetworking.com/servidor-ftp/#Tipos_de_Servidor_FTP
+              <br />
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.7.5 Servidor De Correos
+              </h3>
+            </header>
+            <div class="topic__content">
+              “El servicio de correo electrónico es uno de los métodos de
+              comunicación más usados del mundo. Lo usamos en nuestras
+              computadoras de escritorio, notebooks, móviles, tablets e incluso
+              desde nuestros relojes inteligentes.
+              <br />
+              Gracias a él podemos comunicarnos con personas de todo el mundo,
+              en cuestión de segundos. Es sin duda alguna una de las mejores
+              herramientas creadas que existen en Internet. A pesar de usarlo
+              tanto, muchos desconocen el funcionamiento detrás de un email.”
+              (Álvaro De León, 2019)
+              <br />
+
+              Álvaro De León, 12 de Marzo del 2019, Servidor de Correo: ¿Qué es?
+              ¿Para qué sirve?, infranetworking, recuperado de:
+              https://blog.infranetworking.com/servidor-de-correo/
+              CARACTERÍSTICAS DEL SERVIDOR DE CORREO
+              <br />
+              “El servidor de correo electrónico es el sistema que gestiona y
+              almacena los correos electrónicos. Aquí algunas de sus principales
+              características:
+              <br />
+              Protocolos de envío y recepción: Como SMTP para envío y POP3 o
+              IMAP para recepción.
+              <br />
+              Autenticación: Garantiza que solo los usuarios autorizados accedan
+              al servidor.
+              <br />
+              Alta disponibilidad: Garantiza un tiempo de actividad cercano al
+              100%, esencial para la continuidad del negocio.
+              <br />
+              Cifrado: Protege la privacidad y seguridad de los datos
+              transmitidos y almacenados.
+              <br />
+              Filtrado de spam: Herramientas automatizadas que detectan y
+              bloquean correos no deseados.
+              <br />
+              Respuestas automáticas: Permite configurar respuestas automáticas
+              para informar sobre ausencias o proporcionar información
+              adicional.
+              <br />
+              Redireccionamiento: Los correos pueden ser redirigidos
+              automáticamente a otras direcciones según ciertas reglas.
+              <br />
+              Listas de distribución: Facilitan el envío masivo a grupos
+              específicos de usuarios.
+              <br />
+              Gestión de recursos: Gestiona las demandas de recursos según la
+              carga de tráfico, asegurando un rendimiento óptimo.
+              <br />
+              Mantenimiento y actualizaciones: Los servidores son mantenidos y
+              actualizados regularmente para garantizar su eficiencia y
+              seguridad.” (Aguirre Gabriela, 2023)
+              <br />
+              Gabriela María Prieto Aguirre, 29 de Septiembre del 2023, Qué es
+              un servidor de correo electrónico y qué necesita para ser apto
+              para empresas, GoDaddy, recuperado de:
+              https://mx.godaddy.com/blog/10-caracteristicas-de-un-servidor-de-correo-electronico-apto-para-empresas/
+              <br />
+
+              VENTAJAS Y DESVENTAJAS DEL SERVIDOR DE CORREO
+              <br />
+              La empresa de espacio.net.mx nos menciona las siguientes ventajas
+              y desventajas de un servidor de correos “
+              <br />
+              Si bien existen muchas opciones de servicios de correo gratuito,
+              incluso para empresas, las desventajas de estos son claras. Una de
+              las más importantes es la posible inseguridad y restricción de su
+              funcionamiento. Un servidor de correo privado ofrece beneficios
+              puntuales:
+              <br />
+              Presencia de marca
+              <br />
+              Es posible integrar el nombre de tu dominio web al correo
+              electrónico. Esto provee una excelente presencia de marca y
+              profesionalismo. Tener esta clase de solidez de marca, hace que
+              los usuarios se sientan más seguros. Además, es posible gestionar
+              diferentes cuentas de correo para las diversas áreas del negocio.
+              <br />
+              Escalabilidad
+              <br />
+              Los sitios web cambian y se actualizan constantemente. Contar con
+              un servidor de correo permite asegurar una buena gestión y
+              expansión de funciones.
+              <br />
+              Seguridad
+              <br />
+              Sin duda uno de los aspectos más atractivos, pues es posible
+              encriptar de forma segura al manejar información delicada.
+              <br />
+              Funcionamiento estable
+              <br />
+              Al contar con un servidor dedicado se obtiene mayor estabilidad en
+              el servicio de correo.
+              <br />
+              Adaptabilidad
+              <br />
+              Es posible integrar el correo a otras herramientas que se utilicen
+              en la empresa.”
+              <br />
+              Autor Desconocido, S.F., ¿Cómo funciona un servidor de correo
+              electrónico?, espacios.net.mx, recuperado de:
+              https://www.espacios.net.mx/funcionamiento-servidor-correo/
+              <br />
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="introduction" class="topic__title">
+                2.7.6 Servicios IRC
+              </h3>
+            </header>
+            <div class="topic__content">
+              “Internet Relay Chat, más conocido como IRC o simplemente Chat, es
+              un servicio de mensajería creado por el finés Jarkko Oikarinen,
+              que tuvo sus inicios en el año 1988 y que hoy cumple 30 años.
+              <br />
+              Esta herramienta permite la comunicación inmediata a través de
+              Internet entre dos o más personas en formato textual en tiempo
+              real. Actualmente, su creador trabaja en Google, formando parte
+              del equipo que trabaja en Google Hangouts.
+              <br />
+
+              IRC permitía ofrecer un servicio de comunicación a tiempo real a
+              través de Internet, ya fuese en canales que permitían la
+              interacción entre varios usuarios, o bien mediante conversaciones
+              privadas entre dos usuarios con el extra añadido de poder
+              intercambiar archivos y enviarlos a otros usuarios. El protocolo
+              estaba basado en texto plano y las acciones a realizar se enviaban
+              en forma de comandos de texto.” (Borja García, 2018)
+              <br />
+              CARACTERISTICAS DEL IRC
+              <br />
+              La comunicación a través del IRC posee características
+              “especiales” que la distinguen de la comunicación cara a cara, ya
+              que a través de la misma se crea una muy rápida intimidad entre
+              los interlocutores, lo que puede ser en muchos casos algo positivo
+              y agradable, como forma de fomentar nuevas y sanas relaciones
+              sociales. En ocasiones esta rápida intimidad lograda a través de
+              este medio puede convertirse en motivo de relaciones frustrantes,
+              al no ser las personas con las que interactuamos, tal y como las
+              imaginábamos a partir de los datos aportados por ellas en nuestras
+              conversaciones. Lo anterior pudiera deberse a varias razones:
+              <br />
+              En primer lugar, en la comunicación cara a cara la información que
+              nuestro interlocutor nos ofrece verbalmente se complementa con la
+              información que nos revela extraverbalmente (gestos, posturas,
+              forma de vestir, apariencia física, etc). De esta manera vamos
+              conformando una imagen total de la otra persona. En el IRC nos
+              tenemos que guiar solamente por el texto que leemos, lo cual hace
+              que le aportemos mucho de nuestra imaginación a la representación
+              mental que sobre esa persona nos hacemos. Y por supuesto, en
+              muchos casos lo que le aportamos tiene que ver con nuestros gustos
+              y deseos. Es cierto que la forma de escribir un determinado texto
+              nos ofrece también información que no se encuentra explícita, pero
+              ésta no llega nunca a suplir la aportada por la imagen real
+              (total) del interlocutor.
+              <br />
+              Muchas personas utilizan esta forma de comunicación sólo para
+              buscar compañía y conversación. Algunos lo hacen de forma mesurada
+              y con fines sanos, a otros no siempre los mueven motivos loables.
+              <br />
+              Los usuarios de los servicios de IRC que tienen fines científicos
+              y académicos asisten a los mismos en busca de información,
+              confrontación y la posibilidad de investigar y trabajar en
+              equipos. Estos objetivos no impiden que en estos servicios, las
+              personas logren establecer relaciones sociales y amistades que
+              propicien su crecimiento como seres humanos. La consolidación de
+              estas relaciones favorece el desarrollo de las actividades
+              propuestas, pues llega un momento en que a estas personas no sólo
+              las une un interés científico común, sino también, los afectos.
+              (Abreu María, Ester Miranda, Elsa Regalado, S.F.)
+              <br />
+
+              Borja García, 2018, 30 años desde Internet Relay Chat, el primer
+              servicio de mensajería instantánea, Blogthinkbig.com, recuperado
+              de: https://blogthinkbig.com/internet-relay-chat/
+              <br />
+              Abreu María Teresa, Regalado Miranda Ester, Regalado Miranda Elsa,
+              S.F., Internet Relay Chat (IRC), cencomed, recuperado de:
+              http://www.cencomed.sld.cu/node/38
+            </div>
           </article>
         </section>
 
