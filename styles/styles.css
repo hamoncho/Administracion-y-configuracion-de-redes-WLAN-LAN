@@ -1,14 +1,18 @@
-
 @font-face {
   font-family: "Poppins";
   src: url(../fonts/Poppins-Regular.ttf);
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-wrap: break-word;
 }
-
+img {
+  max-width: 100%;
+  height: auto;
+}
 body {
   background: #f0f0f0;
   font-family: "Poppins", sans-serif;
@@ -20,7 +24,15 @@ h5 {
 h6 {
   font-size: 1em;
 }
-
+p {
+  padding: 0em 1em 1em 1em;
+}
+li{
+  padding: 1em;
+}
+#Bibliography{
+  padding-left: 3em;
+}
 .topic {
   padding: 2em 2em 1em 4em;
 }
@@ -53,7 +65,7 @@ h6 {
 .nav__link {
   color: #303440;
   display: block;
-  padding: 15px 0;
+  padding: 0.5em 0;
   text-decoration: none;
   font-size: 1em;
 }
@@ -82,11 +94,12 @@ h6 {
 
 .list__inside {
   font-size: 0.8em;
+  padding: 0;
 }
 .list__item {
   list-style: none;
   width: 100%;
-  text-align: center;
+  padding: 0%;
   overflow: hidden;
 }
 

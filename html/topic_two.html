@@ -2,6 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/styles.css" />
     <link rel="stylesheet" href="../styles/topic_two.css" />
@@ -17,7 +18,7 @@
               src="../img/LOGO-TEC-URUAPAN.png"
               alt="LOGO-TEC-URUAPAN"
             />
-            <h1 class="nav__title">Administración De La Red</h1>
+            <h1 class="nav__title">Conceptos Básicos Configuración Del Switch</h1>
           </li>
           <li class="list__item">
             <div class="list__button">
@@ -171,18 +172,17 @@
               un edificio o campus. Un switch permite a los dispositivos
               conectados compartir información y comunicarse entre sí. (Small
               business IT explained in 60 seconds or less: Which switch is
-              which? with captions, 2023).
-              <br />
-              En una red Ethernet los dispositivos se intercambian paquetes de
-              datos entre sí, los llamados paquetes Ethernet. En su contenido se
-              incluye la trama Ethernet (a menudo denominada también trama de
-              datos), que a su vez se divide en varios conjuntos de datos. Estos
-              registros consisten en código binario que proporciona información
-              importante, incluyendo direcciones, información de control, datos
-              de uso y sumas de comprobación. Dependiendo del estándar Ethernet,
-              las tramas Ethernet se estructuran de forma diferente y pueden
-              contener más o menos campos de datos, dependiendo del protocolo de
-              red.(Equipo editorial de IONOS, 2020)
+              which? with captions, 2023). En una red Ethernet los dispositivos
+              se intercambian paquetes de datos entre sí, los llamados paquetes
+              Ethernet. En su contenido se incluye la trama Ethernet (a menudo
+              denominada también trama de datos), que a su vez se divide en
+              varios conjuntos de datos. Estos registros consisten en código
+              binario que proporciona información importante, incluyendo
+              direcciones, información de control, datos de uso y sumas de
+              comprobación. Dependiendo del estándar Ethernet, las tramas
+              Ethernet se estructuran de forma diferente y pueden contener más o
+              menos campos de datos, dependiendo del protocolo de red.(Equipo
+              editorial de IONOS, 2020)
             </div>
           </article>
           <article class="topic">
@@ -193,14 +193,13 @@
             </header>
             <div class="topic__content">
               <strong>¿Qué es Ethernet (IEEE 802.3)?</strong>
-              <br />
+
               Ethernet es una tecnología para redes de datos por cable que
               vincula software y/o hardware entre sí. Esto se realiza a través
               de cables de redes LAN, de ahí que Ethernet sea concebido
               habitualmente como una tecnología LAN. Así, Ethernet permite el
               intercambio de datos entre terminales como, por ejemplo,
               ordenadores, impresoras, servidores, distribuidores, etc.
-              <br />
               Conectados en una red local, estos dispositivos establecen
               conexiones mediante el protocolo Ethernet y pueden intercambiar
               paquetes de datos entre sí. El protocolo actual y más extendido
@@ -208,7 +207,6 @@
               los 1970, época en la que solo se utilizaba como sistema interno
               de red en la empresa Xerox, y no fue hasta principios de los
               ochenta que Ethernet se convirtió en un producto estandarizado.
-              <br />
               Con todo, aún habría que esperar hasta mediados de la década para
               que empezara a utilizarse más ampliamente. Fue cuando los
               fabricantes comenzaron a trabajar con Ethernet y con productos
@@ -216,20 +214,18 @@
               significativa a que los ordenadores personales revolucionaran el
               mundo laboral. El estándar IEEE 802.3 tan popular actualmente se
               utiliza, por ejemplo, en oficinas, viviendas particulares,
-              contenedores y portadores (carrier).
-              <br />
-              Mientras que la primera versión de esta tecnología solo tenía una
-              velocidad de 3 Mbit/s, los protocolos Ethernet actuales permiten
-              alcanzar velocidades de hasta 1 000 megabits por segundo. Por otro
-              lado, los estándares Ethernet antiguos se restringían a un solo
-              edificio, mientras que hoy en día pueden alcanzar hasta los 10 km
-              gracias a la utilización de la fibra de vidrio.
-              <br />
-              En el transcurso de su desarrollo, Ethernet ha tenido el rol
-              dominante entre las tecnologías LAN y ha destacado entre sus
-              numerosos competidores. La conocida como Ethernet en tiempo real
-              es en la actualidad un estándar industrial para aplicaciones de
-              comunicación. (Equipo editorial de IONOS, 2022)
+              contenedores y portadores (carrier). Mientras que la primera
+              versión de esta tecnología solo tenía una velocidad de 3 Mbit/s,
+              los protocolos Ethernet actuales permiten alcanzar velocidades de
+              hasta 1 000 megabits por segundo. Por otro lado, los estándares
+              Ethernet antiguos se restringían a un solo edificio, mientras que
+              hoy en día pueden alcanzar hasta los 10 km gracias a la
+              utilización de la fibra de vidrio. En el transcurso de su
+              desarrollo, Ethernet ha tenido el rol dominante entre las
+              tecnologías LAN y ha destacado entre sus numerosos competidores.
+              La conocida como Ethernet en tiempo real es en la actualidad un
+              estándar industrial para aplicaciones de comunicación. (Equipo
+              editorial de IONOS, 2022)
             </div>
           </article>
 
@@ -244,7 +240,7 @@
               envío de tramas: La trama se envía a través del switch antes de
               que éste la reciba completamente. La trama completa se recibe
               antes de enviarse.
-              <br />
+
               <b>Almacenamiento y envío:</b> La trama completa se recibe antes
               de que se realice cualquier tipo de envío. Se leen las direcciones
               destino y origen y se aplican filtros antes de enviar la trama. La
@@ -253,71 +249,56 @@
               debe recibirse antes de que empiece el proceso de conmutación. El
               switch puede verificar toda la trama para ver si hay errores, lo
               que permite detectar más errores.
-              <br />
+
               <b>Método de corte:</b> La trama se envía a través del switch
               antes de que se reciba la trama completa. Como mínimo, la
               dirección destino de la trama debe leerse antes de que la trama se
               pueda enviar. Este modo reduce la latencia de la transmisión, pero
               también reduce la detección de errores. El host origen envía la
               trama. Un switch de almacenamiento y envío recibe toda la trama.
-              <br />
-              Calcula el CRC y calcula la longitud de la trama.
-              <br />
-              Si el CRC y la longitud de trama son válidas. El switch busca la
-              dirección destino. Con la dirección destino en la tabla de
-              switcheo verifica la interfaz de salida. Entonces se envía la
-              trama por el puerto correcto Un switch de almacenamiento y envío
-              recibe toda la trama, calcula la CRC y verifica la longitud de la
-              trama. Si la CRC y la longitud de la trama son válidas, el switch
-              busca la dirección destino, la cual determina la interfaz de
-              salida.
-              <br />
-              Entonces se envia la trama por el puerto correcto. A continuación,
-              se detallan dos formas de conmutación por método de corte:
-              <br />
+              Calcula el CRC y calcula la longitud de la trama. Si el CRC y la
+              longitud de trama son válidas. El switch busca la dirección
+              destino. Con la dirección destino en la tabla de switcheo verifica
+              la interfaz de salida. Entonces se envía la trama por el puerto
+              correcto Un switch de almacenamiento y envío recibe toda la trama,
+              calcula la CRC y verifica la longitud de la trama. Si la CRC y la
+              longitud de la trama son válidas, el switch busca la dirección
+              destino, la cual determina la interfaz de salida. Entonces se
+              envia la trama por el puerto correcto. A continuación, se detallan
+              dos formas de conmutación por método de corte:
+
               <b>Conmutación rápida:</b> La conmutación rápida ofrece el nivel
-              más bajo de latencia.
-              <br />
-              La conmutación rápida envía un paquete inmediatamente después de
-              leer la dirección destino.
-              <br />
-              Como la conmutación rápida empieza a realizar los envíos antes de
-              recibir el paquete completo, de vez en cuando los paquetes se
-              pueden entregar con errores.
-              <br />
-              Sin embargo, esto ocurre con poca frecuencia y además el adaptador
-              de red destino descarta los paquetes defectuosos en el momento de
-              su recepción.
-              <br />
-              En el modo rápido, la latencia se mide desde el primer bit
-              recibido al primer bit transmitido.
-              <br />
+              más bajo de latencia. La conmutación rápida envía un paquete
+              inmediatamente después de leer la dirección destino. Como la
+              conmutación rápida empieza a realizar los envíos antes de recibir
+              el paquete completo, de vez en cuando los paquetes se pueden
+              entregar con errores. Sin embargo, esto ocurre con poca frecuencia
+              y además el adaptador de red destino descarta los paquetes
+              defectuosos en el momento de su recepción. En el modo rápido, la
+              latencia se mide desde el primer bit recibido al primer bit
+              transmitido.
+
               <b>Libre de fragmentos:</b> La conmutación libre de fragmentos
-              filtra los fragmentos de colisión antes de empezar el envío.
-              <br />
-              Los fragmentos de colisión representan la mayoría de los errores
-              de paquete.
-              <br />
-              En una red que funciona correctamente, los fragmentos de colisión
-              deben ser menores de 64 bytes. Cualquier cosa superior a 64 bytes
-              es un paquete válido y se recibe generalmente sin errores.
-              <br />
-              La conmutación libre de fragmentos espera hasta que se determine
-              si el paquete es un fragmento de colisión o no antes de enviar el
-              paquete. En el modo libre de fragmentos, la latencia también se
-              mide desde el primer bit recibido al primer bit transmitido.
-              <br />
-              El switch que utiliza el método de corte, envía la trama antes de
-              recibirla en su totalidad. Como mínimo, debe leerse la dirección
-              destino de la trama para que pueda enviarse. Una vez que sabe a
-              dónde va y por dónde se irá, la envía sin necesidad de checar ni
-              la longitud ni el CRC. La latencia de cada modo de conmutación
-              depende de la manera en que el switch envía las tramas. Para
-              agilizar el envío de la trama, el switch dedica menos tiempo a la
-              verificación de errores. Sin embargo, reducir la verificación de
-              errores puede resultar en el aumento de la cantidad de
-              retransmisiones. (Tema 1.1.10 Dos m todos de conmutaci n - 1.1
-              Introducci n a la conmutaci n LAN - Cisco III - Instituto
+              filtra los fragmentos de colisión antes de empezar el envío. Los
+              fragmentos de colisión representan la mayoría de los errores de
+              paquete. En una red que funciona correctamente, los fragmentos de
+              colisión deben ser menores de 64 bytes. Cualquier cosa superior a
+              64 bytes es un paquete válido y se recibe generalmente sin
+              errores. La conmutación libre de fragmentos espera hasta que se
+              determine si el paquete es un fragmento de colisión o no antes de
+              enviar el paquete. En el modo libre de fragmentos, la latencia
+              también se mide desde el primer bit recibido al primer bit
+              transmitido. El switch que utiliza el método de corte, envía la
+              trama antes de recibirla en su totalidad. Como mínimo, debe leerse
+              la dirección destino de la trama para que pueda enviarse. Una vez
+              que sabe a dónde va y por dónde se irá, la envía sin necesidad de
+              checar ni la longitud ni el CRC. La latencia de cada modo de
+              conmutación depende de la manera en que el switch envía las
+              tramas. Para agilizar el envío de la trama, el switch dedica menos
+              tiempo a la verificación de errores. Sin embargo, reducir la
+              verificación de errores puede resultar en el aumento de la
+              cantidad de retransmisiones. (Tema 1.1.10 Dos m todos de conmutaci
+              n - 1.1 Introducci n a la conmutaci n LAN - Cisco III - Instituto
               Consorcio Clavijero, s. f.)
             </div>
           </article>
@@ -495,7 +476,7 @@
                   En el caso de los switches de repuesto, no olvide eliminar el
                   archivo flash:vlan.dat para borrar la configuración anterior.
                 </p>
-                <br />
+
                 <h6>Paso 2: configure la IP de administración</h6>
                 <p>
                   A diferencia de ese nombre ingenioso que le dio a la red wifi
@@ -506,7 +487,7 @@
                   continuación, asegúrese de que el switch tenga definidos el
                   nombre de host y el nombre de dominio:
                 </p>
-                <br />
+
                 <h6>Paso 3: verifique el número de revisión de VTP</h6>
                 <p>
                   Introduzca el comando show vtp status para ver los números de
@@ -528,14 +509,14 @@
                   fácilmente el dominio y volverlo a cero, cambie el modo de
                   configuración a "transparent".
                 </p>
-                <br />
+
                 <h6>Paso 4: configure los puertos de acceso</h6>
                 <p>
                   Quizás ya tenga una plantilla lista para la configuración de
                   los puertos de acceso, pero si no, estos son algunos comandos
                   que debe usar:
                 </p>
-                <br />
+
                 <h6>Paso 5: configure los puertos del enlace troncal</h6>
                 <p>
                   Introduzca el command sh int g0/1 y vea cuál es el protocolo
@@ -546,7 +527,7 @@
                   no se admite otra encapsulación, por lo que no es necesario
                   introducir un comando de encapsulación. Solo admite 802.1Q.
                 </p>
-                <br />
+
                 <h6>Paso 6: configure los puertos de acceso</h6>
                 <p>
                   Después de haber realizado la configuración básica del switch
@@ -559,7 +540,7 @@
                   2048 para las claves de uso general. Si elige un módulo de
                   claves superior a 512, puede llevar unos minutos.
                 </p>
-                <br />
+
                 <h6>Paso 7: configure la línea VTY</h6>
                 <p>
                   Si todavía no estableció la línea de consola, puede introducir
@@ -578,7 +559,7 @@
                   iniciar sesión desde una máquina remota para verificar que
                   puede establecer una conexión de SSH con el switch Cisco.
                 </p>
-                <br />
+
                 <h6>Toques finales</h6>
                 <p>
                   Ha llegado al final del proceso de aprendizaje con un mínimo
@@ -594,7 +575,6 @@
               (Cómo configurar un switch de red para su empresa en 6 pasos,
               2023) Cómo configurar un switch de red para su empresa en 6 pasos.
               (2023, 5 enero). Cisco.
-              https://www.cisco.com/c/es_mx/solutions/small-business/resource-center/networking/how-to-setup-network-switch.html#~setup-guide
             </div>
           </article>
 
@@ -1036,14 +1016,14 @@
                   predeterminada, el puerto se apaga cuando se supera el número
                   máximo de direcciones MAC seguras.
                 </p>
-                <br />
+
                 <p>
                   <b>Nota:</b> Cuando un Catalyst 3750 Switch se une a una pila,
                   el nuevo switch recibe las direcciones seguras configuradas.
                   El nuevo miembro de la pila descargará todas las direcciones
                   seguras dinámicas de los demás miembros de la pila.
                 </p>
-                <br />
+
                 <p>
                   Consulte
                   <a
@@ -1695,14 +1675,9 @@
                     </b>
                   </li>
                 </ul>
-                <p xmlns:cal="xalan://java.util.GregorianCalendar"></p>
-                <p xmlns:cal="xalan://java.util.GregorianCalendar"></p>
-                <p xmlns:cal="xalan://java.util.GregorianCalendar"></p>
-                <font xmlns:cal="xalan://java.util.GregorianCalendar" size="-1">
-                </font>
               </div>
 
-              https://www.cisco.com/c/es_mx/support/docs/switches/catalyst-3750-series-switches/72846-layer2-secftrs-catl3fixed.html
+              (2022, 13 marzo). Cisco.
             </div>
           </article>
 
@@ -1722,8 +1697,10 @@
                 Aunque los parámetros predeterminados suelen ser suficientes,
                 cambiar los parámetros LAN le permite manipular su
                 configuración, lo que afecta a la propia red, incluida la
-                dirección IP de administración de dispositivos.
-                https://www.cisco.com/c/es_mx/support/docs/smb/routers/cisco-rv-series-small-business-routers/smb5437-configure-ipv4-lan-connections-on-rv132w-or-rv134w.pdf
+                dirección IP de administración de dispositivos. Cisco. (s. f.).
+                Configuración de las conexiones de red de área local (LAN) del
+                protocolo de Internet versión 4 (IPv4) en el router VPN RV132W o
+                RV134W.
               </p>
             </div>
           </article>
@@ -1755,7 +1732,7 @@
                 Sin embargo, algunas funcionalidades avanzadas pueden no ser
                 compatibles con el servidor DHCP configurado en un router Cisco.
               </p>
-              <br />
+
               <p>
                 En este LAB explicaremos como configurar el servicio de DHCP en
                 un Cisco Router
@@ -1768,10 +1745,9 @@
                   height="299"
                 />
               </p>
-              <br />
 
               <h6>Comandos IOS</h6>
-              <br />
+
               <ul>
                 <li>Configuración de la interfaz G0/0 de Router0</li>
               </ul>
@@ -1786,8 +1762,6 @@
               <p>
                 <strong><em>Router0(config-if)# no shut</em></strong>
               </p>
-
-              <br />
 
               <ul>
                 <li>Creación del DHCP Pool llamado “DHCP-POOL-01”</li>
@@ -1818,8 +1792,6 @@
                 <strong><em>Router0(dhcp-config)# exit</em></strong>
               </p>
 
-              <br />
-
               <ul>
                 <li>También podemos excluir direcciones IP del DHCP Pool</li>
               </ul>
@@ -1835,10 +1807,8 @@
                 <strong><em>Router0(config)# exit</em></strong>
               </p>
 
-              <br />
               <h6>Pruebas de obtención de parámetros de direccionamiento IP</h6>
 
-              <br />
               <p>
                 Como se puede ver en la siguiente imagen, PC toma dirección IP
                 del DHCP Server
@@ -1866,7 +1836,6 @@
               </h3>
             </header>
             <div class="topic__content">
-              <br />
               <h4>DNS</h4>
               <p>
                 Una parte importante de la administración de la configuración e
@@ -1888,9 +1857,9 @@
                 privadas, lo cual es indispensable cuando su entorno abarca más
                 de unos pocos hosts.
               </p>
-              <br />
+
               <h6>Instalar BIND en servidores DNS</h6>
-              <br />
+
               <p>
                 Para instalar el servicio DNS Bind en Ubuntu 20.04 LTS
                 utilizaremos los paquetes disponibles en los repositorios del
@@ -1933,9 +1902,8 @@
                 locales, lo solucionaremos enseguida.
               </p>
 
-              <br />
               <h6>Configurar el firewall de Ubuntu 20.04 LTS para DNS Bind</h6>
-              <br />
+
               <p>
                 En caso de que tengas activado el firewall UFW en tu máquina
                 Ubuntu 20.04 LTS será necesario añadir una regla para permitir
@@ -1949,7 +1917,7 @@
                 Cómo configurar los clientes de red para usar el servicio DNS
                 Bind de Ubuntu 20.04 LTS
               </h6>
-              <br />
+
               <p>
                 La forma más sencilla de que el resto de máquinas de la red
                 comiencen a usar el servicio DNS Bind que estamos configurando
@@ -1958,13 +1926,13 @@
                 que envíe como servidor de nombres la dirección IP del nuevo
                 servidor DNS.
               </p>
-              <br />
+
               <p>
                 En caso de configurar manualmente los adaptadores de red de cada
                 dispositivo de la red local bastará con indicar la dirección del
                 servidor de nombres Ubuntu 20.04 en el lugar adecuado.
               </p>
-              <br />
+
               <p>
                 Finalmente, si usas autoconfiguración y no puedes o no quieres
                 modificar la configuración del servidor DHCP, puedes configurar
@@ -1972,7 +1940,7 @@
                 la configuración automática excepto para los servidores de
                 nombres.
               </p>
-              <br />
+
               <p>
                 En el caso de clientes Ubuntu 20.04, cuya configuración de red
                 se realiza a través de Netplan, editaremos el archivo de
@@ -2027,7 +1995,7 @@ network:
                 permitidos los espacios en blanco para el sangrado o indentación
                 de los parámetros.
               </p>
-              <br />
+
               <p>
                 Hemos añadido la directiva nameservers, con el apartado
                 addresses en el que especificamos, separadas por comas, las
@@ -2035,9 +2003,9 @@ network:
                 terciario, etc. En este ejemplo la única dirección que añadimos
                 es la del servidor DNS que configuraremos a continuación.
               </p>
-              <br />
+
               <p>Guardamos los cambios y cerramos el archivo.</p>
-              <br />
+
               <p>Para aplicar todos estos cambios usamos el comando netplan:</p>
 
               <div class="comando">
@@ -2048,23 +2016,23 @@ network:
                 Desde este momento la máquina Ubuntu 20.04 LTS resolverá nombres
                 mediante el servidor DNS especificado manualmente.
               </p>
-              <br />
+
               <h6>Cómo configurar el servidor DNS Bind en Ubuntu 20.04 LTS</h6>
-              <br />
+
               <p>
                 Para configurar el servicio DNS Bind en Ubuntu 20.04 LTS
                 trabajaremos sobre sus archivos de configuración, ubicados en la
                 ruta <i>/etc/bind/</i>.
               </p>
-              <br />
+
               <p>
                 El archivo principal es named.conf que se limita a cargar las
                 configuraciones de los archivos named.conf.options,
                 named.conf.local y named.conf.default-zones.
               </p>
-              <br />
+
               <h6>Trabajar únicamente con IPv4</h6>
-              <br />
+
               <p>
                 Pero también podemos realizar ciertos ajustes sobre el archivo
                 /etc/default/named. Por ejemplo, si sólo vamos a trabajar con
@@ -2149,12 +2117,12 @@ dnssec-validation auto;
                 En este caso hemos desactivado la directiva original y hemos
                 añadido una nueva con el valor deseado.
               </p>
-              <br />
+
               <p>
                 Tras guardar el archivo, habrá que recargar la configuración del
                 servicio para aplicar los cambios.
               </p>
-              <br />
+
               <p>
                 Si ahora volvemos a consultar el estado del servicio, veremos
                 que han desaparecido los mensajes de error:
@@ -2209,7 +2177,7 @@ dnssec-validation auto;
                 Google, pero puedes usar otros como, por ejemplo, los que
                 proporciona tu proveedor de acceso a Internet.
               </p>
-              <br />
+
               <p>Guardamos el archivo y recargamos el servicio.</p>
               <h6>Cómo configurar zonas o dominios</h6>
               <p>
@@ -2261,12 +2229,12 @@ ns.localnet.net.        IN      A       192.168.0.140
                 y el servidor DNS que lo gestiona, que en este caso es nuestro
                 servidor Ubuntu 20.04 LTS.
               </p>
-              <br />
+
               <p>
                 Inicialmente hemos incluido el registro SOA, un registro NS y un
                 registro A.
               </p>
-              <br />
+
               <p>
                 En la línea que comienza por @, el registro SOA o «Start of
                 Authority«, indicamos cuál es el servidor de nombres del dominio
@@ -2296,25 +2264,25 @@ dns1.localnet.net.      IN      A       192.168.0.140
                 nombres, enlazándolo a la misma cuenta de correo del
                 administrador.
               </p>
-              <br />
+
               <p>
                 Es muy importante no olvidar ninguno de los puntos al final de
                 cada nombre de máquina.
               </p>
-              <br />
+
               <p>
                 La línea etiquetada como ‘serial‘ recoge un número que deberá
                 incrementarse manualmente cada vez que editemos este archivo, ya
                 sea para modificar nombres o añadir nuevos.
               </p>
-              <br />
+
               <p>
                 Observa que el registro NS está indentado, ya que si no lo está
                 la configuración no funcionará.
               </p>
-              <br />
+
               <p>Guardamos los cambios y cerramos el archivo.</p>
-              <br />
+
               <p>
                 Para comprobar que la configuración es correcta podemos usar el
                 comando named-checkzone, que recibe como parámetros el dominio
@@ -2323,11 +2291,8 @@ dns1.localnet.net.      IN      A       192.168.0.140
 
               <div class="comando">
                 <code class="comand-linux">
-                  named-checkzone localnet.net /etc/bind/db.localnet.net
-                  <br />
-                  zone localnet.net/IN: loaded serial 1
-                  <br />
-                  OK
+                  named-checkzone localnet.net /etc/bind/db.localnet.net zone
+                  localnet.net/IN: loaded serial 1 OK
                 </code>
               </div>
 
@@ -2361,11 +2326,8 @@ ubuntu2.localnet.net.           IN      A       192.168.0.108
 
               <div class="comando">
                 <code class="comand-linux">
-                  named-checkzone localnet.net /etc/bind/db.localnet.net
-                  <br />
-                  zone localnet.net/IN: loaded serial 2
-                  <br />
-                  OK
+                  named-checkzone localnet.net /etc/bind/db.localnet.net zone
+                  localnet.net/IN: loaded serial 2 OK
                 </code>
               </div>
 
@@ -2489,58 +2451,48 @@ zone "localnet.net" IN {
 
                   <p>
                     <strong>Agregar-impresora-</strong> Agrega una impresora a
-                    la computadora especificada. <br /><strong
-                      >Add-PrinterDriver-</strong
-                    >
-                    Instala un controlador de impresora en la computadora
-                    especificada. <br /><strong>Add-PrinterPort-</strong>
-                    Instala un puerto de impresora en la computadora
-                    especificada. <br /><strong>Get-PrintConfiguration-</strong>
+                    la computadora especificada.
+                    <strong>Add-PrinterDriver-</strong> Instala un controlador
+                    de impresora en la computadora especificada.
+                    <strong>Add-PrinterPort-</strong> Instala un puerto de
+                    impresora en la computadora especificada.
+                    <strong>Get-PrintConfiguration-</strong>
                     Obtiene la información de configuración de una impresora.
-                    <br /><strong>Get-Printer-</strong> Recupera una lista de
-                    impresoras instaladas en una computadora. <br /><strong
-                      >Get-PrinterDriver-</strong
-                    >
-                    Recupera la lista de controladores de impresora instalados
-                    en la computadora especificada. <br /><strong
-                      >Get-PrinterPort-</strong
-                    >
-                    Recupera una lista de puertos de impresora instalados en la
-                    computadora especificada. <br /><strong
-                      >Get-PrinterProperty-</strong
-                    >
-                    Recupera las propiedades de la impresora de la impresora
-                    especificada. <br /><strong>Get-PrintJob-</strong> Recupera
-                    una lista de trabajos de impresión en la impresora
-                    especificada. <br /><strong>Lectura-PrinterNfcTag-</strong>
-                    Lee información acerca de las impresoras desde una etiqueta
-                    NFC. <br /><strong>Eliminar-impresora-</strong> Elimina una
-                    impresora de la computadora especificada. <br /><strong
-                      >Remove-PrinterDriver-</strong
-                    >
-                    Elimina el controlador de impresora de la computadora
-                    especificada. <br /><strong>Remove-PrinterPort-</strong>
-                    Elimina el puerto de la impresora especificado del equipo
-                    especificado. <br /><strong>Remove-PrintJob-</strong>
-                    Elimina un trabajo de impresión en la impresora
-                    especificada. <br /><strong>Rename-Printer-</strong> Cambia
-                    el nombre de la impresora especificada. <br /><strong
-                      >Reiniciar-PrintJob-</strong
-                    >
-                    Reinicia un trabajo de impresión en la impresora
-                    especificada. <br /><strong>Resume-PrintJob-</strong>
-                    Reanuda un trabajo de impresión suspendido. <br /><strong
-                      >Set-PrintConfiguration-</strong
-                    >
-                    Establece la información de configuración de la impresora
-                    especificada. <br /><strong>Set-Printer-</strong> Actualiza
-                    la configuración de una impresora existente. <br /><strong
-                      >Set-PrinterProperty-</strong
-                    >
-                    Modifica las propiedades de la impresora de la impresora
-                    especificada. <br /><strong>Suspend-PrintJob-</strong>
-                    Suspende un trabajo de impresión en la impresora
-                    especificada. <br /><strong>Write-PrinterNfcTag-</strong>
+                    <strong>Get-Printer-</strong> Recupera una lista de
+                    impresoras instaladas en una computadora.
+                    <strong>Get-PrinterDriver-</strong> Recupera la lista de
+                    controladores de impresora instalados en la computadora
+                    especificada. <strong>Get-PrinterPort-</strong> Recupera una
+                    lista de puertos de impresora instalados en la computadora
+                    especificada. <strong>Get-PrinterProperty-</strong> Recupera
+                    las propiedades de la impresora de la impresora
+                    especificada. <strong>Get-PrintJob-</strong> Recupera una
+                    lista de trabajos de impresión en la impresora especificada.
+                    <strong>Lectura-PrinterNfcTag-</strong> Lee información
+                    acerca de las impresoras desde una etiqueta NFC.
+                    <strong>Eliminar-impresora-</strong> Elimina una impresora
+                    de la computadora especificada.
+                    <strong>Remove-PrinterDriver-</strong> Elimina el
+                    controlador de impresora de la computadora especificada.
+                    <strong>Remove-PrinterPort-</strong> Elimina el puerto de la
+                    impresora especificado del equipo especificado.
+                    <strong>Remove-PrintJob-</strong> Elimina un trabajo de
+                    impresión en la impresora especificada.
+                    <strong>Rename-Printer-</strong> Cambia el nombre de la
+                    impresora especificada.
+                    <strong>Reiniciar-PrintJob-</strong> Reinicia un trabajo de
+                    impresión en la impresora especificada.
+                    <strong>Resume-PrintJob-</strong> Reanuda un trabajo de
+                    impresión suspendido.
+                    <strong>Set-PrintConfiguration-</strong> Establece la
+                    información de configuración de la impresora especificada.
+                    <strong>Set-Printer-</strong> Actualiza la configuración de
+                    una impresora existente.
+                    <strong>Set-PrinterProperty-</strong> Modifica las
+                    propiedades de la impresora de la impresora especificada.
+                    <strong>Suspend-PrintJob-</strong> Suspende un trabajo de
+                    impresión en la impresora especificada.
+                    <strong>Write-PrinterNfcTag-</strong>
                     Escribe los datos de conexión de la impresora en una
                     etiqueta NFC.&nbsp;
                   </p>
@@ -2645,7 +2597,7 @@ zone "localnet.net" IN {
                 </li>
               </ol>
             </div>
-            https://www.avast.com/es-es/c-how-to-set-up-a-proxy
+            Vaughan-Nichols, S. J. (2023)
           </article>
 
           <article class="topic">
@@ -2667,13 +2619,13 @@ zone "localnet.net" IN {
                 permite crear una dirección IP pública para que posibles
                 extraños no pirateen nuestra red.”
               </p>
-              <br />
+
               <p>
                 La configuración de NAT (Traducción de Direcciones de Red) varía
                 según el dispositivo y el sistema operativo que se esté
                 utilizando, pero generalmente se siguen estos pasos:
               </p>
-              <br />
+
               <p>
                 Inicia sesión en el router: Abre un navegador web e ingresa la
                 dirección IP del router en la barra de direcciones. Por lo
@@ -2681,7 +2633,7 @@ zone "localnet.net" IN {
                 "192.168.1.1" o "192.168.0.1". Deberás iniciar sesión con las
                 credenciales de administrador del router.
               </p>
-              <br />
+
               <p>
                 Accede a la configuración NAT: Una vez que hayas iniciado sesión
                 en el enrutador, busca una sección relacionada con NAT o "Port
@@ -2692,7 +2644,7 @@ zone "localnet.net" IN {
                 encontrarás una opción para habilitar o deshabilitar NAT.
                 Asegúrate de habilitarla.
               </p>
-              <br />
+
               <p>
                 Selecciona el tipo de NAT: Si deseas configurar NAT
                 unidireccional (One-to-One), deberás especificar las direcciones
@@ -2703,7 +2655,7 @@ zone "localnet.net" IN {
                 hacen de manera predeterminada. Esto permite que varios
                 dispositivos compartan una única dirección IP pública.
               </p>
-              <br />
+
               <p>
                 Guardar configuraciones: Después de habilitar y configurar NAT
                 según tus necesidades, asegúrate de guardar las configuraciones.
@@ -2714,7 +2666,7 @@ zone "localnet.net" IN {
                 configuración de NAT surtan efecto. Verifica si se necesita un
                 reinicio y, de ser así, realiza uno.
               </p>
-              <br />
+
               <p>
                 Configuración de reenvío de puertos (si es necesario): Si deseas
                 permitir el acceso a servicios específicos en dispositivos
@@ -2727,17 +2679,15 @@ zone "localnet.net" IN {
                 los dispositivos en tu red privada sea exitoso y que cualquier
                 reenvío de puertos funcione según lo previsto. (Cisco, 2022)
               </p>
-              <br />
 
               Jimenez Javier, 13 de septiembre de 2023, Qué es NAT y cómo actúa
               en nuestra red, RedesZone, recuperado de:
               https://www.redeszone.net/tutoriales/redes-cable/que-es-nat-red/
-              <br />
               Cisco. (2022, 12 marzo). Configurar NAT para habilitar la
               comunicación entre redes superpuestas. Recuperado 5 de octubre de
-              2023, de
+              2023, de Configurar NAT para habilitar la comunicación entre redes
+              superpuestas. (2022, 12 marzo). Cisco.
               https://www.cisco.com/c/es_mx/support/docs/ip/network-address-translation-nat/200726-Configure-NAT-to-Enable-Communication-Be.html
-              <br />
             </div>
           </article>
 
@@ -2763,13 +2713,13 @@ zone "localnet.net" IN {
                 se apaga, los internautas tendrán problemas al ingresar al sitio
                 web.” (Ivan de Souza, 14 de junio del 2019)
               </p>
-              <br />
+
               <h5>TIPOS DE SERVIDORES WEB</h5>
               <p>
                 La empresa de Cloud Center Andalucía nos menciona los tipos de
                 servidores web, los cuales son:
               </p>
-              <br />
+
               <ul>
                 <li>
                   <h5>APACHE</h5>
@@ -2783,7 +2733,7 @@ zone "localnet.net" IN {
                     otros tipos de servidor es su principal punto débil.
                   </p>
                 </li>
-                <br />
+
                 <li>
                   <h5>NGINX</h5>
                   <p>
@@ -2796,7 +2746,7 @@ zone "localnet.net" IN {
                     con PHP de forma nativa.
                   </p>
                 </li>
-                <br />
+
                 <li>
                   <h5>MICROSOFT IIS</h5>
                   <p>
@@ -2808,7 +2758,7 @@ zone "localnet.net" IN {
                     limitada con respecto a otras opciones.
                   </p>
                 </li>
-                <br />
+
                 <li>
                   <h5>GOOGLE GWS</h5>
                   <p>
@@ -2822,7 +2772,7 @@ zone "localnet.net" IN {
                     usuarios.
                   </p>
                 </li>
-                <br />
+
                 <li>
                   <h5>LITE SPEED</h5>
                   <p>
@@ -2835,7 +2785,7 @@ zone "localnet.net" IN {
                     adquirir la licencia de uso.
                   </p>
                 </li>
-                <br />
+
                 <li>
                   <h5>LIGHTTPD</h5>
                   <p>
@@ -2848,7 +2798,7 @@ zone "localnet.net" IN {
                     operativos Windows, lo que limita su aplicación.
                   </p>
                 </li>
-                <br />
+
                 <li>
                   <h5>SUN JAVA SYSTEM WEB SERVER</h5>
                   <p>
@@ -2860,7 +2810,7 @@ zone "localnet.net" IN {
                   </p>
                 </li>
               </ul>
-              <br />
+
               <p>
                 Ivan de Souza, 14 de junio del 2019, ¿Qué es un servidor web y
                 para qué sirve en Internet?, rockcontent, recuperado de:
@@ -2900,16 +2850,16 @@ zone "localnet.net" IN {
                 Por lo tanto, en el nivel más básico, los servidores del FTP son
                 el punto medio entre el destinatario y el remitente.”
               </p>
-              <br />
+
               <h5>CARACTERÍSTICAS DEL FTP</h5>
-              <br />
+
               <p>
                 Si estás interesado en utilizar este recurso, además de conocer
                 qué es FTP y sus tipos, es preciso que conozcas algunas de sus
                 características. Entre sus particularidades principales se
                 encuentran las siguientes:
               </p>
-              <br />
+
               <p>
                 Consta de una estructura de carpetas y subcarpetas en donde se
                 guarda la información. Sirve en cualquier sistema operativo,
@@ -2926,21 +2876,21 @@ zone "localnet.net" IN {
                 proteger la información que deseas cargar en el servidor.”
                 (Yhorman Sierra, S.F.)
               </p>
-              <br />
+
               <h5>TIPOS DE SERVIDORES FTP</h5>
-              <br />
+
               <h6>
                 Existen tres tipos de FTP bien diferenciados a la hora de
                 establecer una conexión:
               </h6>
-              <br />
+
               <ul>
                 <li>
                   FTP autenticado: Este es el método tradicional de conectar a
                   un servidor FTP, es decir, se requiere de un usuario y
                   contraseña para ingresar al servidor.
                 </li>
-                <br />
+
                 <li>
                   El FTP autenticado y basado en contraseña es el más común hoy
                   en día, ya que ofrece una seguridad básica para no permitir
@@ -2950,7 +2900,7 @@ zone "localnet.net" IN {
                   gFTP, etc, o bien a través del navegador web si ya incluye un
                   cliente FTP embebido.
                 </li>
-                <br />
+
                 <li>
                   FTP anónimo o público: Como vimos anteriormente, la forma
                   normal de funcionar de un servidor FTP es mediante una
@@ -2966,7 +2916,7 @@ zone "localnet.net" IN {
                   se limitan de alguna forma para que nadie haga más de lo que
                   debe.
                 </li>
-                <br />
+
                 <li>
                   FTP embebido: Este tipo de FTP no es el más común, y se trata
                   de uno que está incrustado en las diferentes páginas webs de
@@ -3015,7 +2965,7 @@ zone "localnet.net" IN {
                 computadoras de escritorio, notebooks, móviles, tablets e
                 incluso desde nuestros relojes inteligentes.
               </p>
-              <br />
+
               <p>
                 Gracias a él podemos comunicarnos con personas de todo el mundo,
                 en cuestión de segundos. Es sin duda alguna una de las mejores
@@ -3023,7 +2973,7 @@ zone "localnet.net" IN {
                 tanto, muchos desconocen el funcionamiento detrás de un email.”
                 (Álvaro De León, 2019)
               </p>
-              <br />
+
               <p>
                 Álvaro De León, 12 de Marzo del 2019, Servidor de Correo: ¿Qué
                 es? ¿Para qué sirve?, infranetworking, recuperado de:
@@ -3031,68 +2981,68 @@ zone "localnet.net" IN {
                   >https://blog.infranetworking.com/servidor-de-correo/</a
                 >
               </p>
-              <br />
+
               <h4>CARACTERÍSTICAS DEL SERVIDOR DE CORREO</h4>
               <p>
                 El servidor de correo electrónico es el sistema que gestiona y
                 almacena los correos electrónicos. Aquí algunas de sus
                 principales características:
               </p>
-              <br />
+
               <ul>
                 <li>
                   <b>Protocolos de envío y recepción:</b> Como SMTP para envío y
                   POP3 o IMAP para recepción.
                 </li>
-                <br />
+
                 <li>
                   <b>Autenticación:</b> Garantiza que solo los usuarios
                   autorizados accedan al servidor.
                 </li>
-                <br />
+
                 <li>
                   <b>Alta disponibilidad:</b> Garantiza un tiempo de actividad
                   cercano al 100%, esencial para la continuidad del negocio.
                 </li>
-                <br />
+
                 <li>
                   <b>Cifrado:</b> Protege la privacidad y seguridad de los datos
                   transmitidos y almacenados.
                 </li>
-                <br />
+
                 <li>
                   <b>Filtrado de spam:</b> Herramientas automatizadas que
                   detectan y bloquean correos no deseados.
                 </li>
-                <br />
+
                 <li>
                   <b>Respuestas automáticas:</b> Permite configurar respuestas
                   automáticas para informar sobre ausencias o proporcionar
                   información adicional.
                 </li>
-                <br />
+
                 <li>
                   <b>Redireccionamiento:</b> Los correos pueden ser redirigidos
                   automáticamente a otras direcciones según ciertas reglas.
                 </li>
-                <br />
+
                 <li>
                   <b>Listas de distribución:</b> Facilitan el envío masivo a
                   grupos específicos de usuarios.
                 </li>
-                <br />
+
                 <li>
                   <b>Gestión de recursos:</b> Gestiona las demandas de recursos
                   según la carga de tráfico, asegurando un rendimiento óptimo.
                 </li>
-                <br />
+
                 <li>
                   <b>Mantenimiento y actualizaciones:</b> Los servidores son
                   mantenidos y actualizados regularmente para garantizar su
                   eficiencia y seguridad.” (Aguirre Gabriela, 2023)
                 </li>
               </ul>
-              <br />
+
               <p>
                 Gabriela María Prieto Aguirre, 29 de Septiembre del 2023, Qué es
                 un servidor de correo electrónico y qué necesita para ser apto
@@ -3102,15 +3052,14 @@ zone "localnet.net" IN {
                   >https://mx.godaddy.com/blog/10-caracteristicas-de-un-servidor-de-correo-electronico-apto-para-empresas/</a
                 >
               </p>
-              <br />
 
               <h4>VENTAJAS Y DESVENTAJAS DEL SERVIDOR DE CORREO</h4>
-              <br />
+
               <p>
                 La empresa de espacio.net.mx nos menciona las siguientes
                 ventajas y desventajas de un servidor de correos:
               </p>
-              <br />
+
               <p>
                 Si bien existen muchas opciones de servicios de correo gratuito,
                 incluso para empresas, las desventajas de estos son claras. Una
@@ -3118,7 +3067,7 @@ zone "localnet.net" IN {
                 de su funcionamiento. Un servidor de correo privado ofrece
                 beneficios puntuales:
               </p>
-              <br />
+
               <ul>
                 <li>
                   <b>Presencia de marca:</b> Es posible integrar el nombre de tu
@@ -3128,25 +3077,25 @@ zone "localnet.net" IN {
                   seguros. Además, es posible gestionar diferentes cuentas de
                   correo para las diversas áreas del negocio.
                 </li>
-                <br />
+
                 <li>
                   <b>Escalabilidad:</b> Los sitios web cambian y se actualizan
                   constantemente. Contar con un servidor de correo permite
                   asegurar una buena gestión y expansión de funciones.
                 </li>
-                <br />
+
                 <li>
                   <b>Seguridad:</b> Sin duda uno de los aspectos más atractivos,
                   pues es posible encriptar de forma segura al manejar
                   información delicada.
                 </li>
-                <br />
+
                 <li>
                   <b>Funcionamiento estable:</b> Al contar con un servidor
                   dedicado se obtiene mayor estabilidad en el servicio de
                   correo.
                 </li>
-                <br />
+
                 <li>
                   <b>Adaptabilidad:</b> Es posible integrar el correo a otras
                   herramientas que se utilicen en la empresa.
@@ -3176,14 +3125,14 @@ zone "localnet.net" IN {
                 Oikarinen, que tuvo sus inicios en el año 1988 y que hoy cumple
                 30 años.
               </p>
-              <br />
+
               <p>
                 Esta herramienta permite la comunicación inmediata a través de
                 Internet entre dos o más personas en formato textual en tiempo
                 real. Actualmente, su creador trabaja en Google, formando parte
                 del equipo que trabaja en Google Hangouts.
               </p>
-              <br />
+
               <p>
                 IRC permitía ofrecer un servicio de comunicación a tiempo real a
                 través de Internet, ya fuese en canales que permitían la
@@ -3193,9 +3142,9 @@ zone "localnet.net" IN {
                 protocolo estaba basado en texto plano y las acciones a realizar
                 se enviaban en forma de comandos de texto.” (Borja García, 2018)
               </p>
-              <br />
+
               <h4>CARACTERISTICAS DEL IRC</h4>
-              <br />
+
               <p>
                 La comunicación a través del IRC posee características
                 “especiales” que la distinguen de la comunicación cara a cara,
@@ -3209,7 +3158,7 @@ zone "localnet.net" IN {
                 ellas en nuestras conversaciones. Lo anterior pudiera deberse a
                 varias razones:
               </p>
-              <br />
+
               <ul>
                 <li>
                   En primer lugar, en la comunicación cara a cara la información
@@ -3227,14 +3176,14 @@ zone "localnet.net" IN {
                   ésta no llega nunca a suplir la aportada por la imagen real
                   (total) del interlocutor.
                 </li>
-                <br />
+
                 <li>
                   Muchas personas utilizan esta forma de comunicación sólo para
                   buscar compañía y conversación. Algunos lo hacen de forma
                   mesurada y con fines sanos, a otros no siempre los mueven
                   motivos loables.
                 </li>
-                <br />
+
                 <li>
                   Los usuarios de los servicios de IRC que tienen fines
                   científicos y académicos asisten a los mismos en busca de
@@ -3248,7 +3197,7 @@ zone "localnet.net" IN {
                   sino también, los afectos.
                 </li>
               </ul>
-              <br />
+
               <p>
                 Borja García, 2018, 30 años desde Internet Relay Chat, el primer
                 servicio de mensajería instantánea, Blogthinkbig.com, recuperado
@@ -3268,68 +3217,193 @@ zone "localnet.net" IN {
           </article>
         </section>
 
-        <ul>
-          <li>
-            Equipo editorial de IONOS. (2020). Trama Ethernet: definición,
-            estructura y variantes. IONOS Digital Guide.
-            https://www.ionos.mx/digitalguide/servidores/know-how/trama-ethernet/
-          </li>
+        <section>
+          <h1>Conceptos Básicos Configuración Del Switch</h1>
 
-          <li>
-            Small business IT explained in 60 seconds or less: Which switch is
-            which? with captions. (2023, 22 febrero). [Vídeo]. Cisco.
-            https://www.cisco.com/c/es_mx/solutions/small-business/resource-center/networking/network-switch-how.html
-          </li>
+          <ol>
+            <li>
+              <h4>
+                Static MAC Address Entry (Entrada Estática de Dirección MAC)
+              </h4>
+              <p>
+                Una entrada estática de dirección MAC es una configuración que
+                asigna manualmente una dirección MAC a un puerto específico en
+                un switch.
+              </p>
+            </li>
 
-          <li>
-            Equipo editorial de IONOS. (2022). ¿Qué es Ethernet (IEEE 802.3)?
-            IONOS Digital Guide.
-            https://www.ionos.mx/digitalguide/servidores/know-how/ethernet-ieee-8023/
-          </li>
+            <li>
+              <h4>Port VLAN Membership (Miembro de VLAN en el Puerto)</h4>
+              <p>
+                Esta configuración define a qué VLAN pertenece un puerto
+                específico en el switch, lo que determina cómo se comporta con
+                respecto al tráfico de VLAN.
+              </p>
+            </li>
 
-          <li>
-            Tema 1.1.10 Dos m todos de conmutacion - 1.1 Introduccion a la
-            conmutacion LAN - Cisco III - Instituto Consorcio Clavijero.
-            (s. f.).
-            https://cursos.clavijero.edu.mx/cursos/069_cIII/modulo1/contenidos/tema1.1.10.html#:~:text=el%20puerto%20correcto-,Un%20switch%20de%20almacenamiento%20y%20env%C3%ADo%20recibe%20toda%20la%20trama,trama%20por%20el%20puerto%20correcto.
-          </li>
+            <li>
+              <h4>MAC Address Table (Tabla de Direcciones MAC)</h4>
+              <p>
+                La tabla de direcciones MAC es una base de datos que mapea
+                direcciones MAC a puertos en un switch, utilizada para el
+                reenvío de tráfico.
+              </p>
+            </li>
 
-          <li>
-            Dropbox, S.F., ¿Qué es el FTP?, Recuperado de :
-            https://experience.dropbox.com/es-la/resources/what-is-ftp
-          </li>
-          <li>
-            Sierra Yhorman, S.F., ¿Qué es FTP y cómo usarlo? – tipos,
-            características, funciones y usos, mediacloud, recuperado de:
-            https://blog.mdcloud.es/que-es-ftp-tipos-caracteristicas-funciones-y-usos/
-          </li>
-          <li>
-            Borges Esteban, 12 de Febrero del 2019, Servidor FTP,
-            infranetworking, recuperado de:
-            https://blog.infranetworking.com/servidor-ftp/#Tipos_de_Servidor_FTP
-          </li>
-          <li>
-            Jimenez Javier, 13 de septiembre de 2023, Qué es NAT y cómo actúa en
-            nuestra red, RedesZone, recuperado de:
-            https://www.redeszone.net/tutoriales/redes-cable/que-es-nat-red/
-          </li>
-          <li>
-            Cisco. (2022, 12 marzo). Configurar NAT para habilitar la
-            comunicación entre redes superpuestas. Recuperado 5 de octubre de
-            2023, de
-            https://www.cisco.com/c/es_mx/support/docs/ip/network-address-translation-nat/200726-Configure-NAT-to-Enable-Communication-Be.html
-          </li>
-          <li>
-            De Souza Ivan, 14 de junio del 2019, ¿Qué es un servidor web y para
-            qué sirve en Internet?, rockcontent, recuperado de:
-            https://rockcontent.com/es/blog/que-es-un-servidor/
-          </li>
-          <li>
-            Center Cloud Andalucia, S.F., Qué es un servidor web: funcionamiento
-            y tipos, Center Cloud Andalucia, recuperado de:
-            https://www.cloudcenterandalucia.es/blog/que-es-un-servidor-web-funcionamiento-y-tipos/
-          </li>
-        </ul>
+            <li>
+              <h4>VLAN Tagging (Etiquetado de VLAN)</h4>
+              <p>
+                El etiquetado de VLAN es la adición de información de VLAN a los
+                paquetes de datos para permitir el tráfico de varias VLAN a
+                través de un solo puerto.
+              </p>
+            </li>
+
+            <li>
+              <h4>Duplex Mode (Modo Duplex)</h4>
+              <p>
+                El modo dúplex se refiere a la capacidad de un puerto para
+                transmitir y recibir datos simultáneamente en una conexión
+                Ethernet (por ejemplo, half-duplex o full-duplex).
+              </p>
+            </li>
+
+            <li>
+              <h4>Broadcast Storm (Tormenta de Difusión)</h4>
+              <p>
+                Una tormenta de difusión ocurre cuando una gran cantidad de
+                paquetes de difusión se propagan rápidamente en una red,
+                sobrecargando los recursos del switch.
+              </p>
+            </li>
+
+            <li>
+              <h4>Switch Port Security (Seguridad de Puertos del Switch)</h4>
+              <p>
+                Switch Port Security es una característica que permite limitar y
+                controlar el acceso a los puertos del switch para prevenir el
+                acceso no autorizado.
+              </p>
+            </li>
+
+            <li>
+              <h4>STP Root Bridge (Puente Raíz STP)</h4>
+              <p>
+                El Puente Raíz STP es el switch que se elige como el punto
+                central en una red con el protocolo Spanning Tree para evitar
+                bucles.
+              </p>
+            </li>
+
+            <li>
+              <h4>VLAN Hopping</h4>
+              <p>
+                VLAN Hopping es una técnica utilizada por atacantes para acceder
+                a tráfico de VLAN no autorizado al engañar al switch.
+              </p>
+            </li>
+
+            <li>
+              <h4>Layer 2 and Layer 3 Switching</h4>
+              <p>
+                Layer 2 y Layer 3 Switching se refieren a la capacidad del
+                switch para operar en las capas 2 y 3 del modelo OSI,
+                permitiendo el reenvío basado en direcciones MAC o direcciones
+                IP, respectivamente.
+              </p>
+            </li>
+          </ol>
+        </section>
+        <section id="Bibliography">
+          <h3>Bibliography</h3>
+          <ul>
+            <li>
+              Equipo editorial de IONOS. (2020). Trama Ethernet: definición,
+              estructura y variantes. IONOS Digital Guide.
+              https://www.ionos.mx/digitalguide/servidores/know-how/trama-ethernet/
+            </li>
+
+            <li>
+              Small business IT explained in 60 seconds or less: Which switch is
+              which? with captions. (2023, 22 febrero). [Vídeo]. Cisco.
+              https://www.cisco.com/c/es_mx/solutions/small-business/resource-center/networking/network-switch-how.html
+            </li>
+
+            <li>
+              Equipo editorial de IONOS. (2022). ¿Qué es Ethernet (IEEE 802.3)?
+              IONOS Digital Guide.
+              https://www.ionos.mx/digitalguide/servidores/know-how/ethernet-ieee-8023/
+            </li>
+
+            <li>
+              Tema 1.1.10 Dos m todos de conmutacion - 1.1 Introduccion a la
+              conmutacion LAN - Cisco III - Instituto Consorcio Clavijero.
+              (s. f.).
+              https://cursos.clavijero.edu.mx/cursos/069_cIII/modulo1/contenidos/tema1.1.10.html
+            </li>
+
+            <li>
+              Dropbox, S.F., ¿Qué es el FTP?, Recuperado de :
+              https://experience.dropbox.com/es-la/resources/what-is-ftp
+            </li>
+            <li>
+              Sierra Yhorman, S.F., ¿Qué es FTP y cómo usarlo? – tipos,
+              características, funciones y usos, mediacloud, recuperado de:
+              https://blog.mdcloud.es/que-es-ftp-tipos-caracteristicas-funciones-y-usos/
+            </li>
+            <li>
+              Borges Esteban, 12 de Febrero del 2019, Servidor FTP,
+              infranetworking, recuperado de:
+              https://blog.infranetworking.com/servidor-ftp/#Tipos_de_Servidor_FTP
+            </li>
+            <li>
+              Jimenez Javier, 13 de septiembre de 2023, Qué es NAT y cómo actúa
+              en nuestra red, RedesZone, recuperado de:
+              https://www.redeszone.net/tutoriales/redes-cable/que-es-nat-red/
+            </li>
+            <li>
+              Cisco. (2022, 12 marzo). Configurar NAT para habilitar la
+              comunicación entre redes superpuestas. Recuperado 5 de octubre de
+              2023, de
+              https://www.cisco.com/c/es_mx/support/docs/ip/network-address-translation-nat/200726-Configure-NAT-to-Enable-Communication-Be.html
+            </li>
+            <li>
+              De Souza Ivan, 14 de junio del 2019, ¿Qué es un servidor web y
+              para qué sirve en Internet?, rockcontent, recuperado de:
+              https://rockcontent.com/es/blog/que-es-un-servidor/
+            </li>
+            <li>
+              Center Cloud Andalucia, S.F., Qué es un servidor web:
+              funcionamiento y tipos, Center Cloud Andalucia, recuperado de:
+              https://www.cloudcenterandalucia.es/blog/que-es-un-servidor-web-funcionamiento-y-tipos/
+            </li>
+
+            <li>
+              Vaughan-Nichols, S. J. (2023). Cómo configurar un servidor proxy
+              en su PC, Mac o navegador. Cómo configurar un servidor proxy en su
+              PC, Mac o navegador.
+              https://www.avast.com/es-es/c-how-to-set-up-a-proxy
+            </li>
+            <li>
+              Ejemplo de configuración de las funciones de seguridad de capa 2
+              en los switches de configuración fija de capa 3 de Cisco Catalyst.
+              (2022, 13 marzo). Cisco.
+              https://www.cisco.com/c/es_mx/support/docs/switches/catalyst-3750-series-switches/72846-layer2-secftrs-catl3fixed.html
+            </li>
+
+            <li>
+              (Cómo configurar un switch de red para su empresa en 6 pasos,
+              2023) Cómo configurar un switch de red para su empresa en 6 pasos.
+              (2023, 5 enero). Cisco.
+            </li>
+            <li>
+              Cisco. (s. f.). Configuración de las conexiones de red de área
+              local (LAN) del protocolo de Internet versión 4 (IPv4) en el
+              router VPN RV132W o RV134W.
+              https://www.cisco.com/c/es_mx/support/docs/smb/routers/cisco-rv-series-small-business-routers/smb5437-configure-ipv4-lan-connections-on-rv132w-or-rv134w.pdf
+            </li>
+          </ul>
+        </section>
       </main>
     </div>
 
