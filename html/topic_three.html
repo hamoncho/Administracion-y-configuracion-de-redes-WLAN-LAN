@@ -462,8 +462,79 @@
             <header>
               <h3 id="introduction" class="topic__title">3.3 Topología WLAN</h3>
             </header>
-            <div class="topic__content"></div>
+            <div class="topic__content">
+              <h4>Modo AD HOC</h4>
+              <p>
+                El modo ad hoc, también llamada peer to peer modo, permite que
+                los nodos se comunican directamente (punto a punto) sin la
+                necesidad de un punto de acceso, como en la siguiente figura. No
+                hay ninguna infraestructura fija. Los nodos deben estar en el
+                rango entre sí con el fin de comunicarse.
+              </p>
+              https://www.tp-link.com/es/support/faq/219/#:~:text=El%20modo%20ad%20hoc%2C%20tambi%C3%A9n,con%20el%20fin%20de%20comunicarse.
 
+              <p>
+                Existe una red inalámbrica ad hoc cuando dos dispositivos
+                inalámbricos se comunican de manera peer-to-peer (P2P) sin usar
+                AP o routers inalámbricos. Por ejemplo, se puede configurar la
+                estación de trabajo de un cliente con capacidad inalámbrica para
+                que funcione en modo ad hoc, lo que permite que se conecte otro
+                dispositivo a la estación. Bluetooth y Wi-Fi Direct son ejemplos
+                de modo ad hoc.
+              </p>
+
+              <p>
+                <b>Nota:</b> el estándar IEEE 802.11 denomina a las redes ad hoc
+                “conjunto de servicios básicos independientes” (IBSS).
+              </p>
+
+              <p>En la ilustración, se muestra un resumen del modo ad hoc.</p>
+
+              <img src="/img/topic_three/modo-ad-hoc.png" alt="modo ad hoc" />
+
+              <p>
+                Existe una variación de la topología ad hoc cuando se permite
+                que un smartphone o una tablet PC con acceso celular a datos
+                cree una zona de cobertura inalámbrica personal. En ocasiones,
+                esta característica se denomina “anclaje a red”. Por lo general,
+                una zona de cobertura inalámbrica es una solución temporal
+                rápida que permite que un smartphone proporcione los servicios
+                inalámbricos de un router Wi-Fi. Otros dispositivos se asocian y
+                autentican con el smartphone para usar la conexión a Internet.
+                El iPhone de Apple denomina a esta característica “Compartir
+                Internet”, mientras que los dispositivos con Android la
+                denominan “Anclaje a red y zona de cobertura portátil”.
+              </p>
+
+              https://www.sapalomera.cat/moodlecf/RS/3/course/module4/4.1.3.2/4.1.3.2.html
+              <h4>infraestructura</h4>
+
+              <p>
+                El modo infrastructura es un modo de conexión inalámbrica que
+                tiene un punto de acceso/router central como corazón de la red.
+                En el modo de Infraestructura, los dispositivos inalámbricos se
+                comunican entre sí a través de un punto de acceso/router. Cuando
+                la máquina inalámbrica Brother forma parte de la red en modo de
+                infraestructura, recibe todos los trabajos de impresión a través
+                de un punto de acceso/router WLAN.<br />
+                <br />
+                El punto de acceso/router WLAN también puede actuar como puente
+                o puerta de enlace a una red cableada, y los dispositivos
+                inalámbricos pueden comunicarse no sólo entre sí, sino también
+                con una red cableada.<br />
+              </p>
+              <p>
+                NOTA: Las ilustraciones mostradas a continuación tienen el
+                propósito de representar un producto y podrían ser diferentes de
+                su máquina Brother.<br />
+                <br />
+              </p>
+              <img
+                alt="Computadora conectada a través de un cable al punto de acceso/enrutador"
+                src="/img/topic_three/modo-infraestructura.gif"
+              />
+            </div>
+            https://support.brother.com/g/b/faqend.aspx?c=es&lang=es&prod=hl4070cdw_all&faqid=faq00002194_000
             <footer></footer>
           </article>
 
@@ -473,7 +544,296 @@
                 3.4 Redes locales inalámbricas 802.11x
               </h3>
             </header>
-            <div class="topic__content"></div>
+            <div class="topic__content">
+              <p>
+                El grupo de estándares 802.11, al que por facilidad se hará
+                referencia en este trabajo como el estándar 802.11 es un miembro
+                a su vez de la familia de estándares del IEEE 802, que es una
+                serie de especificaciones para las Redes de Área Local (LAN). De
+                acuerdo con , sus especificaciones se enfocan en las dos capas
+                más bajas del modelo OSI, pues incorporan componentes de la capa
+                física y de control de acceso al medio. Dentro de la capa MAC
+                están definidas una serie de reglas para determinar la forma en
+                que los dispositivos obtienen acceso al medio y envían datos,
+                pero los detalles de transmisión y recepción corresponden a la
+                capa física (PHY). El estándar 802.11 se apoya en la
+                especificación de la capa de acceso al medio común a las
+                tecnologías LAN, es decir, al control de enlace lógico (LLC);
+                incluyendo además la capa MAC y dos capas físicas. La versión
+                original el estándar 802.11 tenia el propósito de proveer tasas
+                de transmisión de 1 a 2 Mbps operando en la banda no licenciada
+                ISM (Industrial, Scientifical and Medical band) de 2.45 GHz, la
+                cual requería de uso de técnicas de espectro disperso, por lo
+                cual se definieron dos modalidades: salto en frecuencia
+                (Frequency-Hopping Spread-Spectrum FHSS) y Esparcimiento en
+                secuencia directa (DirectSequence Spread-Spectrum DSSS), los
+                cuales resultaban incompatibles .
+              </p>
+              <p>
+                Conforme los usuarios requerían mayores tasas de transmisión, se
+                formaron dos grupos que investigaban diferentes esquemas: DSSS
+                para el 802.11b que proponía 11 Mbps en el canal de 20 MHz y
+                Orthogonal Frequency Division Multiplexing (OFDM) para el
+                802.11a que especificaba una capa física alterna, brindando
+                tasas de hasta 54 Mbps en la banda de 5 GHz, la cual está menos
+                saturada. Posteriormente, se han formado otros grupos que
+                realizan correcciones y mejoras al estándar original, la
+                siguiente tabla muestra de forma sintetizada algunas
+                características de dichos estándares los cuales se han
+                denominado usando letras del alfabeto par identificarlos
+              </p>
+
+              <table border="1">
+                <tr>
+                  <th>Estándar</th>
+                  <th>Alcances [m]</th>
+                  <th>Ancho de banda [Mbps]</th>
+                  <th>Técnica de difusión</th>
+                </tr>
+
+                <tr>
+                  <td>802.11</td>
+                  <td>Define estándar para WLAN para capa PHY y MAC</td>
+                  <td>2</td>
+                  <td>FHSS, DSSS, IR</td>
+                </tr>
+
+                <tr>
+                  <td>802.11a</td>
+                  <td>
+                    Define una capa física de alta velocidad en la banda de
+                    515-5.825 GHz.
+                  </td>
+                  <td>6,12,24 opcional 54</td>
+                  <td>OFDM con 24 subportadoras</td>
+                </tr>
+
+                <tr>
+                  <td>802.11b</td>
+                  <td>
+                    Define una capa física de alta velocidad en la banda de 2.4
+                    GHz.
+                  </td>
+                  <td>11</td>
+                  <td>HR/DS, HR/DSSS</td>
+                </tr>
+
+                <tr>
+                  <td>802.11e</td>
+                  <td>
+                    Mejora del estándar original para implementar QoS (aplica a
+                    802.11a/b/g)
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td>802.11g</td>
+                  <td>
+                    Define una tasa de datos más alta en la capa física de 2.4
+                    GHz
+                  </td>
+                  <td>22-54</td>
+                  <td>ERP</td>
+                </tr>
+
+                <tr>
+                  <td>802.11h</td>
+                  <td>
+                    Define funciones MAC para permitir a equipos 802.11a cumplir
+                    con los requerimientos europeos.
+                  </td>
+                  <td>6,12,24 opcional 54</td>
+                  <td>OFDM</td>
+                </tr>
+
+                <tr>
+                  <td>802.11i</td>
+                  <td>
+                    Mejora de la capa MAC para proveer seguridad en 802.11a/b/g.
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+
+              <div>
+                <p>
+                  El estándar de WLAN IEEE 802.11 define cómo se usa la RF en
+                  las bandas de frecuencia ISM sin licencia para la capa física
+                  y la subcapa MAC de los enlaces inalámbricos.
+                </p>
+                <p></p>
+                <p>
+                  Con el correr de los años, se desarrollaron varias
+                  implementaciones del estándar IEEE 802.11. A continuación, se
+                  presentan estos estándares:
+                </p>
+                <p></p>
+                <ul>
+                  <li>
+                    <b>802.11:</b> lanzado en 1997 y ahora obsoleto, es la
+                    especificación de WLAN original que funcionaba en la banda
+                    de 2,4 GHz y ofrecía velocidades de hasta 2 Mb/s. Cuando se
+                    lanzó, las LAN conectadas por cable funcionaban a 10& Mb/s,
+                    por lo que la nueva tecnología inalámbrica no se adoptó con
+                    entusiasmo. Los dispositivos inalámbricos tienen una antena
+                    para transmitir y recibir señales inalámbricas.
+                  </li>
+                </ul>
+                <p></p>
+                <p></p>
+                <ul>
+                  <li>
+                    <b>IEEE 802.11a:</b> lanzado en 1999, funciona en la banda
+                    de frecuencia de 5 GHz, menos poblada, y ofrece velocidades
+                    de hasta 54 Mb/s. Posee un área de cobertura menor y es
+                    menos efectivo al penetrar estructuras edilicias ya que
+                    opera en frecuencias superiores. Los dispositivos
+                    inalámbricos tienen una antena para transmitir y recibir
+                    señales inalámbricas. Los dispositivos que funcionan
+                    conforme a este estándar no son interoperables con los
+                    estándares 802.11b y 802.11g.
+                  </li>
+                </ul>
+                <p></p>
+                <p></p>
+                <ul>
+                  <li>
+                    <b>IEEE 802.11b:</b> lanzado en 1999, funciona en la banda
+                    de frecuencia de 2,4 GHz y ofrece velocidades de hasta 11
+                    Mb/s. Los dispositivos que implementan este estándar tienen
+                    un mayor alcance y pueden penetrar mejor las estructuras
+                    edilicias que los dispositivos basados en 802.11a. Los
+                    dispositivos inalámbricos tienen una antena para transmitir
+                    y recibir señales inalámbricas.
+                  </li>
+                </ul>
+                <p></p>
+                <p></p>
+                <ul>
+                  <li>
+                    <b>IEEE 802.11g:</b> lanzado en 2003, funciona en la banda
+                    de frecuencia de 2,4 GHz y ofrece velocidades de hasta 54
+                    Mb/s. Por lo tanto, los dispositivos que implementan este
+                    estándar funcionan en la misma radiofrecuencia y en el mismo
+                    rango que 802.11b, pero con el ancho de banda de 802.11a.
+                    Los dispositivos inalámbricos tienen una antena para
+                    transmitir y recibir señales inalámbricas. Es compatible con
+                    el estándar anterior 802.11b. Sin embargo, cuando admite un
+                    cliente 802.11b, se reduce el ancho de banda general.
+                  </li>
+                </ul>
+                <p></p>
+                <p></p>
+                <ul>
+                  <li>
+                    <b>IEEE 802.11n:</b> lanzado en 2009, funciona en las bandas
+                    de frecuencia de 2,4 GHz y 5 GHz, y se conoce como
+                    “dispositivo de doble banda”. Las velocidades de datos
+                    típicas van desde150 Mb/s hasta 600 Mb/s, con un alcance de
+                    hasta 70 m (0,5 mi). Sin embargo, para lograr mayores
+                    velocidades, los AP y los clientes inalámbricos requieren
+                    varias antenas con tecnología de múltiple entrada múltiple
+                    salida (MIMO). MIMO usa varias antenas como transmisor y
+                    receptor para mejorar el rendimiento de la comunicación. Se
+                    pueden admitir hasta cuatro antenas. El estándar 802.11n es
+                    compatible con dispositivos 802.11a/b/g anteriores. Sin
+                    embargo, si se admite un entorno mixto, se limitan las
+                    velocidades de datos previstas.
+                  </li>
+                </ul>
+                <p></p>
+                <p></p>
+                <ul>
+                  <li>
+                    <b>IEEE 802.11ac:</b> lanzado en 2013, funciona en la banda
+                    de frecuencia de 5 GHz y proporciona velocidades de datos
+                    que van desde 450 Mb/s hasta 1,3 Gb/s (1300 Mb/s). Usa la
+                    tecnología MIMO para mejorar el rendimiento de la
+                    comunicación. Se pueden admitir hasta ocho antenas. El
+                    estándar 802.11ac es compatible con dispositivos 802.11a/n
+                    anteriores; sin embargo, admitir un entorno mixto limita las
+                    velocidades de datos esperadas.
+                  </li>
+                </ul>
+                <p></p>
+                <p></p>
+                <ul>
+                  <li>
+                    <b>IEEE 802.11ad:</b> programado para su lanzamiento en 2014
+                    y también conocido como “WiGig”, utiliza una solución de
+                    Wi-Fi de triple banda con 2,4 GHz, 5 GHz y 60 GHz, y ofrece
+                    velocidades teóricas de hasta 7 Gb/s. Sin embargo, la banda
+                    de 60 GHz es una tecnología de línea de vista y, por lo
+                    tanto, no puede penetrar las paredes. Cuando un usuario se
+                    mueve, el dispositivo cambia a las bandas más bajas de 2,4
+                    GHz y 5 GHz. Es compatible con dispositivos Wi-Fi anteriores
+                    existentes. Sin embargo, si se admite un entorno mixto, se
+                    limitan las velocidades de datos previstas.
+                  </li>
+                </ul>
+                <p></p>
+                <p></p>
+
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><span>.</span></td>
+                    </tr>
+                    <tr>
+                      <td><b>Estándar IEEE</b></td>
+                      <td><b>Velocidad máxima</b></td>
+                      <td><b>Frecuencia</b></td>
+                      <td><b>Compatibilidad con versiones anteriores</b></td>
+                    </tr>
+                    <tr>
+                      <td>802.11</td>
+                      <td>2 Mb/s</td>
+                      <td>2,4 GHz</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td>802.11a</td>
+                      <td>54 Mb/s</td>
+                      <td>5 GHz</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td>802.11b</td>
+                      <td>11 Mb/s</td>
+                      <td>2,4 GHz</td>
+                      <td>—</td>
+                    </tr>
+                    <tr>
+                      <td>802.11g</td>
+                      <td>54 Mb/s</td>
+                      <td>2,4 GHz</td>
+                      <td>802.11b</td>
+                    </tr>
+                    <tr>
+                      <td>802.11n</td>
+                      <td>600 Mb/s</td>
+                      <td>2,4 GHz y 5 GHz</td>
+                      <td>802.11a/b/g</td>
+                    </tr>
+                    <tr>
+                      <td>802.11ac</td>
+                      <td>1,3 Gb/s (1300 Mb/s)</td>
+                      <td>5 GHz</td>
+                      <td>802.11a/n</td>
+                    </tr>
+                    <tr>
+                      <td>802.11ad</td>
+                      <td>7 Gb/s (7000 Mb/s)</td>
+                      <td>2,4 GHz, 5 GHz y 60 GHz</td>
+                      <td>802.11a/b/g/n/ac</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
             <footer></footer>
           </article>
