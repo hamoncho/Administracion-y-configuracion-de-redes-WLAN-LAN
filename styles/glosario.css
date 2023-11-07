@@ -29,7 +29,7 @@ dt::after {
     left: 10px; /* Ajusta la distancia desde la izquierda */
     background-color: #007bff; /* Color de fondo del botón */
     color: #fff; /* Color del texto del botón */
-    padding: 10px 20px; /* Espacio dentro del botón */
+    padding: 5px 10px; /* Espacio dentro del botón */
     border-radius: 5px; /* Borde redondeado del botón */
     text-decoration: none; /* Elimina el subrayado de enlace */
     z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
