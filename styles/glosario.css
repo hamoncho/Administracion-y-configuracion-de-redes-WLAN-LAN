@@ -1,0 +1,40 @@
+dt{
+    font-weight: bold;
+}
+
+dd{
+    margin-bottom: 1em;
+}
+
+dt::after {
+  content: ": ";
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 1em;
+}
+
+.glosario__title {
+  margin-top: 4%;
+  text-align: center;
+}
+
+.boton-flotante {
+    position: fixed;
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    left: 10px; /* Ajusta la distancia desde la izquierda */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    padding: 10px 20px; /* Espacio dentro del botón */
+    border-radius: 5px; /* Borde redondeado del botón */
+    text-decoration: none; /* Elimina el subrayado de enlace */
+    z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+}
+
+.boton-flotante:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
+}

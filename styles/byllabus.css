@@ -6,6 +6,26 @@ main {
   padding: 20px;
 }
 
+.glosario__contenedor {
+  display: flex; /* Establece un contenedor flexible */
+  align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+  margin-bottom: 2em;
+}
+
+.glosario__logo {
+  width: 40px; /* Ajusta el ancho de la imagen del logo según tus necesidades */
+  height: auto; /* Esto mantendrá la relación de aspecto original de la imagen */
+  margin-right: 10px; /* Espacio entre el logo y el enlace, ajusta según tus preferencias */
+}
+
+.glosario__link {
+  margin: 0; /* Quita el margen predeterminado del encabezado (h2) si lo hubiera */
+}
+
+.glosario__link a {
+  text-decoration: none; /* Elimina la subrayado predeterminado del enlace */
+}
+
 /* Estilos CSS para las tarjetas */
 .card {
   border: 1px solid #ccc;
