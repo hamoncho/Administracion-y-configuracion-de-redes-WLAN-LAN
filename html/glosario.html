@@ -160,6 +160,146 @@
             dirección MAC es una configuración que asigna manualmente una
             dirección MAC a un puerto específico en un switch.
           </dd>
+
+          <!-- Tema 4-->
+          <dt>Red descentralizada</dt>
+          <dd>
+            En 2018 Fuster, denomina a una red descentralizada como aquella red
+            que no tiene un único nodo central sino un centro colectivo de
+            diversos puertos de conexión. Así, si un nodo regulador tiene una
+            caída se produce la desconexión de uno o varios nodos del conjunto
+            de la red mientras si el nodo centralizador tiene una caída, el
+            sistema tendrá una ruptura pudiendo así desaparecer prácticamente la
+            red. La red descentralizada se rige por el principio de la adhesión
+            o la participación.
+          </dd>
+
+          <dt>Conexiones punto a punto</dt>
+          <dd>
+            Las conexiones punto a punto se utilizan normalmente para conectar
+            entre sí dos sistemas dentro de una red de área amplia (WAN). Una
+            conexión punto a punto sirve para llevar los datos del sistema local
+            a un sistema remoto o bien de una red local a una red remota. No
+            confunda las conexiones punto a punto con las de protocolo punto a
+            punto (PPP). Este es un tipo de conexión punto a punto que se
+            utiliza habitualmente para conectar una máquina a Internet. Consulte
+            el tema Conexiones PPP para encontrar más información sobre cómo
+            configurar y gestionar las conexiones PPP. (IBM documentation, s.
+            f.)
+          </dd>
+
+          <dt>Red de área amplia (WAN)</dt>
+          <dd>
+            Una red de área amplia (WAN) es la tecnología que conecta entre sí a
+            las oficinas, los centros de datos, las aplicaciones en la nube y el
+            almacenamiento en la nube. Se denomina red de área amplia porque se
+            extiende más allá de un solo edificio o un gran recinto para incluir
+            múltiples ubicaciones repartidas a lo largo de una zona geográfica
+            concreta, o incluso del mundo. Por ejemplo, las empresas con muchas
+            sucursales internacionales utilizan una WAN para conectar las redes
+            de las oficinas entre sí. La WAN más grande del mundo es Internet
+            puesto que se trata de un conjunto de muchas redes internacionales
+            que se conectan entre sí. Este artículo se centra en las WAN
+            empresariales y en sus usos y ventajas. (¿Qué es una red de área
+            extendida (WAN)? - Explicación sobre las redes de área extendida -
+            AWS, s. f.)
+          </dd>
+
+          <dt>¿Qué es WEP?</dt>
+          <dd>
+            Dado que las redes inalámbricas transmiten datos a través de ondas
+            de radio, estos se pueden interceptar fácilmente a menos que se
+            implementen medidas de seguridad. El sistema Privacidad equivalente
+            por cable (WEP) se introdujo en 1997 y fue el primer intento de
+            protección inalámbrica. El objetivo era añadir seguridad a las redes
+            inalámbricas mediante el cifrado de datos para que, en caso de que
+            estos fueran interceptados, los causantes no pudieran reconocerlos
+            al estar cifrados. Sin embargo, los sistemas autorizados en la red
+            podrían reconocer y descifrar los datos. Esto se debe a que los
+            dispositivos en la red utilizan el mismo algoritmo de cifrado.
+          </dd>
+
+          <dt>¿Qué es WPA?</dt>
+          <dd>
+            Posteriormente, surgió WPA o Acceso Wi-Fi protegido. Wi-Fi Alliance
+            introdujo este protocolo en 2003, como reemplazo para WEP. Compartía
+            similitudes con WEP, pero ofrecía mejoras en la gestión de claves de
+            seguridad y la autorización de usuarios. Mientras que WEP
+            proporciona la misma clave a cada sistema autorizado, WPA usa el
+            protocolo de integridad de clave temporal (TKIP), que cambia
+            dinámicamente la clave que usan los sistemas. De esta forma, se
+            evita que los intrusos creen su propia clave de cifrado para que
+            coincida con la utilizada por la red protegida. El estándar de
+            cifrado TKIP fue reemplazado posteriormente por el estándar de
+            cifrado avanzado (AES) (WEP, WPA, WPA2 y WPA3: diferencias y
+            explicación, 2023)
+          </dd>
+
+          <dt>¿Qué es WPA2?</dt>
+          <dd>
+            WPA2 se introdujo en 2004 como una versión mejorada de WPA. WPA2 se
+            basa en el mecanismo de red de seguridad robusta (RSN) y funciona en
+            dos modos:
+            <ul>
+              <li>
+                Modo personal o clave precompartida (WPA2-PSK): se basa en un
+                código de acceso compartido y generalmente se usa en entornos
+                domésticos.
+              </li>
+              <li>
+                Modo empresarial (WPA2-EAP): como sugiere el nombre, este modo
+                es más adecuado para uso en empresas u organizaciones.
+              </li>
+            </ul>
+            Ambos modos utilizan CCMP, que significa Protocolo de código de
+            autenticación de mensajes de encadenamiento de bloques de cifrado en
+            modo contador. El protocolo CCMP se basa en el algoritmo Estándar de
+            cifrado avanzado (AES), que proporciona una verificación de la
+            autenticidad e integridad de los mensajes. CCMP es más resistente y
+            fiable que el Protocolo de integridad de clave temporal (TKIP)
+            original de WPA, que dificulta a los atacantes la detección de
+            patrones. (WEP, WPA, WPA2 y WPA3: diferencias y explicación, 2023)
+          </dd>
+
+          <dt>¿Qué es WPA3?</dt>
+          <dd>
+            WPA3 es la tercera iteración del protocolo Acceso Wi-Fi protegido.
+            Wi-Fi Alliance introdujo WPA3 en 2018. WPA3 integra nuevas funciones
+            para uso personal y empresarial, que incluyen:
+            <ul>
+              <li>
+                Cifrado de datos individualizado: al iniciar sesión en una red
+                pública, WPA3 registra un nuevo dispositivo a través de un
+                proceso distinto a una contraseña compartida. WPA3 utiliza un
+                sistema de Protocolo de aprovisionamiento de dispositivos Wi-Fi
+                (DPP) que permite a los usuarios usar etiquetas de comunicación
+                de campo cercano (NFC) o códigos QR para permitir dispositivos
+                en la red. Además, la seguridad WPA3 utiliza el cifrado GCMP-256
+                en lugar del cifrado de 128 bits utilizado anteriormente.
+              </li>
+              <li>
+                Protocolo de autenticación simultánea de iguales: se utiliza
+                para crear un protocolo de enlace seguro, en el que un
+                dispositivo de red se conectará a un punto de acceso inalámbrico
+                y ambos dispositivos se comunicarán para verificar la
+                autenticación y la conexión. Incluso si la contraseña de un
+                usuario es débil, WPA3 proporciona un protocolo de enlace más
+                seguro mediante Wi-Fi DPP.
+              </li>
+              <li>
+                Protección más sólida frente ataques de fuerza bruta: WPA3
+                protege contra las suposiciones aleatorias de contraseña sin
+                conexión a Internet dejando al usuario una sola oportunidad para
+                adivinarla, lo que obliga a este a interactuar con el
+                dispositivo Wi-Fi directamente. Por lo tanto, el usuario tendría
+                que estar físicamente presente cada vez que quisiera adivinar la
+                contraseña. WPA2 carece de cifrado integrado y privacidad en las
+                redes públicas abiertas, por lo que los ataques de fuerza bruta
+                son una amenaza importante.
+              </li>
+            </ul>
+            (WEP, WPA, WPA2 y WPA3: diferencias y explicación, 2023)
+          </dd>
         </dl>
       </main>
     </div>
