@@ -1,980 +1,908 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/styles.css" />
-    <link rel="stylesheet" href="../styles/topic_three.css" />
-    <title>Tema 4</title>
-  </head>
-  <body>
-    <div class="container">
-      <nav class="nav">
-        <ul class="list">
-          <li>
-            <img
-              class="nav__logo"
-              src="../img/LOGO-TEC-URUAPAN.png"
-              alt="LOGO-TEC-URUAPAN"
-            />
-            <h1 class="nav__title">
-              Conceptos Básicos Configuración Del Switch
-            </h1>
-          </li>
 
-          <li class="list__item">
-            <div class="list__button">
-              <img src="../assets/dashboard.svg" class="list__img" />
-              <a href="../index.html" class="nav__link">Temario</a>
-            </div>
-          </li>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="stylesheet" href="../styles/topic_three.css" />
+  <title>Tema 4</title>
+</head>
 
-          <li class="list__item list__item--click">
-            <div class="list__button list__button--click">
-              <img src="../assets/docs.svg" class="list__img" />
-              <a href="#" class="nav__link">
-                4.1 Configuración de las topologías de WLAN
+<body>
+  <div class="container">
+    <nav class="nav">
+      <ul class="list">
+        <li>
+          <img class="nav__logo" src="../img/LOGO-TEC-URUAPAN.png" alt="LOGO-TEC-URUAPAN" />
+          <h1 class="nav__title">
+            Conceptos Básicos Configuración Del Switch
+          </h1>
+        </li>
+
+        <li class="list__item">
+          <div class="list__button">
+            <img src="../assets/dashboard.svg" class="list__img" />
+            <a href="../index.html" class="nav__link">Temario</a>
+          </div>
+        </li>
+
+        <li class="list__item list__item--click">
+          <div class="list__button list__button--click">
+            <img src="../assets/docs.svg" class="list__img" />
+            <a href="#topic_four_one" class="nav__link">
+              4.1 Configuración de las topologías de WLAN
+            </a>
+            <img src="../assets/arrow.svg" class="list__arrow" />
+          </div>
+
+          <ul class="list__show">
+            <li class="list__inside">
+              <a href="#topic_four_one_one" class="nav__link nav__link--inside">
+                4.1.1 Ad hoc
               </a>
-              <img src="../assets/arrow.svg" class="list__arrow" />
+            </li>
+
+            <li class="list__inside">
+              <a href="#topic_four_one_two" class="nav__link nav__link--inside">
+                4.1.2 Infraestructura
+              </a>
+            </li>
+
+            <li class="list__inside">
+              <a href="#topic_four_one_three" class="nav__link nav__link--inside">
+                4.1.3 Puenteo punto a punto
+              </a>
+            </li>
+
+            <li class="list__inside">
+              <a href="#topic_four_one_four" class="nav__link nav__link--inside">
+                4.1.4 Puenteo punto multipunto
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="list__item">
+          <div class="list__button">
+            <img src="../assets/docs.svg" class="list__img" />
+            <a href="#topic_four_two" class="nav__link">4.2 Servicio de Roaming</a>
+          </div>
+        </li>
+
+        <li class="list__item">
+          <div class="list__button">
+            <img src="../assets/docs.svg" class="list__img" />
+            <a href="#topic_four_three" class="nav__link">4.3 Vulnerabilidades WLAN</a>
+          </div>
+        </li>
+
+        <li class="list__item">
+          <div class="list__button">
+            <img src="../img/diccionario.png" class="list__img" />
+            <a href="glosario.html" class="nav__link">Glosario</a>
+          </div>
+        </li>
+
+      </ul>
+    </nav>
+
+    <main class="container__main">
+      <section class="">
+        <article class="topic">
+          <header>
+            <h3 id="topic_four_one" class="topic__title">
+              4.1 Configuración de las topologías de WLAN
+            </h3>
+          </header>
+          <div class="topic__content">
+            <p>
+              La topología de una red es la arquitectura de la red, la
+              estructura jerárquica que hace posible la interconexión de los
+              equipos. IEEE 802.11 Las redes inalámbricas WiFi a continuacion
+              te damos algunos ejemplos:
+            </p>
+
+            <p>
+              Modo infraestructura o BSS. En esta configuración, además de las
+              tarjetas WiFi en las computadoras, se necesita disponer de un
+              equipo conocido como punto de acceso. El punto de acceso lleva a
+              cabo una coordinación centralizada de la comunicación entre los
+              distintos terminales de la red.<i> (Ruge.Axessnet, 2023)</i>
+            </p>
+
+            <p>
+              Modo ad hoc o IBSS. Es una configuración en la cual sólo se
+              necesita disponer de tarjetas o dispositivos inalámbricos Wi-Fi
+              en cada computadora. Las computadoras se comunican unos con
+              otros directamente, sin necesidad de que existan puntos de
+              acceso intermedios. <i>(Ruge.Axessnet, 2023)</i>
+            </p>
+
+            <p>
+              Modo ESS. Esta configuración permite unir distintos puntos de
+              acceso para crear una red inalámbrica con una amplia cobertura.
+              Una red ESS está formada por múltiples redes BSS. Las distintas
+              redes BSS se pueden poner pegadas unas a otras para conseguir
+              tener una continuidad de servicio en toda la red ESS.
+              <i>(Ruge.Axessnet, 2023)</i>
+            </p>
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_four_one_one" class="topic__title">4.1.1 Ad-Hoc</h3>
+          </header>
+          <div class="topic__content">
+            <h4>¿Que es la topologia ad hoc?</h4>
+            <p>
+              La topologia Ad-Hoc es en la que no existe un nodo central, sino
+              que cada dispositivo se comunica con todos los dems. Cada nodo,
+              potencialmente m6vi1, forma parte de una red punto a punto, por
+              lo que todos se encuentran en igualdad de condiciones, es decir,
+              el transmisor o el receptor es siempre un punto de acceso.
+            </p>
+
+            <p>
+              Una conexión ad-hoc es una conexión temporal entre computadoras
+              y dispositivos usada para un fin específico como, por ejemplo,
+              compartir archivos o participar en juegos en red de varios
+              jugadores. (Modo ad – hoc, 2014)
+            </p>
+
+            <p>
+              Además, es posible compartir temporalmente una conexión a
+              Internet con otros usuarios de la red ad hoc. De este modo los
+              usuarios no tienen que configurar sus propias conexiones a
+              Internet. Las redes ad hoc solo pueden ser inalámbricas, de modo
+              que cada cliente deberá contar con una placa de red inalámbrica
+              correctamente instalada y configurada para unirse a esta red.
+              (Modo ad – hoc, 2014)
+            </p>
+
+            <div>
+              <h4>Ventajas:</h4>
+              <ul>
+                <li>
+                  No se necesita tener una conexión a internet. (Modo ad –
+                  hoc, 2014)
+                </li>
+                <li>
+                  Se puede acceder a los datos de las pc’s conectadas a dicha
+                  red. (Modo ad – hoc, 2014)
+                </li>
+                <li>
+                  La información viaja directamente entre el emisor y receptor
+                  sin pasar por ningún otro equipo. (Modo ad – hoc, 2014)
+                </li>
+                <li>
+                  No necesitan administración central ni tampoco algún tipo de
+                  dispositivo de forma cableada. (Modo ad – hoc, 2014)
+                </li>
+                <li>
+                  Las configuraciones para crear dicha red son mínimas. (Modo
+                  ad – hoc, 2014)
+                </li>
+              </ul>
             </div>
 
-            <ul class="list__show">
-              <li class="list__inside">
-                <a href="#" class="nav__link nav__link--inside">
-                  4.1.1 Ad hoc
-                </a>
-              </li>
+            <div>
+              <h4>Desventajas:</h4>
 
-              <li class="list__inside">
-                <a href="#" class="nav__link nav__link--inside">
-                  4.1.2 Infraestructura
-                </a>
-              </li>
+              <ul>
+                <li>
+                  Si las tarjetas de red no son compatibles, no se puede
+                  realizar la conexión en modo Ad-Hoc. (Modo ad – hoc, 2014)
+                </li>
+                <li>
+                  Se debe configurar dicha conexión cada vez que se va a
+                  utilizar. (Modo ad – hoc, 2014)
+                </li>
+                <li>
+                  Los equipos deben estar dentro del área de cobertura de los
+                  demás para comunicarse con ellos. (Modo ad – hoc, 2014)
+                </li>
+                <li>
+                  Los nodos compiten por acceder al medio compartido
+                  inalámbrico. A menudo esta competencia resulta en colisiones
+                  (interferencia), por estar transmitiendo dos o más nodos a
+                  la vez. (Modo ad – hoc, 2014)
+                </li>
+              </ul>
+            </div>
 
-              <li class="list__inside">
-                <a href="#" class="nav__link nav__link--inside">
-                  4.1.3 Puenteo punto a punto
-                </a>
-              </li>
+            <div>
+              <h4>Usos Ad-Hoc:</h4>
 
-              <li class="list__inside">
-                <a href="#" class="nav__link nav__link--inside">
-                  4.1.4 Puenteo punto multipunto
-                </a>
+              <ul>
+                <li>
+                  En 2018, la comunidad de Wikipedia detalla los usos de una
+                  red Ad-Hoc en situaciones de emergencia, como conflictos
+                  armados o desastres naturales, gracias a su mínima
+                  configuración y rápido despliegue, pues el uso de protocolos
+                  de encaminamiento dinámicos y adaptables les permite ser
+                  montadas rápidamente. (L, 2021)
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Clasificación de Redes Ad-Hoc:</h4>
+
+              <ul>
+                <li>Mobile Ad Hoc Networks (MANET). (L, 2021)</li>
+                <li>Redes Inalámbricas Mesh. (L, 2021)</li>
+                <li>Redes de Sensores. (L, 2021)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>PROCEDIMIENTO</h4>
+              <p>
+                La configuración de una red Ad-hoc es simple, debido a las
+                múltiples “arquitecturas” que encajan dentro del concepto de
+                red Ad-hoc. En la figura 1a, 1b se detalla la configuración
+                específica utiliza un router inalámbrico TP-Link TL-WR840N.
+                Este dispositivo dispone de un puerto WAN lo cual lo permite
+                conectarse a Internet. (L, 2021)
+              </p>
+
+              <img src="../img/topic_four/router_tp_link_img1.jpg" alt="router tp link" />
+
+              <img src="../img/topic_four/router_tp_link_img2.jpg" alt="router tp link" />
+
+              <p>
+                establece un diagrama de la red, la conexión cableada se
+                representan como líneas continuas, así las redes inalámbricas
+                se representan como líneas entrecortadas. (L, 2021)
+              </p>
+
+              <img src="../img/topic_four/toplogia_red_img3.jpg" alt="topologia de red" />
+
+              <p>
+                Al estar configurado el router, se realiza la conexión de los
+                demás dispositivos. Así se verifica las IPs obtenidas desde
+                cada dispositivo para verificar la correcta conexión se
+                ejecuta el comando PING. (L, 2021)
+              </p>
+
+              <img src="../img/topic_four/redes_img4.jpg" alt="redes " />
+              <img src="../img/topic_four/console_img5.jpg" alt="console" />
+            </div>
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_four_one_two" class="topic__title">4.1.2 Infraestructura</h3>
+          </header>
+          <div class="topic__content">
+            <h4>¿Que es el modo infrestuctura?</h4>
+            <p>
+              El Modo de infraestructura es un marco de red inalámbrica que
+              tiene un enrutador o punto de acceso WLAN en el corazón de la
+              red. En el Modo de infraestructura, los dispositivos
+              inalámbricos se comunican entre sí a través de un enrutador o
+              punto de acceso WLAN. Cuando la máquina inalámbrica Brother
+              forma parte de la red en Modo de infraestructura, recibe todos
+              los trabajos de impresión a través de un enrutador o punto de
+              acceso WLAN. (¿Qué es el modo de infraestructura? | Brother,
+              s. f.)
+            </p>
+
+            <p>
+              El enrutador o punto de acceso WLAN también puede actuar como
+              puente o puerta de enlace a una red cableada, y los dispositivos
+              inalámbricos pueden comunicarse no solo entre sí, sino también
+              con una red cableada. (¿Qué es el modo de infraestructura? |
+              Brother, s. f.)
+            </p>
+
+            <img src="../img/topic_four/infrastructure_img1.jpg" alt="infrastructure" />
+
+            <div>
+              <h4>Ventajas:</h4>
+
+              <ul>
+                <li>
+                  Se pueden conectar más dispositivos. (Modo infraestructura,
+                  2014)
+                </li>
+                <li>
+                  Ayudan a extender redes cableadas. (Modo infraestructura,
+                  2014)
+                </li>
+                <li>Tienen mayor alcance. (Modo infraestructura, 2014)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Desventajas:</h4>
+
+              <ul>
+                <li>
+                  Se necesita más presupuesto. (Modo infraestructura, 2014)
+                </li>
+                <li>
+                  Se necesita conocer otros tipos de configuración. (Modo
+                  infraestructura, 2014)
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Configuración del Controlador WLAN:</h4>
+
+              <p>
+                Accede al controlador WLAN. Esto puede ser a través de una
+                interfaz web o una línea de comandos, dependiendo del
+                fabricante.
+              </p>
+              <p>
+                Configura la información básica de la red, como el nombre de
+                la WLAN (SSID), el modo de operación (por ejemplo,
+                802.11n/ac), y la frecuencia. (Configuración modo
+                infraestructura., 2015)
+              </p>
+
+              <p>
+                Establece la seguridad WLAN, incluyendo el tipo de cifrado y
+                la clave de red. (Configuración modo infraestructura., 2015)
+              </p>
+            </div>
+
+            <div>
+              <h4>Configuración de Puntos de Acceso (AP):</h4>
+
+              <p>
+                Configura cada punto de acceso para que se comunique con el
+                controlador WLAN. (Configuración modo infraestructura., 2015)
+              </p>
+
+              <p>
+                Asigna una dirección IP a cada punto de acceso, ya sea
+                estáticamente o mediante un servidor DHCP. (Configuración modo
+                infraestructura., 2015)
+              </p>
+
+              <p>
+                Asegúrate de que los puntos de acceso utilicen la misma
+                configuración de seguridad que el controlador WLAN.
+                (Configuración modo infraestructura., 2015)
+              </p>
+            </div>
+
+            <div>
+              <h4>Configuración de la Interconexión de Red:</h4>
+
+              <p>
+                Conecta el controlador WLAN y los puntos de acceso a la red
+                cableada, ya sea mediante conexiones Ethernet o algún otro
+                medio. (Configuración modo infraestructura., 2015)
+              </p>
+
+              <p>
+                Asegúrate de que la red cableada tenga la capacidad suficiente
+                para manejar el tráfico inalámbrico. (Configuración modo
+                infraestructura., 2015)
+              </p>
+            </div>
+
+            <div>
+              <h4>Configuración de Servicios Adicionales:</h4>
+
+              <p>
+                Configura servicios adicionales según sea necesario, como un
+                servidor RADIUS para autenticación centralizada.
+                (Configuración modo infraestructura., 2015)
+              </p>
+
+              <p>
+                Implementa medidas de gestión, como la asignación de ancho de
+                banda y la calidad de servicio (QoS) si es necesario.
+                (Configuración modo infraestructura., 2015)
+              </p>
+            </div>
+
+            <div>
+              <h4>Pruebas y Monitoreo:</h4>
+
+              <p>
+                Realiza pruebas para asegurarte de que los dispositivos
+                inalámbricos pueden conectarse correctamente. (Configuración
+                modo infraestructura., 2015)
+              </p>
+
+              <p>
+                Configura herramientas de monitoreo para supervisar el
+                rendimiento y la seguridad de la red WLAN. (Configuración modo
+                infraestructura., 2015)
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_four_one_three" class="topic__title">4.1.3 Puenteo punto a punto</h3>
+          </header>
+          <div class="topic__content">
+            <p>
+              Las conexiones punto a punto se utilizan normalmente para
+              conectar entre sí dos sistemas dentro de una red de área amplia
+              (WAN). Una conexión punto a punto sirve para llevar los datos
+              del sistema local a un sistema remoto o bien de una red local a
+              una red remota. No confunda las conexiones punto a punto con las
+              de protocolo punto a punto (PPP). Este es un tipo de conexión
+              punto a punto que se utiliza habitualmente para conectar una
+              máquina a Internet. Consulte el tema Conexiones PPP para
+              encontrar más información sobre cómo configurar y gestionar las
+              conexiones PPP. <i>(IBM documentation, s. f.)</i>
+            </p>
+
+            <h4>Conexiones de red numeradas</h4>
+            <p>
+              A simple vista, la forma más sencilla de configurar una conexión
+              punto a punto es utilizar una conexión numerada. Una conexión
+              numerada es una definición punto a punto que tiene una dirección
+              IP exclusiva definida para cada uno de los extremos de la
+              conexión. <i>(IBM documentation, s. f.)</i>
+            </p>
+
+            <h5>
+              He aquí algunos aspectos que conviene tener presentes ante la
+              posibilidad de utilizar una conexión punto a punto numerada:
+            </h5>
+
+            <ul>
+              <li>
+                Cada uno de los extremos de la conexión tiene una dirección IP
+                exclusiva. <i>(IBM documentation, s. f.)</i>
+              </li>
+              <li>
+                Se deben añadir sentencias de direccionamiento al sistema para
+                que el tráfico circule hasta el sistema remoto.
+                <i>(IBM documentation, s. f.)</i>
+              </li>
+              <li>
+                Las direcciones del enlace punto a punto debe gestionarlas el
+                administrador de la red. <i>(IBM documentation, s. f.)</i>
+              </li>
+              <li>
+                Se consumen las direcciones que hagan falta para conectar dos
+                sistemas. <i>(IBM documentation, s. f.)</i>
               </li>
             </ul>
-          </li>
 
-          <li class="list__item">
-            <div class="list__button">
-              <img src="../assets/docs.svg" class="list__img" />
-              <a href="#" class="nav__link">4.2 Servicio de Roaming</a>
-            </div>
-          </li>
+            <img src="../img/topic_four/punto_a_punto_img1.jpg" alt="punto a punto" />
 
-          <li class="list__item">
-            <div class="list__button">
-              <img src="../assets/docs.svg" class="list__img" />
-              <a href="#" class="nav__link">4.3 Vulnerabilidades WLAN</a>
-            </div>
-          </li>
+            <h4>Conexiones de red no numeradas.</h4>
 
-          <li class="list__item">
-            <div class="list__button">
-              <img src="../img/diccionario.png" class="list__img" />
-              <a href="glosario.html" class="nav__link">Glosario</a>
-            </div>
-          </li>
-          
-        </ul>
-      </nav>
+            <p>
+              Una conexión no numerada es un método más complejo de definir
+              una conexión punto a punto que una conexión numerada. Sin
+              embargo, las conexiones no numeradas pueden constituir una
+              manera mejor y más sencilla de gestionar la red.
+              <i>(IBM documentation, s. f.)</i>
+            </p>
 
-      <main class="container__main">
-        <section class="">
-          <article class="topic">
-            <header>
-              <h3 id="topic_4_1" class="topic__title">
-                4.1 Configuración de las topologías de WLAN
-              </h3>
-            </header>
-            <div class="topic__content">
-              <p>
-                La topología de una red es la arquitectura de la red, la
-                estructura jerárquica que hace posible la interconexión de los
-                equipos. IEEE 802.11 Las redes inalámbricas WiFi a continuacion
-                te damos algunos ejemplos:
-              </p>
+            <p>
+              El proceso de selección de rutas de i5/OS depende de que haya
+              una dirección IP para cada interfaz. En una conexión no
+              numerada, la interfaz punto a punto no necesita tener una
+              dirección exclusiva. La dirección IP de la interfaz del sistema
+              para una conexión no numerada es la dirección IP del sistema
+              remoto. <i>(IBM documentation, s. f.)</i>
+            </p>
 
-              <p>
-                Modo infraestructura o BSS. En esta configuración, además de las
-                tarjetas WiFi en las computadoras, se necesita disponer de un
-                equipo conocido como punto de acceso. El punto de acceso lleva a
-                cabo una coordinación centralizada de la comunicación entre los
-                distintos terminales de la red.<i> (Ruge.Axessnet, 2023)</i>
-              </p>
+            <h5>
+              Aspectos que conviene tener presentes ante la posibilidad de
+              utilizar una conexión no numerada:
+            </h5>
 
-              <p>
-                Modo ad hoc o IBSS. Es una configuración en la cual sólo se
-                necesita disponer de tarjetas o dispositivos inalámbricos Wi-Fi
-                en cada computadora. Las computadoras se comunican unos con
-                otros directamente, sin necesidad de que existan puntos de
-                acceso intermedios. <i>(Ruge.Axessnet, 2023)</i>
-              </p>
-
-              <p>
-                Modo ESS. Esta configuración permite unir distintos puntos de
-                acceso para crear una red inalámbrica con una amplia cobertura.
-                Una red ESS está formada por múltiples redes BSS. Las distintas
-                redes BSS se pueden poner pegadas unas a otras para conseguir
-                tener una continuidad de servicio en toda la red ESS.
-                <i>(Ruge.Axessnet, 2023)</i>
-              </p>
-            </div>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="" class="topic__title">4.1.1 Ad-Hoc</h3>
-            </header>
-            <div class="topic__content">
-              <h4>¿Que es la topologia ad hoc?</h4>
-              <p>
-                La topologia Ad-Hoc es en la que no existe un nodo central, sino
-                que cada dispositivo se comunica con todos los dems. Cada nodo,
-                potencialmente m6vi1, forma parte de una red punto a punto, por
-                lo que todos se encuentran en igualdad de condiciones, es decir,
-                el transmisor o el receptor es siempre un punto de acceso.
-              </p>
-
-              <p>
-                Una conexión ad-hoc es una conexión temporal entre computadoras
-                y dispositivos usada para un fin específico como, por ejemplo,
-                compartir archivos o participar en juegos en red de varios
-                jugadores. (Modo ad – hoc, 2014)
-              </p>
-
-              <p>
-                Además, es posible compartir temporalmente una conexión a
-                Internet con otros usuarios de la red ad hoc. De este modo los
-                usuarios no tienen que configurar sus propias conexiones a
-                Internet. Las redes ad hoc solo pueden ser inalámbricas, de modo
-                que cada cliente deberá contar con una placa de red inalámbrica
-                correctamente instalada y configurada para unirse a esta red.
-                (Modo ad – hoc, 2014)
-              </p>
-
-              <div>
-                <h4>Ventajas:</h4>
-                <ul>
-                  <li>
-                    No se necesita tener una conexión a internet. (Modo ad –
-                    hoc, 2014)
-                  </li>
-                  <li>
-                    Se puede acceder a los datos de las pc’s conectadas a dicha
-                    red. (Modo ad – hoc, 2014)
-                  </li>
-                  <li>
-                    La información viaja directamente entre el emisor y receptor
-                    sin pasar por ningún otro equipo. (Modo ad – hoc, 2014)
-                  </li>
-                  <li>
-                    No necesitan administración central ni tampoco algún tipo de
-                    dispositivo de forma cableada. (Modo ad – hoc, 2014)
-                  </li>
-                  <li>
-                    Las configuraciones para crear dicha red son mínimas. (Modo
-                    ad – hoc, 2014)
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4>Desventajas:</h4>
-
-                <ul>
-                  <li>
-                    Si las tarjetas de red no son compatibles, no se puede
-                    realizar la conexión en modo Ad-Hoc. (Modo ad – hoc, 2014)
-                  </li>
-                  <li>
-                    Se debe configurar dicha conexión cada vez que se va a
-                    utilizar. (Modo ad – hoc, 2014)
-                  </li>
-                  <li>
-                    Los equipos deben estar dentro del área de cobertura de los
-                    demás para comunicarse con ellos. (Modo ad – hoc, 2014)
-                  </li>
-                  <li>
-                    Los nodos compiten por acceder al medio compartido
-                    inalámbrico. A menudo esta competencia resulta en colisiones
-                    (interferencia), por estar transmitiendo dos o más nodos a
-                    la vez. (Modo ad – hoc, 2014)
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4>Usos Ad-Hoc:</h4>
-
-                <ul>
-                  <li>
-                    En 2018, la comunidad de Wikipedia detalla los usos de una
-                    red Ad-Hoc en situaciones de emergencia, como conflictos
-                    armados o desastres naturales, gracias a su mínima
-                    configuración y rápido despliegue, pues el uso de protocolos
-                    de encaminamiento dinámicos y adaptables les permite ser
-                    montadas rápidamente. (L, 2021)
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4>Clasificación de Redes Ad-Hoc:</h4>
-
-                <ul>
-                  <li>Mobile Ad Hoc Networks (MANET). (L, 2021)</li>
-                  <li>Redes Inalámbricas Mesh. (L, 2021)</li>
-                  <li>Redes de Sensores. (L, 2021)</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4>PROCEDIMIENTO</h4>
-                <p>
-                  La configuración de una red Ad-hoc es simple, debido a las
-                  múltiples “arquitecturas” que encajan dentro del concepto de
-                  red Ad-hoc. En la figura 1a, 1b se detalla la configuración
-                  específica utiliza un router inalámbrico TP-Link TL-WR840N.
-                  Este dispositivo dispone de un puerto WAN lo cual lo permite
-                  conectarse a Internet. (L, 2021)
-                </p>
-
-                <img
-                  src="../img/topic_four/router_tp_link_img1.jpg"
-                  alt="router tp link"
-                />
-
-                <img
-                  src="../img/topic_four/router_tp_link_img2.jpg"
-                  alt="router tp link"
-                />
-
-                <p>
-                  establece un diagrama de la red, la conexión cableada se
-                  representan como líneas continuas, así las redes inalámbricas
-                  se representan como líneas entrecortadas. (L, 2021)
-                </p>
-
-                <img
-                  src="../img/topic_four/toplogia_red_img3.jpg"
-                  alt="topologia de red"
-                />
-
-                <p>
-                  Al estar configurado el router, se realiza la conexión de los
-                  demás dispositivos. Así se verifica las IPs obtenidas desde
-                  cada dispositivo para verificar la correcta conexión se
-                  ejecuta el comando PING. (L, 2021)
-                </p>
-
-                <img src="../img/topic_four/redes_img4.jpg" alt="redes " />
-                <img src="../img/topic_four/console_img5.jpg" alt="console" />
-              </div>
-            </div>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="" class="topic__title">4.1.2 Infraestructura</h3>
-            </header>
-            <div class="topic__content">
-              <h4>¿Que es el modo infrestuctura?</h4>
-              <p>
-                El Modo de infraestructura es un marco de red inalámbrica que
-                tiene un enrutador o punto de acceso WLAN en el corazón de la
-                red. En el Modo de infraestructura, los dispositivos
-                inalámbricos se comunican entre sí a través de un enrutador o
-                punto de acceso WLAN. Cuando la máquina inalámbrica Brother
-                forma parte de la red en Modo de infraestructura, recibe todos
-                los trabajos de impresión a través de un enrutador o punto de
-                acceso WLAN. (¿Qué es el modo de infraestructura? | Brother,
-                s. f.)
-              </p>
-
-              <p>
-                El enrutador o punto de acceso WLAN también puede actuar como
-                puente o puerta de enlace a una red cableada, y los dispositivos
-                inalámbricos pueden comunicarse no solo entre sí, sino también
-                con una red cableada. (¿Qué es el modo de infraestructura? |
-                Brother, s. f.)
-              </p>
-
-              <img
-                src="../img/topic_four/infrastructure_img1.jpg"
-                alt="infrastructure"
-              />
-
-              <div>
-                <h4>Ventajas:</h4>
-
-                <ul>
-                  <li>
-                    Se pueden conectar más dispositivos. (Modo infraestructura,
-                    2014)
-                  </li>
-                  <li>
-                    Ayudan a extender redes cableadas. (Modo infraestructura,
-                    2014)
-                  </li>
-                  <li>Tienen mayor alcance. (Modo infraestructura, 2014)</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4>Desventajas:</h4>
-
-                <ul>
-                  <li>
-                    Se necesita más presupuesto. (Modo infraestructura, 2014)
-                  </li>
-                  <li>
-                    Se necesita conocer otros tipos de configuración. (Modo
-                    infraestructura, 2014)
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4>Configuración del Controlador WLAN:</h4>
-
-                <p>
-                  Accede al controlador WLAN. Esto puede ser a través de una
-                  interfaz web o una línea de comandos, dependiendo del
-                  fabricante.
-                </p>
-                <p>
-                  Configura la información básica de la red, como el nombre de
-                  la WLAN (SSID), el modo de operación (por ejemplo,
-                  802.11n/ac), y la frecuencia. (Configuración modo
-                  infraestructura., 2015)
-                </p>
-
-                <p>
-                  Establece la seguridad WLAN, incluyendo el tipo de cifrado y
-                  la clave de red. (Configuración modo infraestructura., 2015)
-                </p>
-              </div>
-
-              <div>
-                <h4>Configuración de Puntos de Acceso (AP):</h4>
-
-                <p>
-                  Configura cada punto de acceso para que se comunique con el
-                  controlador WLAN. (Configuración modo infraestructura., 2015)
-                </p>
-
-                <p>
-                  Asigna una dirección IP a cada punto de acceso, ya sea
-                  estáticamente o mediante un servidor DHCP. (Configuración modo
-                  infraestructura., 2015)
-                </p>
-
-                <p>
-                  Asegúrate de que los puntos de acceso utilicen la misma
-                  configuración de seguridad que el controlador WLAN.
-                  (Configuración modo infraestructura., 2015)
-                </p>
-              </div>
-
-              <div>
-                <h4>Configuración de la Interconexión de Red:</h4>
-
-                <p>
-                  Conecta el controlador WLAN y los puntos de acceso a la red
-                  cableada, ya sea mediante conexiones Ethernet o algún otro
-                  medio. (Configuración modo infraestructura., 2015)
-                </p>
-
-                <p>
-                  Asegúrate de que la red cableada tenga la capacidad suficiente
-                  para manejar el tráfico inalámbrico. (Configuración modo
-                  infraestructura., 2015)
-                </p>
-              </div>
-
-              <div>
-                <h4>Configuración de Servicios Adicionales:</h4>
-
-                <p>
-                  Configura servicios adicionales según sea necesario, como un
-                  servidor RADIUS para autenticación centralizada.
-                  (Configuración modo infraestructura., 2015)
-                </p>
-
-                <p>
-                  Implementa medidas de gestión, como la asignación de ancho de
-                  banda y la calidad de servicio (QoS) si es necesario.
-                  (Configuración modo infraestructura., 2015)
-                </p>
-              </div>
-
-              <div>
-                <h4>Pruebas y Monitoreo:</h4>
-
-                <p>
-                  Realiza pruebas para asegurarte de que los dispositivos
-                  inalámbricos pueden conectarse correctamente. (Configuración
-                  modo infraestructura., 2015)
-                </p>
-
-                <p>
-                  Configura herramientas de monitoreo para supervisar el
-                  rendimiento y la seguridad de la red WLAN. (Configuración modo
-                  infraestructura., 2015)
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="" class="topic__title">4.1.3 Puenteo punto a punto</h3>
-            </header>
-            <div class="topic__content">
-              <p>
-                Las conexiones punto a punto se utilizan normalmente para
-                conectar entre sí dos sistemas dentro de una red de área amplia
-                (WAN). Una conexión punto a punto sirve para llevar los datos
-                del sistema local a un sistema remoto o bien de una red local a
-                una red remota. No confunda las conexiones punto a punto con las
-                de protocolo punto a punto (PPP). Este es un tipo de conexión
-                punto a punto que se utiliza habitualmente para conectar una
-                máquina a Internet. Consulte el tema Conexiones PPP para
-                encontrar más información sobre cómo configurar y gestionar las
-                conexiones PPP. <i>(IBM documentation, s. f.)</i>
-              </p>
-
-              <h4>Conexiones de red numeradas</h4>
-              <p>
-                A simple vista, la forma más sencilla de configurar una conexión
-                punto a punto es utilizar una conexión numerada. Una conexión
-                numerada es una definición punto a punto que tiene una dirección
-                IP exclusiva definida para cada uno de los extremos de la
-                conexión. <i>(IBM documentation, s. f.)</i>
-              </p>
-
-              <h5>
-                He aquí algunos aspectos que conviene tener presentes ante la
-                posibilidad de utilizar una conexión punto a punto numerada:
-              </h5>
-
-              <ul>
-                <li>
-                  Cada uno de los extremos de la conexión tiene una dirección IP
-                  exclusiva. <i>(IBM documentation, s. f.)</i>
-                </li>
-                <li>
-                  Se deben añadir sentencias de direccionamiento al sistema para
-                  que el tráfico circule hasta el sistema remoto.
-                  <i>(IBM documentation, s. f.)</i>
-                </li>
-                <li>
-                  Las direcciones del enlace punto a punto debe gestionarlas el
-                  administrador de la red. <i>(IBM documentation, s. f.)</i>
-                </li>
-                <li>
-                  Se consumen las direcciones que hagan falta para conectar dos
-                  sistemas. <i>(IBM documentation, s. f.)</i>
-                </li>
-              </ul>
-
-              <img
-                src="../img/topic_four/punto_a_punto_img1.jpg"
-                alt="punto a punto"
-              />
-
-              <h4>Conexiones de red no numeradas.</h4>
-
-              <p>
-                Una conexión no numerada es un método más complejo de definir
-                una conexión punto a punto que una conexión numerada. Sin
-                embargo, las conexiones no numeradas pueden constituir una
-                manera mejor y más sencilla de gestionar la red.
+            <ul>
+              <li>
+                La interfaz punto a punto tiene una dirección que en
+                apariencia está en la red remota.
                 <i>(IBM documentation, s. f.)</i>
-              </p>
+              </li>
+              <li>
+                No es necesario que haya sentencias de direccionamiento en el
+                sistema. <i>(IBM documentation, s. f.)</i>
+              </li>
+              <li>
+                La administración de la red se simplifica porque el enlace no
+                consume todas las direcciones IP.
+                <i>(IBM documentation, s. f.)</i>
+              </li>
+            </ul>
 
-              <p>
-                El proceso de selección de rutas de i5/OS depende de que haya
-                una dirección IP para cada interfaz. En una conexión no
-                numerada, la interfaz punto a punto no necesita tener una
-                dirección exclusiva. La dirección IP de la interfaz del sistema
-                para una conexión no numerada es la dirección IP del sistema
-                remoto. <i>(IBM documentation, s. f.)</i>
-              </p>
+            <img src="../img/topic_four/punto_a_punto_img2.jpg" alt="punto a punto" />
 
-              <h5>
-                Aspectos que conviene tener presentes ante la posibilidad de
-                utilizar una conexión no numerada:
-              </h5>
+            <h4>Selección de Equipos</h4>
+
+            <p>
+              Elige dos dispositivos que admitan conectividad punto a punto,
+              como dos routers, dos switches, o incluso dos computadoras.
+              <i>(MashaMSFT, 2023)</i>
+            </p>
+
+            <h4>Asignación de Direcciones IP</h4>
+
+            <p>
+              Asigna direcciones IP estáticas a cada dispositivo en la misma
+              subred para permitir la comunicación directa. Por ejemplo, si
+              estás utilizando la subred 192.168.1.0/24, puedes asignar
+              192.168.1.1 a un dispositivo y 192.168.1.2 al otro.
+              <i>(MashaMSFT, 2023)</i>
+            </p>
+
+            <h4>Configuración de Interfaces</h4>
+            <p>
+              Configura las interfaces de red de ambos dispositivos con las
+              direcciones IP asignadas. <i>(MashaMSFT, 2023)</i> Activa las
+              interfaces. <i>(MashaMSFT, 2023)</i>
+            </p>
+
+            <h4>Configuración de Routers</h4>
+
+            <h5>Configuración de Encaminamiento (Routing)</h5>
+
+            <p>
+              Habilita la funcionalidad de enrutamiento en ambos routers si es
+              necesario.
+            </p>
+            <p>
+              Configura las rutas estáticas o dinámicas para permitir que los
+              dispositivos se comuniquen entre sí. <i>(MashaMSFT, 2023)</i>
+            </p>
+
+            <h4>Configuración de Switches</h4>
+            <h5>Configuración de VLAN (si es necesario)</h5>
+            <p>
+              Si estás utilizando switches y deseas segmentar el tráfico,
+              configura VLANs en ambos switches. <i>(MashaMSFT, 2023)</i>
+            </p>
+            <p>
+              Asigna puertos específicos a cada VLAN. <i>(MashaMSFT, 2023)</i>
+            </p>
+
+            <h4>Pruebas</h4>
+            <h5>Pruebas de Conectividad</h5>
+            <p>
+              Realiza pruebas de conectividad entre los dos dispositivos
+              utilizando comandos como ping para asegurarte de que haya
+              comunicación exitosa. <i>(MashaMSFT, 2023)</i>
+            </p>
+
+            <h4>Consideraciones de Seguridad</h4>
+            <h5>Configuración de Firewall (si es necesario)</h5>
+            <p>
+              Configura reglas de firewall para permitir el tráfico entre los
+              dispositivos, si es necesario. <i>(MashaMSFT, 2023)</i>
+            </p>
+            <h5>Seguridad de Contraseñas</h5>
+            <p>
+              Configura contraseñas fuertes en los dispositivos para
+              garantizar la seguridad de la conexión. <i>(MashaMSFT, 2023)</i>
+            </p>
+
+            <h4>Monitoreo y Mantenimiento</h4>
+            <h5>Habilita Registros (Logs)</h5>
+            <p>
+              Habilita registros para monitorear la actividad de la red punto
+              a punto. <i> (MashaMSFT, 2023)</i>
+            </p>
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_four_one_four" class="topic__title">4.1.4 Puenteo punto multipunto</h3>
+          </header>
+          <div class="topic__content">
+            <img src="../img/topic_four/wisp.jpg" alt="punto a multi punto" />
+            <p>
+              Los enlaces punto a punto le permiten interconectar 2 redes
+              remotas como si fueran una misma, mediante un canal de
+              comunicación inalámbrico. Dichos enlaces son viables desde 500
+              mts o menos hasta una distancia máxima aproximada de 80 Km.
+              Morph Wifi. (s.f.)
+            </p>
+
+            <p>
+              1. Para la creación de la red, como se muestra por encima de la
+              topología mediante el uso de punto a modo puente multi-punto, es
+              necesario configurar el Punto A al Punto de Acceso a modo puente
+              multi-punto y los puntos de acceso y el punto B del punto de
+              acceso C, también es necesario configurar tanto B Punto de
+              Acceso y Punto de Acceso a la C "de punto a punto el modo
+              puente" y punto a punto de acceso A.
+            </p>
+
+            <p>
+              Para la configuración del punto de acceso B y C Acceso a Punto a
+              Punto modo puente, consulte ¿Cómo puedo configurar
+              TL-WA501G/TL-WA601G de punto a punto el modo puente. Los pasos
+              siguientes se basan en la configuración del punto de acceso para
+              que apunte a modo puente multi-punto.
+            </p>
+
+            <p>
+              2. Antes de la configuración, por favor, comprobar y apuntar la
+              dirección MAC inalámbrica de los puntos de acceso.
+            </p>
+
+            <p>
+              En la parte inferior del dispositivo, hay una etiqueta con la
+              dirección MAC impresa.
+            </p>
+
+            <p>Configuración del punto de acceso (TL-WA501G/TL-WA601G)</p>
+
+            <p>
+              Paso 1 Conecte su computadora a TL-WA501G/TL-WA601G que solía
+              ser configurado para apuntar a modo puente Multi-Point (Punto de
+              Acceso A), y luego acceder a la utilidad basada en Web, ingrese
+              la dirección IP 192.168.1.1 en Web Browser.
+            </p>
+
+            <p>
+              Si no puede acceder a la utilidad basada en web, por favor, siga
+              las instrucciones ¿Cómo puedo acceder a la utilidad basada en
+              Web de TL-WA501G/TL-WA601G para una prueba?
+            </p>
+
+            <p>
+              Paso 2 Cambiar la dirección IP LAN del punto de acceso
+              (TL-WA501G/TL-WA601G) para evitar conflicto de IP si es
+              necesario. Esto se debe a su propia red, consulte por qué y cómo
+              puedo cambiar la dirección IP de TL-WA501G/TL-WA601G por alguna
+              información más detallada.
+            </p>
+
+            <p>
+              Después de cambiar la dirección IP del punto de acceso, es
+              necesario volver a ingresar en él con la nueva dirección IP. Y
+              por favor, tenga en cuenta que las direcciones IP de los puntos
+              de acceso no puede ser la misma en la red.
+              <i>(¿Cómo configuro el punto a punto de acceso inalámbrico al
+                modo puente multi-punto? | TP-Link Argentina, s. f.)</i>
+            </p>
+
+            <p>
+              Paso 3 Configure su TL-WA501G/TL-WA601G a punto a modo puente
+              multi-punto
+            </p>
+
+            <p>
+              1. Haga clic en Wireless (Inalámbrico) -> Modo inalámbrico a la
+              izquierda, seleccione Bridge (punto a multipunto). Y luego
+              ingresar las direcciones MAC de los otros puntos de acceso
+              (Access Point A y B Punto de acceso) que desea conectarse a la
+              MAC de las cajas de AP.
+            </p>
+
+            <p>
+              Nota: Cada dos números deben ser separados por el carácter '-',
+              y por favor, ingrese la dirección MAC de los otros puntos de
+              acceso que desea conectarse en las cajas, de lo contrario, la
+              conexión inalámbrica no se puede configurar.
+              <i>(¿Cómo configuro el punto a punto de acceso inalámbrico al
+                modo puente multi-punto? | TP-Link Argentina, s. f.)</i>
+            </p>
+
+            <p>
+              2. Después de realizar la configuración, permitirá reiniciar y
+              haga clic en el botón Guardar los ajustes entrarán en vigor
+              después del reinicio del dispositivo.
+            </p>
+
+            <p>
+              Después de realizar los pasos descritos en los puntos de acceso,
+              el modo puente de conexión inalámbrica basado en ser la
+              configuración con éxito.
+              <i>
+                (¿Cómo configuro el punto a punto de acceso inalámbrico al
+                modo puente multi-punto? | TP-Link Argentina, s. f.)</i>
+            </p>
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_four_two" class="topic__title">4.2 Servicio de Roaming</h3>
+          </header>
+          <div class="topic__content">
+            <p>
+              En el mundo de la telefonía móvil, la itinerancia de datos es
+              cuando te conectas a Internet mediante una red diferente a la
+              que tienes contratada con tu smartphone. Vamos, el que puedas
+              enviar y recibir llamadas, mensajes y datos cuando estés fuera
+              del área de cobertura de tu operadora móvil.
+              <i>(Y. Fernández, 2021)</i>
+            </p>
+
+            <p>
+              El servicio de roaming o itinerancia(que sería su traducción a
+              español) hace referencia a la capacidad de hacer y recibir
+              llamadas desde tu celular a pesar de que te encuentres fuera de
+              la zona de cobertura local de tu operador de servicio móvil.
+              <i>(Cultura tecnológica: Roaming: sus ventajas, desventajas y
+                alternativas., s. f.)</i>
+            </p>
+
+            <h4>Ventajas del Roaming</h4>
+
+            <p>
+              La principal ventaja de este servicio es que te permite
+              comunicarte con tus seres queridos a través del mismo celular
+              que usas en tu país de origen. El roaming te permitirá mantener
+              tu línea telefónica a pesar de que estés en otro país. También
+              te permitirá mantener todos los servicios de telefonía móvil con
+              que cuenta tu plan, incluyendo el paquete de mensajes y el plan
+              de datos.
+              <i>(Cultura tecnológica: Roaming: sus ventajas, desventajas y
+                alternativas., s. f.)</i>
+            </p>
+
+            <h4>Desventajas de roaming</h4>
+
+            <p>
+              La principal desventaja es que es un servicio muy costoso. Puede
+              hacer que el monto de tu factura se duplique, triplique o sea
+              aun más grande.
+            </p>
+
+            <p>
+              Sin entrar en muchos detalles de cómo opera este servicio, para
+              hacer que una llamada a celular llegue de Colombia a Chile, a
+              través del roaming, tienen que intervenir tres operadores
+              telefónicos, lo cual genera que el costo de la llamada sea mucho
+              más alto. Y como no solo te cobran las llamadas que realices,
+              sino que también te cobrarán las llamadas que recibas, la
+              cantidad de datos que gastes y los mensajes que envíes, la
+              cuenta será muy alta.
+              <i>(Cultura tecnológica: Roaming: sus ventajas, desventajas y
+                alternativas., s. f.)</i>
+            </p>
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_four_three" class="topic__title">4.3 Vulnerabilidades WLAN</h3>
+          </header>
+          <div class="topic__content">
+            <p>
+              La instalación de dispositivos WLAN (Wireless LAN) puede
+              enfrentar diversas amenazas y vulnerabilidades que podrían poner
+              en riesgo la seguridad de la red. Aquí te presento algunas de
+              las amenazas y vulnerabilidades comunes y cómo las
+              organizaciones pueden proteger sus dispositivos inalámbricos
+            </p>
+
+            <div>
+              <h4>Amenazas y vulnerabilidades comunes:</h4>
 
               <ul>
                 <li>
-                  La interfaz punto a punto tiene una dirección que en
-                  apariencia está en la red remota.
-                  <i>(IBM documentation, s. f.)</i>
+                  Acceso no autorizado: La posibilidad de que personas no
+                  autorizadas se conecten a la red WLAN o manipulen
+                  dispositivos inalámbricos. (<i>Huawei Enterprise Support Community, 2023</i>)
                 </li>
                 <li>
-                  No es necesario que haya sentencias de direccionamiento en el
-                  sistema. <i>(IBM documentation, s. f.)</i>
+                  Escuchas ilegales: La interceptación no autorizada de las
+                  comunicaciones inalámbricas, lo que podría exponer datos
+                  sensibles. (<i>Huawei Enterprise Support Community, 2023</i>)
                 </li>
                 <li>
-                  La administración de la red se simplifica porque el enlace no
-                  consume todas las direcciones IP.
-                  <i>(IBM documentation, s. f.)</i>
+                  Interferencia: La interferencia de otras redes inalámbricas,
+                  dispositivos electrónicos u obstáculos físicos que pueden
+                  degradar el rendimiento de la WLAN. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Ataques de denegación de servicio (DoS): Los ataques que
+                  intentan sobrecargar la red o los dispositivos WLAN para
+                  dejarlos inoperables. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Rogue APs (Puntos de acceso no autorizados): Dispositivos
+                  WLAN no autorizados que se conectan a la red y pueden ser
+                  utilizados para llevar a cabo ataques. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Ataques de suplantación (spoofing): Los atacantes pueden
+                  suplantar dispositivos WLAN legítimos para acceder a la red.
+                  (<i>Huawei Enterprise Support Community, 2023</i>)
                 </li>
               </ul>
-
-              <img
-                src="../img/topic_four/punto_a_punto_img2.jpg"
-                alt="punto a punto"
-              />
-
-              <h4>Selección de Equipos</h4>
-
-              <p>
-                Elige dos dispositivos que admitan conectividad punto a punto,
-                como dos routers, dos switches, o incluso dos computadoras.
-                <i>(MashaMSFT, 2023)</i>
-              </p>
-
-              <h4>Asignación de Direcciones IP</h4>
-
-              <p>
-                Asigna direcciones IP estáticas a cada dispositivo en la misma
-                subred para permitir la comunicación directa. Por ejemplo, si
-                estás utilizando la subred 192.168.1.0/24, puedes asignar
-                192.168.1.1 a un dispositivo y 192.168.1.2 al otro.
-                <i>(MashaMSFT, 2023)</i>
-              </p>
-
-              <h4>Configuración de Interfaces</h4>
-              <p>
-                Configura las interfaces de red de ambos dispositivos con las
-                direcciones IP asignadas. <i>(MashaMSFT, 2023)</i> Activa las
-                interfaces. <i>(MashaMSFT, 2023)</i>
-              </p>
-
-              <h4>Configuración de Routers</h4>
-
-              <h5>Configuración de Encaminamiento (Routing)</h5>
-
-              <p>
-                Habilita la funcionalidad de enrutamiento en ambos routers si es
-                necesario.
-              </p>
-              <p>
-                Configura las rutas estáticas o dinámicas para permitir que los
-                dispositivos se comuniquen entre sí. <i>(MashaMSFT, 2023)</i>
-              </p>
-
-              <h4>Configuración de Switches</h4>
-              <h5>Configuración de VLAN (si es necesario)</h5>
-              <p>
-                Si estás utilizando switches y deseas segmentar el tráfico,
-                configura VLANs en ambos switches. <i>(MashaMSFT, 2023)</i>
-              </p>
-              <p>
-                Asigna puertos específicos a cada VLAN. <i>(MashaMSFT, 2023)</i>
-              </p>
-
-              <h4>Pruebas</h4>
-              <h5>Pruebas de Conectividad</h5>
-              <p>
-                Realiza pruebas de conectividad entre los dos dispositivos
-                utilizando comandos como ping para asegurarte de que haya
-                comunicación exitosa. <i>(MashaMSFT, 2023)</i>
-              </p>
-
-              <h4>Consideraciones de Seguridad</h4>
-              <h5>Configuración de Firewall (si es necesario)</h5>
-              <p>
-                Configura reglas de firewall para permitir el tráfico entre los
-                dispositivos, si es necesario. <i>(MashaMSFT, 2023)</i>
-              </p>
-              <h5>Seguridad de Contraseñas</h5>
-              <p>
-                Configura contraseñas fuertes en los dispositivos para
-                garantizar la seguridad de la conexión. <i>(MashaMSFT, 2023)</i>
-              </p>
-
-              <h4>Monitoreo y Mantenimiento</h4>
-              <h5>Habilita Registros (Logs)</h5>
-              <p>
-                Habilita registros para monitorear la actividad de la red punto
-                a punto. <i> (MashaMSFT, 2023)</i>
-              </p>
             </div>
-          </article>
 
-          <article class="topic">
-            <header>
-              <h3 id="" class="topic__title">4.1.4 Puenteo punto multipunto</h3>
-            </header>
-            <div class="topic__content">
-              <img src="../img/topic_four/wisp.jpg" alt="punto a multi punto" />
-              <p>
-                Los enlaces punto a punto le permiten interconectar 2 redes
-                remotas como si fueran una misma, mediante un canal de
-                comunicación inalámbrico. Dichos enlaces son viables desde 500
-                mts o menos hasta una distancia máxima aproximada de 80 Km.
-                Morph Wifi. (s.f.)
-              </p>
+            <div>
+              <h4>Cómo proteger dispositivos inalámbricos:</h4>
 
-              <p>
-                1. Para la creación de la red, como se muestra por encima de la
-                topología mediante el uso de punto a modo puente multi-punto, es
-                necesario configurar el Punto A al Punto de Acceso a modo puente
-                multi-punto y los puntos de acceso y el punto B del punto de
-                acceso C, también es necesario configurar tanto B Punto de
-                Acceso y Punto de Acceso a la C "de punto a punto el modo
-                puente" y punto a punto de acceso A.
-              </p>
-
-              <p>
-                Para la configuración del punto de acceso B y C Acceso a Punto a
-                Punto modo puente, consulte ¿Cómo puedo configurar
-                TL-WA501G/TL-WA601G de punto a punto el modo puente. Los pasos
-                siguientes se basan en la configuración del punto de acceso para
-                que apunte a modo puente multi-punto.
-              </p>
-
-              <p>
-                2. Antes de la configuración, por favor, comprobar y apuntar la
-                dirección MAC inalámbrica de los puntos de acceso.
-              </p>
-
-              <p>
-                En la parte inferior del dispositivo, hay una etiqueta con la
-                dirección MAC impresa.
-              </p>
-
-              <p>Configuración del punto de acceso (TL-WA501G/TL-WA601G)</p>
-
-              <p>
-                Paso 1 Conecte su computadora a TL-WA501G/TL-WA601G que solía
-                ser configurado para apuntar a modo puente Multi-Point (Punto de
-                Acceso A), y luego acceder a la utilidad basada en Web, ingrese
-                la dirección IP 192.168.1.1 en Web Browser.
-              </p>
-
-              <p>
-                Si no puede acceder a la utilidad basada en web, por favor, siga
-                las instrucciones ¿Cómo puedo acceder a la utilidad basada en
-                Web de TL-WA501G/TL-WA601G para una prueba?
-              </p>
-
-              <p>
-                Paso 2 Cambiar la dirección IP LAN del punto de acceso
-                (TL-WA501G/TL-WA601G) para evitar conflicto de IP si es
-                necesario. Esto se debe a su propia red, consulte por qué y cómo
-                puedo cambiar la dirección IP de TL-WA501G/TL-WA601G por alguna
-                información más detallada.
-              </p>
-
-              <p>
-                Después de cambiar la dirección IP del punto de acceso, es
-                necesario volver a ingresar en él con la nueva dirección IP. Y
-                por favor, tenga en cuenta que las direcciones IP de los puntos
-                de acceso no puede ser la misma en la red.
-                <i
-                  >(¿Cómo configuro el punto a punto de acceso inalámbrico al
-                  modo puente multi-punto? | TP-Link Argentina, s. f.)</i
-                >
-              </p>
-
-              <p>
-                Paso 3 Configure su TL-WA501G/TL-WA601G a punto a modo puente
-                multi-punto
-              </p>
-
-              <p>
-                1. Haga clic en Wireless (Inalámbrico) -> Modo inalámbrico a la
-                izquierda, seleccione Bridge (punto a multipunto). Y luego
-                ingresar las direcciones MAC de los otros puntos de acceso
-                (Access Point A y B Punto de acceso) que desea conectarse a la
-                MAC de las cajas de AP.
-              </p>
-
-              <p>
-                Nota: Cada dos números deben ser separados por el carácter '-',
-                y por favor, ingrese la dirección MAC de los otros puntos de
-                acceso que desea conectarse en las cajas, de lo contrario, la
-                conexión inalámbrica no se puede configurar.
-                <i
-                  >(¿Cómo configuro el punto a punto de acceso inalámbrico al
-                  modo puente multi-punto? | TP-Link Argentina, s. f.)</i
-                >
-              </p>
-
-              <p>
-                2. Después de realizar la configuración, permitirá reiniciar y
-                haga clic en el botón Guardar los ajustes entrarán en vigor
-                después del reinicio del dispositivo.
-              </p>
-
-              <p>
-                Después de realizar los pasos descritos en los puntos de acceso,
-                el modo puente de conexión inalámbrica basado en ser la
-                configuración con éxito.
-                <i>
-                  (¿Cómo configuro el punto a punto de acceso inalámbrico al
-                  modo puente multi-punto? | TP-Link Argentina, s. f.)</i
-                >
-              </p>
+              <ul>
+                <li>
+                  Autenticación sólida: Implementa autenticación fuerte,
+                  preferiblemente basada en certificados, para asegurarte de
+                  que solo dispositivos y usuarios autorizados puedan acceder
+                  a la WLAN. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Cifrado robusto: Utiliza cifrado fuerte, como WPA3 o
+                  WPA2-Enterprise, para proteger las comunicaciones
+                  inalámbricas y evitar escuchas ilegales. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Control de acceso basado en políticas: Establece políticas
+                  de control de acceso que definan quién puede acceder a la
+                  red y qué recursos pueden utilizar. Esto incluye
+                  autenticación de usuarios y control de dispositivos. (<i>Huawei Enterprise Support Community,
+                    2023</i>)
+                </li>
+                <li>
+                  Segmentación de red: Divide la red WLAN en segmentos
+                  separados mediante VLANs y firewalls para limitar la
+                  expansión de amenazas y reducir el riesgo de movimiento
+                  lateral de los atacantes. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Supervisión y detección de intrusiones: Implementa sistemas
+                  de monitorización de red y detección de intrusiones para
+                  identificar actividad sospechosa y ataques en tiempo real.
+                  (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Gestión segura de dispositivos: Asegura que los dispositivos
+                  WLAN estén configurados con contraseñas fuertes, que las
+                  actualizaciones de firmware estén al día y que la gestión de
+                  dispositivos se realice de manera segura. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Auditorías de seguridad regulares: Realiza auditorías de
+                  seguridad de forma periódica para evaluar la configuración y
+                  buscar vulnerabilidades o dispositivos no autorizados. (<i>Huawei Enterprise Support Community,
+                    2023</i>)
+                </li>
+                <li>
+                  Políticas de seguridad claras: Define políticas de seguridad
+                  WLAN claras y asegúrate de que el personal las conozca y las
+                  siga. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Educación y capacitación del personal: Capacita al personal
+                  sobre las mejores prácticas de seguridad y la importancia de
+                  mantener una WLAN segura. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Actualizaciones y parches: Mantén actualizados los
+                  dispositivos WLAN con los últimos parches de seguridad y
+                  actualizaciones de firmware. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Control de acceso físico: Implementa medidas de seguridad
+                  física, como restricciones de acceso a las ubicaciones donde
+                  se encuentran los dispositivos WLAN. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+                <li>
+                  Registro y seguimiento: Lleva un registro de los
+                  dispositivos WLAN autorizados y realiza un seguimiento para
+                  detectar dispositivos no autorizados. (<i>Huawei Enterprise Support Community, 2023</i>)
+                </li>
+              </ul>
             </div>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="" class="topic__title">4.2 Servicio de Roaming</h3>
-            </header>
-            <div class="topic__content">
-              <p>
-                En el mundo de la telefonía móvil, la itinerancia de datos es
-                cuando te conectas a Internet mediante una red diferente a la
-                que tienes contratada con tu smartphone. Vamos, el que puedas
-                enviar y recibir llamadas, mensajes y datos cuando estés fuera
-                del área de cobertura de tu operadora móvil.
-                <i>(Y. Fernández, 2021)</i>
-              </p>
-
-              <p>
-                El servicio de roaming o itinerancia(que sería su traducción a
-                español) hace referencia a la capacidad de hacer y recibir
-                llamadas desde tu celular a pesar de que te encuentres fuera de
-                la zona de cobertura local de tu operador de servicio móvil.
-                <i
-                  >(Cultura tecnológica: Roaming: sus ventajas, desventajas y
-                  alternativas., s. f.)</i
-                >
-              </p>
-
-              <h4>Ventajas del Roaming</h4>
-
-              <p>
-                La principal ventaja de este servicio es que te permite
-                comunicarte con tus seres queridos a través del mismo celular
-                que usas en tu país de origen. El roaming te permitirá mantener
-                tu línea telefónica a pesar de que estés en otro país. También
-                te permitirá mantener todos los servicios de telefonía móvil con
-                que cuenta tu plan, incluyendo el paquete de mensajes y el plan
-                de datos.
-                <i
-                  >(Cultura tecnológica: Roaming: sus ventajas, desventajas y
-                  alternativas., s. f.)</i
-                >
-              </p>
-
-              <h4>Desventajas de roaming</h4>
-
-              <p>
-                La principal desventaja es que es un servicio muy costoso. Puede
-                hacer que el monto de tu factura se duplique, triplique o sea
-                aun más grande.
-              </p>
-
-              <p>
-                Sin entrar en muchos detalles de cómo opera este servicio, para
-                hacer que una llamada a celular llegue de Colombia a Chile, a
-                través del roaming, tienen que intervenir tres operadores
-                telefónicos, lo cual genera que el costo de la llamada sea mucho
-                más alto. Y como no solo te cobran las llamadas que realices,
-                sino que también te cobrarán las llamadas que recibas, la
-                cantidad de datos que gastes y los mensajes que envíes, la
-                cuenta será muy alta.
-                <i
-                  >(Cultura tecnológica: Roaming: sus ventajas, desventajas y
-                  alternativas., s. f.)</i
-                >
-              </p>
-            </div>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="" class="topic__title">4.3 Vulnerabilidades WLAN</h3>
-            </header>
-            <div class="topic__content">
-              <p>
-                La instalación de dispositivos WLAN (Wireless LAN) puede
-                enfrentar diversas amenazas y vulnerabilidades que podrían poner
-                en riesgo la seguridad de la red. Aquí te presento algunas de
-                las amenazas y vulnerabilidades comunes y cómo las
-                organizaciones pueden proteger sus dispositivos inalámbricos
-              </p>
-
-              <div>
-                <h4>Amenazas y vulnerabilidades comunes:</h4>
-
-                <ul>
-                  <li>
-                    Acceso no autorizado: La posibilidad de que personas no
-                    autorizadas se conecten a la red WLAN o manipulen
-                    dispositivos inalámbricos. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Escuchas ilegales: La interceptación no autorizada de las
-                    comunicaciones inalámbricas, lo que podría exponer datos
-                    sensibles. (<i>Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Interferencia: La interferencia de otras redes inalámbricas,
-                    dispositivos electrónicos u obstáculos físicos que pueden
-                    degradar el rendimiento de la WLAN. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Ataques de denegación de servicio (DoS): Los ataques que
-                    intentan sobrecargar la red o los dispositivos WLAN para
-                    dejarlos inoperables. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Rogue APs (Puntos de acceso no autorizados): Dispositivos
-                    WLAN no autorizados que se conectan a la red y pueden ser
-                    utilizados para llevar a cabo ataques. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Ataques de suplantación (spoofing): Los atacantes pueden
-                    suplantar dispositivos WLAN legítimos para acceder a la red.
-                    (<i>Huawei Enterprise Support Community, 2023</i>)
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4>Cómo proteger dispositivos inalámbricos:</h4>
-
-                <ul>
-                  <li>
-                    Autenticación sólida: Implementa autenticación fuerte,
-                    preferiblemente basada en certificados, para asegurarte de
-                    que solo dispositivos y usuarios autorizados puedan acceder
-                    a la WLAN. (<i>Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Cifrado robusto: Utiliza cifrado fuerte, como WPA3 o
-                    WPA2-Enterprise, para proteger las comunicaciones
-                    inalámbricas y evitar escuchas ilegales. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Control de acceso basado en políticas: Establece políticas
-                    de control de acceso que definan quién puede acceder a la
-                    red y qué recursos pueden utilizar. Esto incluye
-                    autenticación de usuarios y control de dispositivos. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Segmentación de red: Divide la red WLAN en segmentos
-                    separados mediante VLANs y firewalls para limitar la
-                    expansión de amenazas y reducir el riesgo de movimiento
-                    lateral de los atacantes. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Supervisión y detección de intrusiones: Implementa sistemas
-                    de monitorización de red y detección de intrusiones para
-                    identificar actividad sospechosa y ataques en tiempo real.
-                    (<i>Huawei Enterprise Support Community, 2023</i>)
-                  </li>
-                  <li>
-                    Gestión segura de dispositivos: Asegura que los dispositivos
-                    WLAN estén configurados con contraseñas fuertes, que las
-                    actualizaciones de firmware estén al día y que la gestión de
-                    dispositivos se realice de manera segura. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Auditorías de seguridad regulares: Realiza auditorías de
-                    seguridad de forma periódica para evaluar la configuración y
-                    buscar vulnerabilidades o dispositivos no autorizados. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Políticas de seguridad claras: Define políticas de seguridad
-                    WLAN claras y asegúrate de que el personal las conozca y las
-                    siga. (<i>Huawei Enterprise Support Community, 2023</i>)
-                  </li>
-                  <li>
-                    Educación y capacitación del personal: Capacita al personal
-                    sobre las mejores prácticas de seguridad y la importancia de
-                    mantener una WLAN segura. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Actualizaciones y parches: Mantén actualizados los
-                    dispositivos WLAN con los últimos parches de seguridad y
-                    actualizaciones de firmware. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Control de acceso físico: Implementa medidas de seguridad
-                    física, como restricciones de acceso a las ubicaciones donde
-                    se encuentran los dispositivos WLAN. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                  <li>
-                    Registro y seguimiento: Lleva un registro de los
-                    dispositivos WLAN autorizados y realiza un seguimiento para
-                    detectar dispositivos no autorizados. (<i
-                      >Huawei Enterprise Support Community, 2023</i
-                    >)
-                  </li>
-                </ul>
-              </div>
-              <p>
-                La seguridad WLAN es una parte crítica de la seguridad de la red
-                en la actualidad, y las organizaciones deben abordar estas
-                amenazas y vulnerabilidades de manera proactiva para proteger
-                sus redes inalámbricas. (Huawei Enterprise Support Community,
-                2023)
-              </p>
-            </div>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="" class="topic__title"></h3>
-            </header>
-            <div class="topic__content"></div>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="" class="topic__title"></h3>
-            </header>
-            <div class="topic__content"></div>
-          </article>
-        </section>
+            <p>
+              La seguridad WLAN es una parte crítica de la seguridad de la red
+              en la actualidad, y las organizaciones deben abordar estas
+              amenazas y vulnerabilidades de manera proactiva para proteger
+              sus redes inalámbricas. (Huawei Enterprise Support Community,
+              2023)
+            </p>
+          </div>
+        </article>
 
         <section style="padding-left: 3em">
           <h3>Bibliografia</h3>
@@ -982,8 +910,7 @@
             <li>
               ¿Qué es el modo de infraestructura? | Brother. (s. f.).
               <a
-                href="https://support.brother.com/g/b/faqend.aspx?c=us&lang=es&prod=mfc8890dw_all&faqid=faq00002194_000#:~:text=El%20Modo%20de%20infraestructura%20es,o%20punto%20de%20acceso%20WLAN."
-              >
+                href="https://support.brother.com/g/b/faqend.aspx?c=us&lang=es&prod=mfc8890dw_all&faqid=faq00002194_000#:~:text=El%20Modo%20de%20infraestructura%20es,o%20punto%20de%20acceso%20WLAN.">
                 https://support.brother.com/g/b/faqend.aspx?c=us&lang=es&prod=mfc8890dw_all&faqid=faq00002194_000#:~:text=El%20Modo%20de%20infraestructura%20es,o%20punto%20de%20acceso%20WLAN.
               </a>
             </li>
@@ -991,18 +918,14 @@
             <li>
               L, F. A. (2021, 13 diciembre). Configuración de red Ad-Hoc -
               Freddy Abad L. - Medium.
-              <a
-                href="https://freddy-abadl.medium.com/configuraci%C3%B3n-de-red-ad-hoc-c4b9fcda9d51"
-              >
+              <a href="https://freddy-abadl.medium.com/configuraci%C3%B3n-de-red-ad-hoc-c4b9fcda9d51">
                 https://freddy-abadl.medium.com/configuraci%C3%B3n-de-red-ad-hoc-c4b9fcda9d51
               </a>
             </li>
 
             <li>
               Modo ad – hoc. (2014, 22 octubre). Todo Sobre Redes.
-              <a
-                href="https://sobretodoredes.wordpress.com/redes-inalambricas/modos-de-operacion/modo-ad-hoc/"
-              >
+              <a href="https://sobretodoredes.wordpress.com/redes-inalambricas/modos-de-operacion/modo-ad-hoc/">
                 https://sobretodoredes.wordpress.com/redes-inalambricas/modos-de-operacion/modo-ad-hoc/
               </a>
             </li>
@@ -1017,8 +940,7 @@
             <li>
               Modo infraestructura. (2014, 22 octubre). Todo Sobre Redes.
               <a
-                href="https://sobretodoredes.wordpress.com/redes-inalambricas/modos-de-operacion/modo-infraestructura/"
-              >
+                href="https://sobretodoredes.wordpress.com/redes-inalambricas/modos-de-operacion/modo-infraestructura/">
                 https://sobretodoredes.wordpress.com/redes-inalambricas/modos-de-operacion/modo-infraestructura/
               </a>
             </li>
@@ -1026,9 +948,7 @@
             <li>
               Configuración modo infraestructura. (2015, 27 febrero). Manejo de
               Redes.
-              <a
-                href="https://manejoderedes6203.wordpress.com/configuracion-modo-infraestructura/"
-              >
+              <a href="https://manejoderedes6203.wordpress.com/configuracion-modo-infraestructura/">
                 https://manejoderedes6203.wordpress.com/configuracion-modo-infraestructura/
               </a>
             </li>
@@ -1045,8 +965,7 @@
               MashaMSFT. (2023, 26 abril). Configurar topología (replicación
               punto a punto) - SQL Server. Microsoft Learn.
               <a
-                href="https://learn.microsoft.com/es-es/sql/relational-databases/replication/configure-topology-peer-to-peer-replication?view=sql-server-ver16"
-              >
+                href="https://learn.microsoft.com/es-es/sql/relational-databases/replication/configure-topology-peer-to-peer-replication?view=sql-server-ver16">
                 https://learn.microsoft.com/es-es/sql/relational-databases/replication/configure-topology-peer-to-peer-replication?view=sql-server-ver16
               </a>
             </li>
@@ -1061,9 +980,7 @@
             <li>
               Fernández, Y. (2021, 22 enero). Qué es la itinerancia de datos o
               roaming. Xataka.
-              <a
-                href="https://www.xataka.com/basics/que-es-la-itinerancia-de-datos-o-roaming"
-              >
+              <a href="https://www.xataka.com/basics/que-es-la-itinerancia-de-datos-o-roaming">
                 https://www.xataka.com/basics/que-es-la-itinerancia-de-datos-o-roaming
               </a>
             </li>
@@ -1072,8 +989,7 @@
               Cultura tecnológica: Roaming: sus ventajas, desventajas y
               alternativas. (s. f.).
               <a
-                href="https://edu.gcfglobal.org/es/cultura-tecnologica/roaming-sus-ventajas-desventajas-y-alternativas/1/#"
-              >
+                href="https://edu.gcfglobal.org/es/cultura-tecnologica/roaming-sus-ventajas-desventajas-y-alternativas/1/#">
                 https://edu.gcfglobal.org/es/cultura-tecnologica/roaming-sus-ventajas-desventajas-y-alternativas/1/#
               </a>
             </li>
@@ -1081,8 +997,7 @@
             <li>
               Autenticar usuarios - Huawei Enterprise Support Community.
               <a
-                href="https://forum.huawei.com/enterprise/es/autenticar-usuarios/thread/699311874669166592-667212883622244352"
-              >
+                href="https://forum.huawei.com/enterprise/es/autenticar-usuarios/thread/699311874669166592-667212883622244352">
                 https://forum.huawei.com/enterprise/es/autenticar-usuarios/thread/699311874669166592-667212883622244352
               </a>
             </li>
@@ -1090,16 +1005,15 @@
             <li>
               WEP, WPA, WPA2 y WPA3: diferencias y explicación. (2023, 18
               agosto). www.kaspersky.es.
-              <a
-                href="https://www.kaspersky.es/resource-center/definitions/wep-vs-wpa"
-              >
+              <a href="https://www.kaspersky.es/resource-center/definitions/wep-vs-wpa">
                 https://www.kaspersky.es/resource-center/definitions/wep-vs-wpa
               </a>
             </li>
           </ul>
         </section>
-      </main>
-    </div>
-    <script src="../js/main.js"></script>
-  </body>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+
 </html>
