@@ -1,212 +1,214 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/topic_three.css" />
+    <title>Tema 5</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../styles/styles.css" />
-  <link rel="stylesheet" href="../styles/topic_three.css" />
-  <title>Tema 5</title>
-</head>
+  <body>
+    <div class="container">
+      <nav class="nav">
+        <ul class="list">
+          <li>
+            <img
+              class="nav__logo"
+              src="../img/LOGO-TEC-URUAPAN.png"
+              alt="LOGO-TEC-URUAPAN"
+            />
+            <h1 class="nav__title">Seguridad en Redes</h1>
+          </li>
 
-<body>
-  <div class="container">
-    <nav class="nav">
-      <ul class="list">
-        <li>
-          <img class="nav__logo" src="../img/LOGO-TEC-URUAPAN.png" alt="LOGO-TEC-URUAPAN" />
-          <h1 class="nav__title">
-            Seguridad en Redes
-          </h1>
-        </li>
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../assets/dashboard.svg" class="list__img" />
+              <a href="../index.html" class="nav__link"> Temario </a>
+            </div>
+          </li>
 
-        <li class="list__item">
-          <div class="list__button">
-            <img src="../assets/dashboard.svg" class="list__img" />
-            <a href="../index.html" class="nav__link">
-              Temario
-            </a>
-          </div>
-        </li>
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../assets/docs.svg" class="list__img" />
+              <a href="#topic_five_one" class="nav__link">
+                5.1 Riesgos y amenazas en las redes
+              </a>
+            </div>
+          </li>
 
-        <li class="list__item">
-          <div class="list__button">
-            <img src="../assets/docs.svg" class="list__img" />
-            <a href="#topic_five_one" class="nav__link">
-              5.1 Riesgos y amenazas en las redes
-            </a>
-          </div>
-        </li>
+          <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+              <img src="../assets/docs.svg" class="list__img" />
+              <a href="#topic_five_two" class="nav__link">
+                5.2 Mecanismos de protección en las redes
+              </a>
+              <img src="../assets/arrow.svg" class="list__arrow" />
+            </div>
 
-        <li class="list__item list__item--click">
-          <div class="list__button list__button--click">
-            <img src="../assets/docs.svg" class="list__img" />
-            <a href="#topic_five_two" class="nav__link">
-              5.2 Mecanismos de protección en las redes
-            </a>
-            <img src="../assets/arrow.svg" class="list__arrow" />
-          </div>
+            <ul class="list__show">
+              <li class="list__inside">
+                <a
+                  href="#topic_five_two_one"
+                  class="nav__link nav__link--inside"
+                >
+                  5.2.1 Privacidad equivalente al cableado (WEP)
+                </a>
+              </li>
 
-          <ul class="list__show">
-            <li class="list__inside">
-              <a href="#topic_five_two_one" class="nav__link nav__link--inside">
+              <li class="list__inside">
+                <a
+                  href="#topic_five_two_two"
+                  class="nav__link nav__link--inside"
+                >
+                  5.2.2 Acceso Wi-Fi Protegido (WPA)
+                </a>
+              </li>
+
+              <li class="list__inside">
+                <a
+                  href="#topic_five_two_three"
+                  class="nav__link nav__link--inside"
+                >
+                  5.2.3 Listas de Control de Acceso (Filtrado MAC)
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="list__item">
+            <div class="list__button">
+              <img src="../img/diccionario.png" class="list__img" />
+              <a href="glosario.html" class="nav__link">Glosario</a>
+            </div>
+          </li>
+
+        </ul>
+      </nav>
+
+      <main class="container__main">
+        <section class="">
+          <article class="topic">
+            <header>
+              <h3 id="topic_five_one" class="topic__title">
+                5 Seguridad en Redes
+              </h3>
+            </header>
+
+            <div class="topic__content">
+              <p>
+                En un nivel básico, la seguridad de red es la operación de
+                proteger datos, aplicaciones, dispositivos y sistemas que están
+                conectados a la red. Aunque la seguridad de red y la
+                ciberseguridad se superponen de muchas maneras, la seguridad de
+                red se define con mayor frecuencia como un subconjunto de la
+                ciberseguridad.
+              </p>
+
+              <p>
+                Usando la tradicional "analogía del castillo y el foso" o un
+                enfoque de seguridad basado en el perímetro, en el que su
+                organización es su castillo y los datos almacenados dentro del
+                castillo son las joyas de la corona, la seguridad de red se
+                preocupa más por la seguridad dentro del muros de castillo.
+              </p>
+
+              <p>
+                En este escenario basado en el perímetro, el área dentro de los
+                muros del castillo puede representar la infraestructura de TI de
+                una empresa, incluidos sus componentes de red, hardware,
+                sistemas operativos, software y almacenamiento de datos. La
+                seguridad de red protege estos sistemas del malware/ransomware,
+                ataques distribuidos de denegación de servicio (DDoS),
+                intrusiones en la red y más, creando una plataforma segura para
+                que los usuarios, las computadoras y los programas realicen sus
+                funciones dentro del entorno de TI.
+              </p>
+
+              <p>
+                A medida que las organizaciones migran a entornos híbridos y
+                multinube, sus datos, aplicaciones y dispositivos se dispersan
+                en diversas ubicaciones y geografías.
+              </p>
+
+              <p>
+                Los usuarios desean acceder a los datos y sistemas empresariales
+                desde cualquier lugar y dispositivo. Por lo tanto, el enfoque
+                tradicional basado en el perímetro de la seguridad de red está
+                desapareciendo gradualmente. Un enfoque de confianza cero de la
+                seguridad, en el que una organización nunca confía y siempre
+                verifica el acceso, se está convirtiendo rápidamente en el nuevo
+                método para fortalecer la postura de seguridad de una
+                organización.
+              </p>
+            </div>
+
+            <footer>
+              <i> (¿Qué Es La Seguridad De Red? | IBM, n.d.) </i>
+            </footer>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="topic_five_one" class="topic__title">
+                5.1 Riesgos y amenazas en las redes
+              </h3>
+            </header>
+            <div class="topic__content">
+              <p></p>
+            </div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="topic_five_two" class="topic__title">
+                5.2 Mecanismos de protección en las redes
+              </h3>
+            </header>
+            <div class="topic__content"></div>
+          </article>
+
+          <article class="topic">
+            <header>
+              <h3 id="topic_five_two_one" class="topic__title">
                 5.2.1 Privacidad equivalente al cableado (WEP)
-              </a>
-            </li>
+              </h3>
+            </header>
+            <div class="topic__content"></div>
+          </article>
 
-            <li class="list__inside">
-              <a href="#topic_five_two_two" class="nav__link nav__link--inside">
+          <article class="topic">
+            <header>
+              <h3 id="topic_five_two_two" class="topic__title">
                 5.2.2 Acceso Wi-Fi Protegido (WPA)
-              </a>
-            </li>
+              </h3>
+            </header>
+            <div class="topic__content"></div>
+          </article>
 
-            <li class="list__inside">
-              <a href="#topic_five_two_three" class="nav__link nav__link--inside">
+          <article class="topic">
+            <header>
+              <h3 id="topic_five_two_three" class="topic__title">
                 5.2.3 Listas de Control de Acceso (Filtrado MAC)
+              </h3>
+            </header>
+            <div class="topic__content"></div>
+          </article>
+        </section>
+        <section>
+          <h2>Bibliografia</h2>
+          <ul>
+            <li>
+              ¿Qué es la seguridad de red? | IBM. (n.d.).
+              <a href="https://www.ibm.com/mx-es/topics/network-security">
+                https://www.ibm.com/mx-es/topics/network-security
               </a>
-
             </li>
           </ul>
-        </li>
-      </ul>
-    </nav>
-
-    <main class="container__main">
-      <section class="">
-        <article class="topic">
-          <header>
-            <h3 id="topic_five_one" class="topic__title">
-              5 Seguridad en Redes
-            </h3>
-          </header>
-
-          <div class="topic__content">
-            <p>
-              En un nivel básico, la seguridad de red es la operación de proteger datos, aplicaciones, dispositivos y
-              sistemas que están conectados a la red. Aunque la seguridad de red y la ciberseguridad se superponen de
-              muchas maneras, la seguridad de red se define con mayor frecuencia como un subconjunto de la
-              ciberseguridad.
-            </p>
-
-            <p>
-              Usando la tradicional "analogía del castillo y el foso" o un enfoque de seguridad basado en el perímetro,
-              en
-              el que su organización es su castillo y los datos almacenados dentro del castillo son las joyas de la
-              corona, la seguridad de red se preocupa más por la seguridad dentro del muros de castillo.
-            </p>
-
-            <p>
-              En este escenario basado en el perímetro, el área dentro de los muros del castillo puede representar la
-              infraestructura de TI de una empresa, incluidos sus componentes de red, hardware, sistemas operativos,
-              software y almacenamiento de datos. La seguridad de red protege estos sistemas del malware/ransomware,
-              ataques distribuidos de denegación de servicio (DDoS), intrusiones en la red y más, creando una plataforma
-              segura para que los usuarios, las computadoras y los programas realicen sus funciones dentro del entorno
-              de
-              TI.
-            </p>
-
-            <p>
-              A medida que las organizaciones migran a entornos híbridos y multinube, sus datos, aplicaciones y
-              dispositivos se dispersan en diversas ubicaciones y geografías.
-            </p>
-
-            <p>
-              Los usuarios desean acceder a los datos y sistemas empresariales desde cualquier lugar y dispositivo. Por
-              lo
-              tanto, el enfoque tradicional basado en el perímetro de la seguridad de red está desapareciendo
-              gradualmente. Un enfoque de confianza cero de la seguridad, en el que una organización nunca confía y
-              siempre verifica el acceso, se está convirtiendo rápidamente en el nuevo método para fortalecer la postura
-              de seguridad de una organización.
-            </p>
-
-          </div>
-
-          <footer>
-            <i>
-              (¿Qué Es La Seguridad De Red? | IBM, n.d.)
-            </i>
-          </footer>
-
-        </article>
-
-        <article class="topic">
-          <header>
-            <h3 id="topic_five_one" class="topic__title">
-              5.1 Riesgos y amenazas en las redes
-            </h3>
-          </header>
-          <div class="topic__content">
-            <p>
-            </p>
-          </div>
-
-        </article>
-
-        <article class="topic">
-          <header>
-            <h3 id="topic_five_two" class="topic__title">
-              5.2 Mecanismos de protección en las redes
-            </h3>
-          </header>
-          <div class="topic__content">
-
-          </div>
-        </article>
-
-
-        <article class="topic">
-          <header>
-            <h3 id="topic_five_two_one" class="topic__title">
-              5.2.1 Privacidad equivalente al cableado (WEP)
-            </h3>
-          </header>
-          <div class="topic__content">
-
-          </div>
-        </article>
-
-
-        <article class="topic">
-          <header>
-            <h3 id="topic_five_two_two" class="topic__title">
-              5.2.2 Acceso Wi-Fi Protegido (WPA)
-            </h3>
-          </header>
-          <div class="topic__content">
-
-          </div>
-        </article>
-
-
-
-        <article class="topic">
-          <header>
-            <h3 id="topic_five_two_three" class="topic__title">
-              5.2.3 Listas de Control de Acceso (Filtrado MAC)
-            </h3>
-          </header>
-          <div class="topic__content">
-
-          </div>
-        </article>
-
-
-      </section>
-      <section>
-        <h2>Bibliografia</h2>
-        <ul>
-          <li>
-            ¿Qué es la seguridad de red? | IBM. (n.d.).
-            <a href="https://www.ibm.com/mx-es/topics/network-security">
-              https://www.ibm.com/mx-es/topics/network-security
-            </a>
-          </li>
-        </ul>
-      </section>
-    </main>
-  </div>
-  <script src="../js/main.js"></script>
-</body>
-
+        </section>
+      </main>
+    </div>
+    <script src="../js/main.js"></script>
+  </body>
 </html>
