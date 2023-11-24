@@ -1,214 +1,660 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/styles.css" />
-    <link rel="stylesheet" href="../styles/topic_three.css" />
-    <title>Tema 5</title>
-  </head>
 
-  <body>
-    <div class="container">
-      <nav class="nav">
-        <ul class="list">
-          <li>
-            <img
-              class="nav__logo"
-              src="../img/LOGO-TEC-URUAPAN.png"
-              alt="LOGO-TEC-URUAPAN"
-            />
-            <h1 class="nav__title">Seguridad en Redes</h1>
-          </li>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="stylesheet" href="../styles/topic_three.css" />
+  <title>Tema 5</title>
+</head>
 
-          <li class="list__item">
-            <div class="list__button">
-              <img src="../assets/dashboard.svg" class="list__img" />
-              <a href="../index.html" class="nav__link"> Temario </a>
-            </div>
-          </li>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <ul class="list">
+        <li>
+          <img class="nav__logo" src="../img/LOGO-TEC-URUAPAN.png" alt="LOGO-TEC-URUAPAN" />
+          <h1 class="nav__title">Seguridad en Redes</h1>
+        </li>
 
-          <li class="list__item">
-            <div class="list__button">
-              <img src="../assets/docs.svg" class="list__img" />
-              <a href="#topic_five_one" class="nav__link">
-                5.1 Riesgos y amenazas en las redes
-              </a>
-            </div>
-          </li>
+        <li class="list__item">
+          <div class="list__button">
+            <img src="../assets/dashboard.svg" class="list__img" />
+            <a href="../index.html" class="nav__link"> Temario </a>
+          </div>
+        </li>
 
-          <li class="list__item list__item--click">
-            <div class="list__button list__button--click">
-              <img src="../assets/docs.svg" class="list__img" />
-              <a href="#topic_five_two" class="nav__link">
-                5.2 Mecanismos de protección en las redes
-              </a>
-              <img src="../assets/arrow.svg" class="list__arrow" />
-            </div>
+        <li class="list__item">
+          <div class="list__button">
+            <img src="../assets/docs.svg" class="list__img" />
+            <a href="#topic_five_one" class="nav__link">
+              5.1 Riesgos y amenazas en las redes
+            </a>
+          </div>
+        </li>
 
-            <ul class="list__show">
-              <li class="list__inside">
-                <a
-                  href="#topic_five_two_one"
-                  class="nav__link nav__link--inside"
-                >
-                  5.2.1 Privacidad equivalente al cableado (WEP)
-                </a>
-              </li>
+        <li class="list__item list__item--click">
+          <div class="list__button list__button--click">
+            <img src="../assets/docs.svg" class="list__img" />
+            <a href="#topic_five_two" class="nav__link">
+              5.2 Mecanismos de protección en las redes
+            </a>
+            <img src="../assets/arrow.svg" class="list__arrow" />
+          </div>
 
-              <li class="list__inside">
-                <a
-                  href="#topic_five_two_two"
-                  class="nav__link nav__link--inside"
-                >
-                  5.2.2 Acceso Wi-Fi Protegido (WPA)
-                </a>
-              </li>
-
-              <li class="list__inside">
-                <a
-                  href="#topic_five_two_three"
-                  class="nav__link nav__link--inside"
-                >
-                  5.2.3 Listas de Control de Acceso (Filtrado MAC)
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li class="list__item">
-            <div class="list__button">
-              <img src="../img/diccionario.png" class="list__img" />
-              <a href="glosario.html" class="nav__link">Glosario</a>
-            </div>
-          </li>
-
-        </ul>
-      </nav>
-
-      <main class="container__main">
-        <section class="">
-          <article class="topic">
-            <header>
-              <h3 id="topic_five_one" class="topic__title">
-                5 Seguridad en Redes
-              </h3>
-            </header>
-
-            <div class="topic__content">
-              <p>
-                En un nivel básico, la seguridad de red es la operación de
-                proteger datos, aplicaciones, dispositivos y sistemas que están
-                conectados a la red. Aunque la seguridad de red y la
-                ciberseguridad se superponen de muchas maneras, la seguridad de
-                red se define con mayor frecuencia como un subconjunto de la
-                ciberseguridad.
-              </p>
-
-              <p>
-                Usando la tradicional "analogía del castillo y el foso" o un
-                enfoque de seguridad basado en el perímetro, en el que su
-                organización es su castillo y los datos almacenados dentro del
-                castillo son las joyas de la corona, la seguridad de red se
-                preocupa más por la seguridad dentro del muros de castillo.
-              </p>
-
-              <p>
-                En este escenario basado en el perímetro, el área dentro de los
-                muros del castillo puede representar la infraestructura de TI de
-                una empresa, incluidos sus componentes de red, hardware,
-                sistemas operativos, software y almacenamiento de datos. La
-                seguridad de red protege estos sistemas del malware/ransomware,
-                ataques distribuidos de denegación de servicio (DDoS),
-                intrusiones en la red y más, creando una plataforma segura para
-                que los usuarios, las computadoras y los programas realicen sus
-                funciones dentro del entorno de TI.
-              </p>
-
-              <p>
-                A medida que las organizaciones migran a entornos híbridos y
-                multinube, sus datos, aplicaciones y dispositivos se dispersan
-                en diversas ubicaciones y geografías.
-              </p>
-
-              <p>
-                Los usuarios desean acceder a los datos y sistemas empresariales
-                desde cualquier lugar y dispositivo. Por lo tanto, el enfoque
-                tradicional basado en el perímetro de la seguridad de red está
-                desapareciendo gradualmente. Un enfoque de confianza cero de la
-                seguridad, en el que una organización nunca confía y siempre
-                verifica el acceso, se está convirtiendo rápidamente en el nuevo
-                método para fortalecer la postura de seguridad de una
-                organización.
-              </p>
-            </div>
-
-            <footer>
-              <i> (¿Qué Es La Seguridad De Red? | IBM, n.d.) </i>
-            </footer>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="topic_five_one" class="topic__title">
-                5.1 Riesgos y amenazas en las redes
-              </h3>
-            </header>
-            <div class="topic__content">
-              <p></p>
-            </div>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="topic_five_two" class="topic__title">
-                5.2 Mecanismos de protección en las redes
-              </h3>
-            </header>
-            <div class="topic__content"></div>
-          </article>
-
-          <article class="topic">
-            <header>
-              <h3 id="topic_five_two_one" class="topic__title">
+          <ul class="list__show">
+            <li class="list__inside">
+              <a href="#topic_five_two_one" class="nav__link nav__link--inside">
                 5.2.1 Privacidad equivalente al cableado (WEP)
-              </h3>
-            </header>
-            <div class="topic__content"></div>
-          </article>
+              </a>
+            </li>
 
-          <article class="topic">
-            <header>
-              <h3 id="topic_five_two_two" class="topic__title">
+            <li class="list__inside">
+              <a href="#topic_five_two_two" class="nav__link nav__link--inside">
                 5.2.2 Acceso Wi-Fi Protegido (WPA)
-              </h3>
-            </header>
-            <div class="topic__content"></div>
-          </article>
+              </a>
+            </li>
 
-          <article class="topic">
-            <header>
-              <h3 id="topic_five_two_three" class="topic__title">
+            <li class="list__inside">
+              <a href="#topic_five_two_three" class="nav__link nav__link--inside">
                 5.2.3 Listas de Control de Acceso (Filtrado MAC)
-              </h3>
-            </header>
-            <div class="topic__content"></div>
-          </article>
-        </section>
-        <section>
-          <h2>Bibliografia</h2>
-          <ul>
-            <li>
-              ¿Qué es la seguridad de red? | IBM. (n.d.).
-              <a href="https://www.ibm.com/mx-es/topics/network-security">
-                https://www.ibm.com/mx-es/topics/network-security
               </a>
             </li>
           </ul>
-        </section>
-      </main>
-    </div>
-    <script src="../js/main.js"></script>
-  </body>
+        </li>
+
+        <li class="list__item">
+          <div class="list__button">
+            <img src="../img/diccionario.png" class="list__img" />
+            <a href="glosario.html" class="nav__link">Glosario</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="container__main">
+      <section class="">
+        <article class="topic">
+          <header>
+            <h3 id="topic_five_one" class="topic__title">
+              5 Seguridad en Redes
+            </h3>
+          </header>
+
+          <div class="topic__content">
+            <p>
+              En un nivel básico, la seguridad de red es la operación de
+              proteger datos, aplicaciones, dispositivos y sistemas que están
+              conectados a la red. Aunque la seguridad de red y la
+              ciberseguridad se superponen de muchas maneras, la seguridad de
+              red se define con mayor frecuencia como un subconjunto de la
+              ciberseguridad.
+            </p>
+
+            <p>
+              Usando la tradicional "analogía del castillo y el foso" o un
+              enfoque de seguridad basado en el perímetro, en el que su
+              organización es su castillo y los datos almacenados dentro del
+              castillo son las joyas de la corona, la seguridad de red se
+              preocupa más por la seguridad dentro del muros de castillo.
+            </p>
+
+            <p>
+              En este escenario basado en el perímetro, el área dentro de los
+              muros del castillo puede representar la infraestructura de TI de
+              una empresa, incluidos sus componentes de red, hardware,
+              sistemas operativos, software y almacenamiento de datos. La
+              seguridad de red protege estos sistemas del malware/ransomware,
+              ataques distribuidos de denegación de servicio (DDoS),
+              intrusiones en la red y más, creando una plataforma segura para
+              que los usuarios, las computadoras y los programas realicen sus
+              funciones dentro del entorno de TI.
+            </p>
+
+            <p>
+              A medida que las organizaciones migran a entornos híbridos y
+              multinube, sus datos, aplicaciones y dispositivos se dispersan
+              en diversas ubicaciones y geografías.
+            </p>
+
+            <p>
+              Los usuarios desean acceder a los datos y sistemas empresariales
+              desde cualquier lugar y dispositivo. Por lo tanto, el enfoque
+              tradicional basado en el perímetro de la seguridad de red está
+              desapareciendo gradualmente. Un enfoque de confianza cero de la
+              seguridad, en el que una organización nunca confía y siempre
+              verifica el acceso, se está convirtiendo rápidamente en el nuevo
+              método para fortalecer la postura de seguridad de una
+              organización.
+            </p>
+          </div>
+
+          <footer>
+            <i> (¿Qué Es La Seguridad De Red? | IBM, n.d.) </i>
+          </footer>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_five_one" class="topic__title">
+              5.1 Riesgos y amenazas en las redes
+            </h3>
+          </header>
+          <div class="topic__content">
+            <h4>Vulnerabilidades</h4>
+            <ul>
+              <li>
+                <div>
+                  <h4>Contraseñas predeterminadas o ninguna</h4>
+                  <p>
+                    El hecho de dejar las contraseñas en blanco o de usar una
+                    contraseña predeterminada por el fabricante. Es lo más
+                    común en hardware tales como enrutadores y cortafuegos,
+                    aunque algunos servicios que se ejecutan en Linux pueden
+                    contener contraseñas de administrador predeterminadas
+                    (aunque Red Hat Enterprise Linux no se distribuye con
+                    ellas).
+                  </p>
+
+                  <div>
+                    <strong>Notas</strong>
+                    <p>
+                      Comúnmente asociadas con hardware de redes tales como
+                      enrutadores, cortafuegos, VPN y dispositivos de
+                      almacenamiento conectados a redes (NAS).
+                    </p>
+                    <p>
+                      Comunes en muchos sistemas operativos existentes,
+                      especialmente aquellos que empaquetan servicios (tales
+                      como UNIX y Windows).
+                    </p>
+                    <p>
+                      Algunas veces los administradores crean cuentas de
+                      usuario privilegiadas de afán y dejan la contraseña en
+                      blanco, creando el punto perfecto para que usuarios
+                      maliciosos descubran la cuenta.
+                    </p>
+                  </div>
+                </div>
+                <i>(1.4. Vulnerabilidades y ataques comunes Red Hat Enterprise
+                  Linux 6 | Red Hat Customer Portal, s. f.)</i>
+              </li>
+
+              <li>
+                <div>
+                  <h4>Llaves compartidas predeterminadas</h4>
+                  <p>
+                    Los servicios seguros algunas veces empaquetan las llaves
+                    de seguridad predeterminadas para propósitos de desarrollo
+                    o de evaluación. Si estas llaves no se cambian y se sitúan
+                    en un entorno de producción en la Internet, todos los
+                    usuarios con las mismas llaves predeterminadas tendrán
+                    acceso a ese recurso de llave compartida y a cualquier
+                    información confidencial que la contenga.
+                  </p>
+                  <div>
+                    <strong>Notas</strong>
+                    <p>
+                      Los puntos de acceso inalámbricos y dispositivos de
+                      servidor seguro preconfigurados más comunes.
+                    </p>
+                  </div>
+                </div>
+                <i>(1.4. Vulnerabilidades y ataques comunes Red Hat Enterprise
+                  Linux 6 | Red Hat Customer Portal, s. f.)</i>
+              </li>
+
+              <li>
+                <div>
+                  <h4>Suplantación de IP</h4>
+                  <p>
+                    Una máquina remota actúa como un nodo en su red local,
+                    encuentra vulnerabilidades con sus servidores e instala un
+                    programa trasero o Caballo de Troya para obtener control
+                    sobre los recursos de la red.
+                  </p>
+                  <div>
+                    <strong>Notas</strong>
+                    <p>
+                      La suplantación es bastante difícil ya que el agresor
+                      debe predecir los números de secuencia TCP/IP para
+                      coordinar la conexión a sistemas de destino, aunque hay
+                      varias herramientas disponibles para que los atacantes
+                      realicen dicha agresión.
+                    </p>
+                    <p>
+                      Depende de los servicios que se ejecuten en el sistema
+                      de destino (tales como <code>rsh</code>,
+                      <code>telnet</code>, FTP y otros) que usan técnicas de
+                      autenticación <em>source-based</em>, las cuales no se
+                      recomiendan cuando se comparan a PKI u otras formas de
+                      autenticación de cifrado utilizadas en
+                      <code>ssh</code> o SSL/TLS.
+                    </p>
+                  </div>
+                </div>
+                <i>(1.4. Vulnerabilidades y ataques comunes Red Hat Enterprise
+                  Linux 6 | Red Hat Customer Portal, s. f.)</i>
+              </li>
+
+              <li>
+                <div>
+                  <h4>Interceptación pasiva</h4>
+                  <p>
+                    Recolectar los datos que pasan entre dos nodos activos en
+                    la red mediante interceptación pasiva en la conexión entre
+                    los dos nodos.
+                  </p>
+                  <div>
+                    <strong>Notas</strong>
+                    <p>
+                      El tipo de ataque funciona principalmente con protocolos
+                      de transmisión de texto plano tales como transferencias
+                      de Telnet, FTP y HTTP.
+                    </p>
+                    <p>
+                      El agresor remoto debe tener acceso al sistema
+                      comprometidos en un LAN para poder realizar dicho
+                      ataque. Por lo general, el ciberpirata ha empleado un
+                      ataque activo (tal como suplantación de IP o tercero
+                      interpuesto) para comprometer un sistema en el LAN.
+                    </p>
+                    <p>
+                      Medidas preventivas incluyen servicios con intercambio
+                      de llave criptográfica, contraseñas de una sola vez o
+                      autenticación cifrada para evitar suplantación de
+                      contraseñas; también se recomienda el cifrado fuerte
+                      durante la transmisión.
+                    </p>
+                  </div>
+                </div>
+                <i>(1.4. Vulnerabilidades y ataques comunes Red Hat Enterprise
+                  Linux 6 | Red Hat Customer Portal, s. f.)</i>
+              </li>
+
+              <li>
+                <div>
+                  <h4>Vulnerabilidades de servicios</h4>
+                  <p>
+                    El atacante busca una falla o debilidad en un servicio en
+                    la red; a través de esta vulnerabilidad, el agresor
+                    compromete todo el sistema y los datos que pueda contener
+                    y posiblemente comprometa otros sistemas en la red.
+                  </p>
+                  <div>
+                    <strong>Notas</strong>
+                    <p>
+                      Los servicios basados en HTTP tales como CGI son
+                      vulnerables a la ejecución de comandos remotos e incluso
+                      al acceso de shell interactivo. Incluso el servicio HTTP
+                      se ejecuta como usuario sin privilegios tales como
+                      información de "nadie", información tal como archivos de
+                      configuración y mapas de redes que pueden leer o el
+                      atacante puede iniciar o negar el ataque del servicio
+                      que drena los servicios del sistema o los convierte en
+                      no disponibles para otros usuarios.
+                    </p>
+                    <p>
+                      Algunas veces los servicios pueden tener
+                      vulnerabilidades que no se notan durante el desarrollo y
+                      evaluación: estas vulnerabilidades (tales como
+                      sobreflujos de buffer, donde los agresores atacan un
+                      servicio con valores arbitrarios que llenan el buffer de
+                      la memoria de una aplicación, dando a los agresores un
+                      indicador de comandos interactivo desde el cual pueden
+                      ejecutar comandos arbitrarios) pueden dar control
+                      administrativo total a un agresor.
+                    </p>
+                    <p>
+                      Los administradores deben asegurarse de no operar como
+                      usuarios de root, y deben estar alertas a los parches y
+                      actualizaciones de erratas para aplicaciones de los
+                      proveedores u organizaciones de seguridad tales como
+                      CERT y CVE.
+                    </p>
+                  </div>
+                </div>
+                <i>(1.4. Vulnerabilidades y ataques comunes Red Hat Enterprise
+                  Linux 6 | Red Hat Customer Portal, s. f.)</i>
+              </li>
+
+              <li>
+                <div>
+                  <h4>Ataques de denegación de servicio (DoS)</h4>
+                  <p>
+                    El atacante o grupo de atacantes coordina contra una red
+                    de organización o recursos de servidor al enviar paquetes
+                    no autorizados al host de destino (ya sea servidor,
+                    enrutador o estación de trabajo). De esta manera se fuerza
+                    al recurso a convertirse en disponible para usuarios
+                    legítimos.
+                  </p>
+                  <div>
+                    <strong>Notas</strong>
+                    <p>
+                      El caso de DoS más reportado en los Estados Unidos
+                      ocurrió en 2000. Varios sitios comerciales y
+                      gubernamentales quedaron no disponibles por un ataque
+                      coordinado de ping mediante varios sistemas
+                      comprometidos con conexiones de ancho de banda actuando
+                      como zombies, o nodos de transmisión redirigidos .
+                    </p>
+                    <p>
+                      Los paquetes de fuente generalmente se falsifican (como
+                      también se retransmiten), lo que dificulta la
+                      investigación de la fuente verdadera del ataque.
+                    </p>
+                    <p>
+                      Avances en filtrado de ingreso (IETF rfc2267) mediante
+                      iptables y Sistemas de detección de Intrusos de Redes
+                      tales como snort ayudan a los administradores a rastrear
+                      y a evitar ataques DoS distribuidos.
+                    </p>
+                  </div>
+                </div>
+                <i>(1.4. Vulnerabilidades y ataques comunes Red Hat Enterprise
+                  Linux 6 | Red Hat Customer Portal, s. f.)</i>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_five_two" class="topic__title">
+              5.2 Mecanismos de protección en las redes
+            </h3>
+          </header>
+          <div class="topic__content">
+            <div>
+              <h4>Firewall</h4>
+              <p>
+                La seguridad de red, generalmente, se basa en la limitación o
+                el bloqueo de operaciones de sistemas remotos. En la siguiente
+                figura, se describen las restricciones de seguridad que se
+                pueden imponer en las operaciones remotas.
+              </p>
+              <img src="../img/topic_five/firewall.jpg" alt="firewall" />
+              <br />
+              <i>
+                (Mecanismos de seguridad de red - Protección de sistemas y
+                dispositivos conectados en Oracle® Solaris 11.2, 2015)
+              </i>
+            </div>
+
+            <br />
+
+            <div>
+              <h4>Identificación y autenticación</h4>
+              <p>
+                La identificación es la capacidad de identificar de forma
+                exclusiva a un usuario de un sistema o una aplicación que se
+                está ejecutando en el sistema. La autenticación es la
+                capacidad de demostrar que un usuario o una aplicación es
+                realmente quién dicha persona o aplicación asegura ser.
+              </p>
+
+              <p>
+                Por ejemplo, considere el caso de un usuario que se conecta a
+                un sistema especificando un ID de usuario y una contraseña. El
+                sistema utiliza el ID de usuario para identificar al usuario.
+                El sistema autentica al usuario en el momento de la conexión
+                comprobando que la contraseña proporcionada es correcta.
+              </p>
+
+              <i>(IBM Documentacion, 2021)</i>
+            </div>
+
+            <br />
+
+            <div>
+              <h4>Autorización</h4>
+              <p>
+                La autorización protege los recursos importantes de un sistema, ya que limita el acceso solamente a los
+                usuarios autorizados y a sus aplicaciones. Impide que los recursos se utilicen sin la autorización
+                necesaria.
+              </p>
+
+              <i>(Autorización, 2021)</i>
+            </div>
+
+            <br />
+
+            <div>
+              <h4>Crear capas de red</h4>
+              <p>
+                Agrupe por capas los componentes que tienen los mismos requisitos de confidencialidad para minimizar el
+                alcance potencial del impacto de un acceso no autorizado. Por ejemplo, un clúster de base de datos que
+                está en una nube virtual privada (VPC) y no necesita acceso a Internet debe colocarse en subredes sin
+                enrutamiento hacia Internet o desde Internet. El tráfico solo debe salir desde el siguiente recurso
+                adyacente menos confidencial. Supongamos que tiene una aplicación web detrás de un equilibrador de
+                carga. Su base de datos no debería ser accesible directamente desde este equilibrador de carga. Solo
+                deberían tener acceso directo a su base de datos la lógica empresarial o el servidor web.
+
+              </p>
+
+              <p>
+                <strong>Resultado deseado:</strong> crear una red en capas. Las redes en capas ayudan a agrupar de forma
+                lógica componentes de red similares. También reducen el alcance potencial del impacto que supondría un
+                acceso no autorizado a la red. Una red que se haya configurado por capas de la forma adecuada hace más
+                difícil que los usuarios no autorizados se dirijan a recursos adicionales dentro de su entorno de AWS.
+                Además de asegurar las rutas de red internas, también debe proteger la periferia de su red, como las
+                aplicaciones web y los puntos de conexión de API.
+              </p>
+
+              <div>
+                <strong>Antipatrones usuales:</strong>
+                <ul>
+                  <li>Crear todos los recursos en una única VPC o subred.</li>
+                  <li>Utilizar grupos de seguridad demasiado permisivos.</li>
+                  <li>No utilizar subredes.</li>
+                  <li>Permitir el acceso directo a almacenes de datos como bases de datos.</li>
+                </ul>
+
+              </div>
+              <p><strong>Nivel de riesgo expuesto si no se establece esta práctica recomendada:</strong> alto</p>
+              <i>(Crear capas de red, 2023)</i>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_five_two_one" class="topic__title">
+              5.2.1 Privacidad equivalente al cableado (WEP)
+            </h3>
+          </header>
+          <div class="topic__content">
+            <div>
+              <p>
+                Es la forma más básica de protección y, en comparación con las otras abreviaturas (normas) mencionadas,
+                se
+                considera actualmente muy insegura.
+              </p>
+
+              <p>
+                ¿Qué es exactamente WEP? La Privacidad Equivalente al Cable (WEP) es un algoritmo de seguridad para las
+                redes inalámbricas IEEE 802.11. WEP, desarrollado inicialmente en 1994 y publicado con el estándar
+                802.11
+                original en 1997, fue el primer algoritmo de seguridad serio implementado en los productos Wi-Fi.
+              </p>
+
+              <p>
+                Sin embargo, como primera salida, tenía una serie de defectos y puntos débiles graves que los
+                desarrolladores y programadores debían solucionar. Lo hicieron con la creación de la WPA.
+              </p>
+
+              <i>(POVILAS M., 2022)</i>
+            </div>
+
+            <br />
+
+            <div>
+              <strong>A favor</strong>
+              <ul>
+                <li>Mejor que no usar ningún protocolo de seguridad, aunque no por mucho</li>
+              </ul>
+
+              <strong>Encontra</strong>
+              <ul>
+                <li>Plagado de vulnerabilidades de seguridad</li>
+                <li>Solo claves de 64 y 128 bits para el cifrado</li>
+                <li>Cifrado de clave fija</li>
+                <li>Difícil de configurar</li>
+              </ul>
+
+              <i>(Ghimiray, 2022)</i>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_five_two_two" class="topic__title">
+              5.2.2 Acceso Wi-Fi Protegido (WPA)
+            </h3>
+          </header>
+          <div class="topic__content">
+            <div>
+              <h4>¿Qué es el WPA (acceso Wi-Fi protegido)?</h4>
+              <p>
+                El WPA (acceso Wi-Fi protegido) es un protocolo de seguridad inalámbrica lanzado en 2003 para solucionar
+                las crecientes vulnerabilidades de su predecesor, WEP. El protocolo Wi-Fi WPA es más seguro que el WEP,
+                porque usa una clave de 256 bits para el cifrado, lo que supone una gran mejora respecto a las claves de
+                64 y 128 bits que usa el sistema WEP.
+              </p>
+
+              <p>
+                El WPA también usa el Protocolo de integridad de clave temporal (TKIP), que genera de forma dinámica una
+                nueva clave para cada paquete o unidad de datos. El TKIP es mucho más seguro que el sistema de clave
+                fija que usa WEP.
+              </p>
+
+              <p>
+                Aun así, el WPA no está exento de defectos. El TKIP, el componente principal de WPA, se diseñó para
+                implementarse en los sistemas con WEP a través de actualizaciones de firmware. Esto hizo que el WPA
+                siguiera basándose en elementos fácilmente explotables.
+              </p>
+
+              <i>(Ghimiray, 2022)</i>
+            </div>
+
+            <div>
+              <h4>¿Qué es el WPA2?</h4>
+              <p>
+                El WPA2 (acceso Wi-Fi protegido 2) es la segunda generación del protocolo de seguridad inalámbrica de
+                acceso Wi-Fi protegido. Al igual que su predecesor, el WPA2 se diseñó para asegurar y proteger las redes
+                Wi-Fi. El WPA2 garantiza que los datos enviados o recibidos a través de la red inalámbrica estén
+                cifrados y que solo tengan acceso a ellos las personas que tengan la contraseña de la red.
+              </p>
+
+              <p>
+                Una de las ventajas del sistema WPA2 fue que introdujo el sistema de cifrado avanzado (AES) para
+                sustituir al sistema TKIP, más vulnerable, usado en el protocolo WPA original. El AES proporciona un
+                cifrado potente y lo utiliza el gobierno de Estados Unidos para proteger los datos clasificados.
+              </p>
+
+              <p>
+                Por desgracia, al igual que su predecesor, los puntos de acceso habilitados para WPA2 (normalmente los
+                routers) son vulnerables a los ataques a través de WEP. Para eliminar este vector de ataque, desactive
+                WEP y, si es posible, asegúrese de que el firmware de su router no dependa de WEP.
+              </p>
+
+              <i>(Ghimiray, 2022)</i>
+            </div>
+
+            <div>
+              <h4>¿Qué pasa con WPA3?</h4>
+              <p>
+                El WPA3 (acceso Wi-Fi protegido 3) es el protocolo de seguridad inalámbrica más reciente, diseñado para
+                cifrar datos mediante un tipo de cifrado frecuente y automático denominado Perfect Forward Secrecy
+                (Secreto perfecto hacia adelante). Es más seguro que su predecesor, WPA2, pero aún no se ha adoptado
+                ampliamente. No todo el hardware es compatible con WPA3 automáticamente, y usar este protocolo suele
+                requerir costosas actualizaciones.
+              </p>
+
+              <i>(Ghimiray, 2022)</i>
+            </div>
+
+          </div>
+        </article>
+
+        <article class="topic">
+          <header>
+            <h3 id="topic_five_two_three" class="topic__title">
+              5.2.3 Listas de Control de Acceso (Filtrado MAC)
+            </h3>
+          </header>
+          <div class="topic__content"></div>
+        </article>
+      </section>
+      <section>
+        <h2>Bibliografia</h2>
+        <ul>
+          <li>
+            ¿Qué es la seguridad de red? | IBM. (n.d.).
+            <a href="https://www.ibm.com/mx-es/topics/network-security" target="_blank">
+              https://www.ibm.com/mx-es/topics/network-security
+            </a>
+          </li>
+
+          <li>
+            Vulnerabilidades y ataques comunes Red Hat Enterprise Linux 6 |
+            Red Hat Customer Portal. (s. f.). Red Hat Customer Portal.
+            <a href=" https://access.redhat.com/documentation/es-es/red_hat_enterprise_linux/6/html/security_guide/sect-security_guide-common_exploits_and_attacks"
+              target="_blank">
+              https://access.redhat.com/documentation/es-es/red_hat_enterprise_linux/6/html/security_guide/sect-security_guide-common_exploits_and_attacks</a>
+          </li>
+
+          <li>
+            Mecanismos de seguridad de red - Protección de sistemas y
+            dispositivos conectados en Oracle® Solaris 11.2. (2015, 20 enero).
+            <a href="https://docs.oracle.com/cd/E56339_01/html/E53943/concept-15.html" target="_blank">
+              https://docs.oracle.com/cd/E56339_01/html/E53943/concept-15.html</a>
+          </li>
+
+          <li>
+            IBM Documentacion: Identificación y autenticación. (2021, 20 abril). IBM. Recuperado 24 de noviembre de
+            2023, de
+            <a href="https://www.ibm.com/docs/es/ibm-mq/7.5?topic=ssfksj-7-5-0-com-ibm-mq-sec-doc-q009740--htm"
+              target="_blank">https://www.ibm.com/docs/es/ibm-mq/7.5?topic=ssfksj-7-5-0-com-ibm-mq-sec-doc-q009740--htm</a>
+          </li>
+
+          <li>
+            Autorización. (2021, 20 abril). IBM. Recuperado 24 de noviembre de 2023, de
+            <a href="https://www.ibm.com/docs/es/ibm-mq/7.5?topic=ssfksj-7-5-0-com-ibm-mq-sec-doc-q009750--htm"
+              target="_blank">https://www.ibm.com/docs/es/ibm-mq/7.5?topic=ssfksj-7-5-0-com-ibm-mq-sec-doc-q009750--htm</a>
+          </li>
+
+          <li>
+            Crear capas de red. (2023). Documentacion AWS Amazon. Recuperado 24 de noviembre de 2023, de
+            <a href="https://docs.aws.amazon.com/es_es/wellarchitected/latest/security-pillar/sec_network_protection_create_layers.html"
+              target="_blank">https://docs.aws.amazon.com/es_es/wellarchitected/latest/security-pillar/sec_network_protection_create_layers.html</a>
+          </li>
+
+          <li>
+            POVILAS M. (2022, 6 junio). ¿Qué es WEP, WPA, WPA2 y WPA3? kraden. Recuperado 24 de noviembre de 2023, de
+            <a href="https://blog.kraden.com/es/wep-vs-wpa-vs-wpa2-vs-wpa3"
+              target="_blank">https://blog.kraden.com/es/wep-vs-wpa-vs-wpa2-vs-wpa3</a>
+          </li>
+
+          <li>
+            Ghimiray, D. G. (2022, 7 enero). ¿Qué son los protocolos de seguridad de Wi-Fi? ¿Son herramientas de
+            cifrado? Avast. Recuperado 24 de noviembre de 2023, de
+            <a href="https://www.avast.com/es-es/c-wep-vs-wpa-or-wpa2"
+              target="_blank">https://www.avast.com/es-es/c-wep-vs-wpa-or-wpa2</a>
+          </li>
+
+        </ul>
+
+      </section>
+    </main>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+
 </html>
