@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../styles/styles.css" />
-  <link rel="stylesheet" href="../styles/topic_three.css" />
+  <link rel="stylesheet" href="../styles/topic_five.css" />
   <title>Tema 5</title>
 </head>
 
@@ -146,19 +146,25 @@
             <h4>Vulnerabilidades</h4>
             <ul>
               <li>
-                <div>
+                <div class="vulnerabilities__container">
                   <h4>Contraseñas predeterminadas o ninguna</h4>
-                  <p>
-                    El hecho de dejar las contraseñas en blanco o de usar una
-                    contraseña predeterminada por el fabricante. Es lo más
-                    común en hardware tales como enrutadores y cortafuegos,
-                    aunque algunos servicios que se ejecutan en Linux pueden
-                    contener contraseñas de administrador predeterminadas
-                    (aunque Red Hat Enterprise Linux no se distribuye con
-                    ellas).
-                  </p>
+                  <div class="vulnerabilities__media">
 
-                  <div>
+                    <p>
+                      El hecho de dejar las contraseñas en blanco o de usar una
+                      contraseña predeterminada por el fabricante. Es lo más
+                      común en hardware tales como enrutadores y cortafuegos,
+                      aunque algunos servicios que se ejecutan en Linux pueden
+                      contener contraseñas de administrador predeterminadas
+                      (aunque Red Hat Enterprise Linux no se distribuye con
+                      ellas).
+                    </p>
+
+                    <img class="vulnerabilities__img" src="../img/topic_five/password_easy.jpeg" alt="password easy" />
+
+
+                  </div>
+                  <div class="vulnerabilities__note">
                     <strong>Notas</strong>
                     <p>
                       Comúnmente asociadas con hardware de redes tales como
@@ -183,18 +189,25 @@
               </li>
 
               <li>
-                <div>
+                <div class="vulnerabilities__container">
                   <h4>Llaves compartidas predeterminadas</h4>
-                  <p>
-                    Los servicios seguros algunas veces empaquetan las llaves
-                    de seguridad predeterminadas para propósitos de desarrollo
-                    o de evaluación. Si estas llaves no se cambian y se sitúan
-                    en un entorno de producción en la Internet, todos los
-                    usuarios con las mismas llaves predeterminadas tendrán
-                    acceso a ese recurso de llave compartida y a cualquier
-                    información confidencial que la contenga.
-                  </p>
-                  <div>
+                  <div class="vulnerabilities__media">
+                    <p>
+                      Los servicios seguros algunas veces empaquetan las llaves
+                      de seguridad predeterminadas para propósitos de desarrollo
+                      o de evaluación. Si estas llaves no se cambian y se sitúan
+                      en un entorno de producción en la Internet, todos los
+                      usuarios con las mismas llaves predeterminadas tendrán
+                      acceso a ese recurso de llave compartida y a cualquier
+                      información confidencial que la contenga.
+                    </p>
+
+                    <img class="vulnerabilities__img" src="../img/topic_five/llaves_predeterminadas_compartidas.png"
+                      alt="llaves" />
+
+                  </div>
+
+                  <div class="vulnerabilities__note">
                     <strong>Notas</strong>
                     <p>
                       Los puntos de acceso inalámbricos y dispositivos de
@@ -207,15 +220,21 @@
               </li>
 
               <li>
-                <div>
+                <div class="vulnerabilities__container">
                   <h4>Suplantación de IP</h4>
-                  <p>
-                    Una máquina remota actúa como un nodo en su red local,
-                    encuentra vulnerabilidades con sus servidores e instala un
-                    programa trasero o Caballo de Troya para obtener control
-                    sobre los recursos de la red.
-                  </p>
-                  <div>
+                  <div class="vulnerabilities__media">
+                    <p>
+                      Una máquina remota actúa como un nodo en su red local,
+                      encuentra vulnerabilidades con sus servidores e instala un
+                      programa trasero o Caballo de Troya para obtener control
+                      sobre los recursos de la red.
+                    </p>
+
+                    <img class="vulnerabilities__img" src="../img/topic_five/suplantacion.webp" alt="suplantacion" />
+
+                  </div>
+
+                  <div class="vulnerabilities__note">
                     <strong>Notas</strong>
                     <p>
                       La suplantación es bastante difícil ya que el agresor
@@ -240,14 +259,20 @@
               </li>
 
               <li>
-                <div>
+                <div class="vulnerabilities__container">
                   <h4>Interceptación pasiva</h4>
-                  <p>
-                    Recolectar los datos que pasan entre dos nodos activos en
-                    la red mediante interceptación pasiva en la conexión entre
-                    los dos nodos.
-                  </p>
-                  <div>
+                  <div class="vulnerabilities__media">
+                    <p>
+                      Recolectar los datos que pasan entre dos nodos activos en
+                      la red mediante interceptación pasiva en la conexión entre
+                      los dos nodos.
+                    </p>
+
+                    <img class="vulnerabilities__img" src="../img/topic_five/intercepcion_pasiva.png"
+                      alt="intercepcion pasiva" />
+
+                  </div>
+                  <div class="vulnerabilities__note">
                     <strong>Notas</strong>
                     <p>
                       El tipo de ataque funciona principalmente con protocolos
@@ -275,15 +300,22 @@
               </li>
 
               <li>
-                <div>
+                <div class="vulnerabilities__container">
                   <h4>Vulnerabilidades de servicios</h4>
-                  <p>
-                    El atacante busca una falla o debilidad en un servicio en
-                    la red; a través de esta vulnerabilidad, el agresor
-                    compromete todo el sistema y los datos que pueda contener
-                    y posiblemente comprometa otros sistemas en la red.
-                  </p>
-                  <div>
+                  <div class="vulnerabilities__media">
+                    <p>
+                      El atacante busca una falla o debilidad en un servicio en
+                      la red; a través de esta vulnerabilidad, el agresor
+                      compromete todo el sistema y los datos que pueda contener
+                      y posiblemente comprometa otros sistemas en la red.
+                    </p>
+
+                    <img class="vulnerabilities__img" src="../img/topic_five/vulnerabilidades.jpg"
+                      alt="vulnerabilidad" />
+
+                  </div>
+
+                  <div class="vulnerabilities__note">
                     <strong>Notas</strong>
                     <p>
                       Los servicios basados en HTTP tales como CGI son
@@ -321,17 +353,21 @@
               </li>
 
               <li>
-                <div>
+                <div class="vulnerabilities__container">
                   <h4>Ataques de denegación de servicio (DoS)</h4>
-                  <p>
-                    El atacante o grupo de atacantes coordina contra una red
-                    de organización o recursos de servidor al enviar paquetes
-                    no autorizados al host de destino (ya sea servidor,
-                    enrutador o estación de trabajo). De esta manera se fuerza
-                    al recurso a convertirse en disponible para usuarios
-                    legítimos.
-                  </p>
-                  <div>
+                  <div class="vulnerabilities__media">
+                    <p>
+                      El atacante o grupo de atacantes coordina contra una red
+                      de organización o recursos de servidor al enviar paquetes
+                      no autorizados al host de destino (ya sea servidor,
+                      enrutador o estación de trabajo). De esta manera se fuerza
+                      al recurso a convertirse en disponible para usuarios
+                      legítimos.
+                    </p>
+
+                    <img class="vulnerabilities__img" src="../img/topic_five/ataques_DoS.webp" alt="ataques DDos" />
+                  </div>
+                  <div class="vulnerabilities__note">
                     <strong>Notas</strong>
                     <p>
                       El caso de DoS más reportado en los Estados Unidos
@@ -471,21 +507,23 @@
             <div>
               <p>
                 Es la forma más básica de protección y, en comparación con las otras abreviaturas (normas) mencionadas,
-                se
-                considera actualmente muy insegura.
+                seconsidera actualmente muy insegura.
               </p>
 
               <p>
                 ¿Qué es exactamente WEP? La Privacidad Equivalente al Cable (WEP) es un algoritmo de seguridad para las
                 redes inalámbricas IEEE 802.11. WEP, desarrollado inicialmente en 1994 y publicado con el estándar
-                802.11
-                original en 1997, fue el primer algoritmo de seguridad serio implementado en los productos Wi-Fi.
+                802.11 original en 1997, fue el primer algoritmo de seguridad serio implementado en los productos Wi-Fi.
               </p>
 
               <p>
                 Sin embargo, como primera salida, tenía una serie de defectos y puntos débiles graves que los
                 desarrolladores y programadores debían solucionar. Lo hicieron con la creación de la WPA.
               </p>
+
+              <img src="../img/topic_five/wep.webp" alt="wep" />
+
+              <br />
 
               <i>(POVILAS M., 2022)</i>
             </div>
@@ -540,8 +578,14 @@
                 siguiera basándose en elementos fácilmente explotables.
               </p>
 
+              <img src="../img/topic_five/wap.png" alt="wap" />
+
+              <br />
+
               <i>(Ghimiray, 2022)</i>
             </div>
+
+            <br />
 
             <div>
               <h4>¿Qué es el WPA2?</h4>
@@ -564,8 +608,14 @@
                 WEP y, si es posible, asegúrese de que el firmware de su router no dependa de WEP.
               </p>
 
+              <img src="../img/topic_five/wap2.png" alt="wap2" />
+
+              <br />
+
               <i>(Ghimiray, 2022)</i>
             </div>
+
+            <br />
 
             <div>
               <h4>¿Qué pasa con WPA3?</h4>
@@ -576,6 +626,10 @@
                 ampliamente. No todo el hardware es compatible con WPA3 automáticamente, y usar este protocolo suele
                 requerir costosas actualizaciones.
               </p>
+
+              <img src="../img/topic_five/wap3.png" alt="wap3" />
+
+              <br />
 
               <i>(Ghimiray, 2022)</i>
             </div>
@@ -589,7 +643,106 @@
               5.2.3 Listas de Control de Acceso (Filtrado MAC)
             </h3>
           </header>
-          <div class="topic__content"></div>
+          <div class="topic__content">
+            <p>
+              Esta definición está basada en mi propia experiencia, como estudiante en ingeniería en sistemas
+              computacionales, más de una vez me a tocado configurar un router domestico con esta función, por eso creo
+              que puedo explicar de una forma muy clara, ¿Qué es? Y ¿Cómo funciona?
+            </p>
+            <div>
+              <h4>¿Qué es?</h4>
+              <p>
+                Es un mecanismo que permite tener una lista de dispositivos los cuales tiene permitido o denegado el
+                acceso a la red, el nombre de filtrado MAC es, porque, gracias a la dirección MAC, el dispositivo que
+                gestiona la red, muchas veces siendo esté el router doméstico, puede identificar de manera única a los
+                dispositivos que intentan conectarse a la red y determinar si ese dispositivo tiene permiso de entrar a
+                esa red.
+
+              </p>
+            </div>
+
+            <div>
+              <h4>¿Cómo funciona?</h4>
+              <p>
+                Muchas veces el filtrado por mac puede hacerse de 2 maneras distintas en la mayoría de router
+                domésticos. A continuación vamos a ver estas:
+              </p>
+              <ul>
+                <li>
+                  <h5>Lista negra</h5>
+                  <p>
+                    La lista negra son un conjunto de direcciones MAC que tienen prohibido conectarse a la red. Esto se
+                    hace poniendo las mac de todos los dispositivos, no deseados en una lista y activar la lista de
+                    bloqueo o lista negra en el dispositivo de gestión de la red.
+                  </p>
+
+                  <p>
+                    La principal desventaja de este método es, la dificultad para mantener la red libre de intrusos
+                    nuevos. ¿Qué quiero decir con esto? Veras cada nuevo dispositivo que quieras bloquear, tendrá
+                    primero que entrar a la red, para poder obtener su dirección MAC y así, poder ser bloqueado de la
+                    red. Pero el problema es claro, el usuario ya habrá estado un tiempo considerado dentro de la red,
+                    antes de que fuera bloqueado. Otra desventaja es, que siempre hay que estar al pendiente de los
+                    dispositivos que se conectan, es poco eficiente siempre estar viendo los dispositivos conectados a
+                    la red y saber si son dispositivos con autorización para estar ahí.
+                  </p>
+
+                  <img src="../img/topic_five/lista-negra.webp" alt="lista negra" />
+
+                </li>
+
+                <li>
+                  <h5>Lista blanca </h5>
+                  <p>
+                    La lista blanca son un conjunto de direcciones MAC que tienen permitido conectarse a la red. Esto se
+                    hace poniendo las MAC de todos los dispositivos deseados, en una lista y activar la lista blanca en
+                    el dispositivo de gestión de red.
+                  </p>
+
+                  <p>
+                    La principal desventaja de este método de filtrado MAC es, lo tardado que puede ser, que un
+                    dispositivo nuevo se conecte a la red, ya que primero tendrá que hablar con el administrador de la
+                    red, para que ponga su dirección MAC dentro de la lista blanca, proceso que puede ser especialmente
+                    tardado si el administrador de red está ocupado o no se encuentra en ese momento. Pero su mayor
+                    ventaja es la seguridad. No permite la conexión a ningún dispositivo que no este en la lista.
+                    Evitando tener que estar al pendiente de los dispositivos nuevos en la red, es más fácil agregar un
+                    dispositivo nuevo cuando se requiera, que estar al pendiente de todos los dispositivos nuevos en la
+                    red y bloquear los que no tienen acceso. En lo personal es el método que más me gusta usar.
+                  </p>
+
+                  <img src="../img/topic_five/lista-blanca.png" alt="lista blanca" />
+
+                </li>
+
+              </ul>
+
+            </div>
+
+            <p>
+              Ahora les voy a mostrar como se hace este procedimiento en mi propio router doméstico, que me proporciono
+              megacable.
+            </p>
+
+            <p>
+              ingresamos la dirección IP del router, en mi caso 192.168.0.1, esto nos dara acceso al login.
+            </p>
+            <img src="../img/topic_five/megacable.png" alt="ingresar 192.168.0.1" />
+
+            <p>
+              Iniciamos sesion con las claves de acceso. Si no conoces las claves de acceso puedes buscaralas en
+              internet o preguntar a tu distribuidor de internet cuales son.
+            </p>
+            <img src="../img/topic_five/megacable2.png" alt="login de router" />
+            <p>Esta es la ventana principal. en mi caso tengo que ir a la seccion wireless.</p>
+            <img src="../img/topic_five/megacable3.png" alt="" />
+            <p>Despues ir a access control</p>
+            <img src="../img/topic_five/megacable4.png" />
+            <p>Dentro de access control selecionar que tipo de lista queremos crear lista blanca o lista negra.</p>
+            <img src="../img/topic_five/megacable5.png" />
+            <p>En mi caso seleccione lista negra pero el procedimiento es igual para lista blanca.</p>
+            <img src="../img/topic_five/megacable6.png" />
+            <p>Finalmente colocas la MAC que deseas bloquear y le das yes y apply</p>
+            <img src="../img/topic_five/megacable7.png" />
+          </div>
         </article>
       </section>
       <section>

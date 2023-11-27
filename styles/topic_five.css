@@ -1,0 +1,29 @@
+.vulnerabilities__container {
+  background-color: #FDFDFD;
+  padding: 1em;
+  border-radius: 1em;
+
+}
+
+.vulnerabilities__media {
+  display: flex;
+  align-items: flex-start;
+
+
+}
+
+.vulnerabilities__media p {
+  flex: 1;
+}
+
+.vulnerabilities__note {
+  background-color: aliceblue;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.vulnerabilities__img{
+  height: 200px;
+  width: auto;
+  border-radius: 1em;
+}
