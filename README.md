@@ -1,4 +1,3 @@
-#Administracion-y-configuracion-de-redes-WLAN-LAN
 
 Trabajo final para la materia de administracion y configuracio nde redes wlan lan, es un resumen de todo lo visto durante la clase pero en formato web.
 
