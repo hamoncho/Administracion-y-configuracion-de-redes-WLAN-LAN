@@ -5,7 +5,7 @@ Trabajo final para la materia de administracion y configuracio nde redes wlan la
 ## Tabla de Contenidos
 
 - [Instalación](#instalación)
-- [Capturas de Pantalla](#capturas)
+- [Capturas de Pantalla](#capturas-de-pantalla)
 
 ## Capturas de Pantalla
 
